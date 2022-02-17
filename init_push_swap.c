@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_size.c                                          :+:      :+:    :+:   */
+/*   init_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 10:26:24 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 10:26:26 by ski              ###   ########.fr       */
+/*   Created: 2022/02/17 13:33:12 by ski               #+#    #+#             */
+/*   Updated: 2022/02/17 13:33:14 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-int	ll_size(t_elem *top_elem)
+void init_push_swap(t_data *d)
 {
-	int		size;
-	t_elem	*ptr;
+    d->stack_a = NULL;
+    d->stack_b = NULL;
+   
+    d->size_a = 0;
+    d->size_b = 0;
 
-	ptr = top_elem;
-	if (!ptr)
-		return (0);
-	size = 0;
-	while (ptr != NULL)
-	{
-		ptr = ptr->next;
-		size++;
-	}
-	return (size);
+    return ;
 }
-
-

@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_display.c                                       :+:      :+:    :+:   */
+/*   ll_del_elem.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 14:24:30 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 14:24:32 by ski              ###   ########.fr       */
+/*   Created: 2022/02/17 09:48:27 by ski               #+#    #+#             */
+/*   Updated: 2022/02/17 09:48:29 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-void ll_display(t_elem *top_elem)
+void	ps_del_elem(t_ps *elem)
 {
-	t_elem *ptr;
-
-	ptr = top_elem;
-
-	while(1)
-	{
-
-
-		if(1)
-			break ;
-	}
-
-
-	return;
+	if (elem == NULL)
+		return ;
+	free(elem);
+	elem = NULL;
+	return ;
 }
-

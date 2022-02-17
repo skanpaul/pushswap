@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_del_elem.c                                      :+:      :+:    :+:   */
+/*   ps_size.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 09:48:27 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 09:48:29 by ski              ###   ########.fr       */
+/*   Created: 2022/02/17 10:26:24 by ski               #+#    #+#             */
+/*   Updated: 2022/02/17 10:26:26 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-void	ll_del_elem(t_elem *elem, void (*del_content)(void *))
+int	ps_size(t_ps *top_elem)
 {
-	if ((elem == NULL) || (del_content == NULL))
-		return ;
-	del_content(elem->content);
-	free(elem);
-	elem = NULL;
-	return ;
+	int		size;
+	t_ps	*ptr;
+
+	ptr = top_elem;
+	if (!ptr)
+		return (0);
+	size = 0;
+	while (ptr != NULL)
+	{
+		ptr = ptr->next;
+		size++;
+	}
+	return (size);
 }
+
+

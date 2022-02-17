@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_clear_list.c                                    :+:      :+:    :+:   */
+/*   ps_del_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,23 +9,25 @@
 /*   Updated: 2022/02/17 10:31:06 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-void	ll_del_list(t_elem *top_elem, void (*del_content)(void *))
+void	ps_del_list(t_ps *top_elem)
 {
-	t_elem	*ptr;
+	t_ps	*ptr;
 
 	ptr = NULL;
-	if ((top_elem == NULL) || (del_content == NULL))
+	if (top_elem == NULL)
 		return ;
 	while (top_elem->next != NULL)
 	{
 		ptr = top_elem->next;
-		ll_del_elem(top_elem, del_content);
+		// ps_del_elem(top_elem);
+		free(top_elem);
 		top_elem = ptr;
 	}
-	ll_del_elem(top_elem, del_content);
+	// ps_del_elem(top_elem);
+	free(top_elem);
 	top_elem = NULL;
 	return ;
 }

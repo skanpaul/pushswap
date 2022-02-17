@@ -9,19 +9,16 @@
 /*   Updated: 2022/02/17 13:33:14 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
 int main (int argc, char **argv)
 {
-	t_ps *stack_a;
-	t_ps *stack_b;
+	t_data	d;
 	int i;
-	int val;
-
-	stack_a = NULL;
-	stack_b = NULL;
-
+	int val;	
+	
+	init_push_swap(&d);
 
 	val = 0;
 	i = 1;
@@ -32,14 +29,18 @@ int main (int argc, char **argv)
 	/* ---------------------------------- */
 	while (i < argc)
 	{
-		val = ft_atoi(argv[i]);
-		ft_printf("Valeur[%d] = %d\n", i, val);
-		ps_new_elem_at_bottom(&stack_a, val);
+		// val = ft_atoi(argv[i]);
+		val = atoi(argv[i]);
+		printf("Valeur[%d] = %d\n", i, val);
+		ps_new_elem_at_bottom(&d.stack_a, val);
 		i++;
 	}
 	/* ---------------------------------- */
-	ps_display(stack_a);
+	ps_display(d.stack_a);
+	d.size_a = ps_size(d.stack_a);
+	printf("Size of stack_a: [%d]\n", d.size_a);
 
+	ps_del_list(d.stack_a);
 
 	return 0;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,11 +9,12 @@
 /*   Updated: 2022/02/17 13:33:32 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 /* ************************************************************************** */
-# include "libft.h"
+// # include "libft.h"
 # include "stdio.h"
+# include "stdlib.h"
 /* ************************************************************************** */
 typedef struct s_ps
 {
@@ -23,13 +24,25 @@ typedef struct s_ps
 }	t_ps;
 
 /* ************************************************************************** */
+typedef struct s_data
+{
+	t_ps	*stack_a;
+	t_ps	*stack_b;
+
+	int	size_a;
+	int	size_b;
+} t_data;
+
+/* ************************************************************************** */
+
+void	init_push_swap(t_data *d);
 t_ps	*ps_new_elem(int val);
 void	ps_add_elem_to_bottom(t_ps **top_elem, t_ps *new_elem);
 void	ps_new_elem_at_bottom(t_ps **top_elem, int val);
 void	ps_display(t_ps *top_elem);
-
-
-
+void	ps_del_list(t_ps *top_elem);
+void	ps_del_elem(t_ps *elem);
+int		ps_size(t_ps *top_elem);
 
 /* ************************************************************************** */
 #endif

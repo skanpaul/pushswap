@@ -2,7 +2,11 @@
 	"files.exclude": {
 		"checker*": true, 
 		"annexe": true,
-		"libft.*": false
+		"*.o": true,
+		"libft.*": true
 	},
 	"explorer.sortOrder": "type",
+	"files.associations": {
+		"push_swap.h": "c"
+	},
 }

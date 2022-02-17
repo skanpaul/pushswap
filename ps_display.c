@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/17 15:21:13 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
 void	ps_display(t_ps *top_elem)
@@ -22,9 +22,11 @@ void	ps_display(t_ps *top_elem)
 
 	while (ptr->next != NULL)
 	{
-		ft_printf("[%d]\n", ptr->val);
+		// ft_printf("[%d]\n", ptr->val);
+		printf("[%d]\n", ptr->val);
 		ptr = ptr->next;
 	}
-	ft_printf("[%d]\n", ptr->val);
+	// ft_printf("[%d]\n", ptr->val);
+	printf("[%d]\n", ptr->val);
 	return ;
 }
