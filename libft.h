@@ -34,6 +34,7 @@ typedef struct s_list
 typedef struct s_elem
 {
 	void			*content;
+	int				val;
 	struct s_elem	*next;
 	struct s_elem	*previous;
 }	t_elem;

@@ -12,6 +12,39 @@
 #include "pushswap.h"
 
 /* ************************************************************************** */
+int main (int argc, char **argv)
+{
+	t_ps *stack_a;
+	t_ps *stack_b;
+	int i;
+	int val;
+
+	stack_a = NULL;
+	stack_b = NULL;
+
+
+	val = 0;
+	i = 1;
+
+	/* ---------------------------------- */
+	if (argc == 1)
+		return 0;
+	/* ---------------------------------- */
+	while (i < argc)
+	{
+		val = ft_atoi(argv[i]);
+		ft_printf("Valeur[%d] = %d\n", i, val);
+		ps_new_elem_at_bottom(&stack_a, val);
+		i++;
+	}
+	/* ---------------------------------- */
+	ps_display(stack_a);
+
+
+	return 0;
+}
+
+/* ************************************************************************** */
 
 
 

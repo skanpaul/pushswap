@@ -12,6 +12,23 @@
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 /* ************************************************************************** */
+# include "libft.h"
+# include "stdio.h"
+/* ************************************************************************** */
+typedef struct s_ps
+{
+	int			val;
+	struct s_ps	*next;
+	struct s_ps	*previous;
+}	t_ps;
+
+/* ************************************************************************** */
+t_ps	*ps_new_elem(int val);
+void	ps_add_elem_to_bottom(t_ps **top_elem, t_ps *new_elem);
+void	ps_new_elem_at_bottom(t_ps **top_elem, int val);
+void	ps_display(t_ps *top_elem);
+
+
 
 
 /* ************************************************************************** */
