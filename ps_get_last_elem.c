@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_get_last_elem.c                                 :+:      :+:    :+:   */
+/*   ps_get_last_elem.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,14 +9,14 @@
 /*   Updated: 2022/02/17 10:10:37 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-t_elem	*ll_get_last_elem(t_elem *top_elem)
+t_ps	*ps_get_last_elem(t_ps **ptr_top)
 {
-	t_elem	*ptr;
+	t_ps	*ptr;
 
-	ptr = top_elem;
+	ptr = *ptr_top;
 	if (ptr == NULL)
 		return (NULL);
 	while (ptr->next != NULL)

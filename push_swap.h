@@ -47,6 +47,7 @@ void	ps_display_2_list(t_ps *top_elem);
 void	ps_del_list(t_ps *top_elem);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
+t_ps	*ps_get_last_elem(t_ps **ptr_top);
 /* ************************************************************************** */
 
 void	swap(t_ps **ptr_top);
@@ -57,11 +58,10 @@ void	swap_2(t_data *d);
 void	push_to_a();
 void	push_to_b();
 /* ---------------------------------------- */
-
 void	rotate(t_ps **ptr_top);
-void	rotate_a();
-void	rotate_b();
-void	rotate_2();
+void	rotate_a(t_data *d);
+void	rotate_b(t_data *d);
+void	rotate_2(t_data *d);
 /* ---------------------------------------- */
 void	rev_rot_a();
 void	rev_rot_b();
