@@ -55,7 +55,7 @@ void	swap_a(t_data *d);
 void	swap_b(t_data *d);
 void	swap_2(t_data *d);
 /* ---------------------------------------- */
-void	push_to(t_ps *src, t_ps *dst);
+void	push_to(t_ps **stack_src, t_ps **stack_dst);
 void	push_to_a(t_data *d);
 void	push_to_b(t_data *d);
 /* ---------------------------------------- */

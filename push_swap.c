@@ -49,6 +49,8 @@ int main (int argc, char **argv)
 	push_to_b(&d);
 	push_to_b(&d);
 	push_to_b(&d);
+	push_to_b(&d);
+	push_to_a(&d);
 	// push_to_b(&d);
 	ps_display_2_list(&d);
 	d.size_a = ps_size(d.stack_a);
