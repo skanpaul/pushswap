@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,17 +31,26 @@ int main (int argc, char **argv)
 	{
 		// val = ft_atoi(argv[i]);
 		val = atoi(argv[i]);
-		printf("Valeur[%d] = %d\n", i, val);
+		// printf("Valeur[%d] = %d\n", i, val);
 		ps_new_elem_at_bottom(&d.stack_a, val);
 		i++;
 	}
 	/* ---------------------------------- */
-	ps_display(d.stack_a);
+	ps_display_1_list(d.stack_a);
 	d.size_a = ps_size(d.stack_a);
 	printf("Size of stack_a: [%d]\n", d.size_a);
-	printf("Size of stack_b: [%d]\n", d.size_b);
+	printf("Size of stack_b: [%d]\n\n", d.size_b);
+
+
+
+	swap_a(&d);
+	ps_display_1_list(d.stack_a);
+	d.size_a = ps_size(d.stack_a);
+	printf("Size of stack_a: [%d]\n", d.size_a);
+	printf("Size of stack_b: [%d]\n\n", d.size_b);
 
 	ps_del_list(d.stack_a);
+	ps_del_list(d.stack_b);
 
 	return 0;
 }

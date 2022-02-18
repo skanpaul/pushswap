@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_new_elem_at_bottom.c                            :+:      :+:    :+:   */
+/*   ps_display_2_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 15:05:33 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 15:05:38 by ski              ###   ########.fr       */
+/*   Created: 2022/02/17 15:21:11 by ski               #+#    #+#             */
+/*   Updated: 2022/02/17 15:21:13 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void	ps_new_elem_at_bottom(t_ps **ptr_top, int val)
-{
-	t_ps	*new_elem;
+// void	ps_display_2_list(t_ps *top_elem)
+// {
 
-	new_elem = ps_new_elem(val);
-	ps_add_elem_to_bottom(ptr_top, new_elem);
-}
+
+
+// }

@@ -12,17 +12,17 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void	ps_add_elem_to_bottom(t_ps **top_elem, t_ps *new_elem)
+void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem)
 {
 	t_ps	*ptr;
 
-	if(!top_elem)
+	if(!ptr_top)
 		return;
 
-	ptr = *top_elem;
+	ptr = *ptr_top;
 	if (ptr == NULL)
 	{
-		*top_elem = new_elem;
+		*ptr_top = new_elem;
 		return ;
 	}
 	while (ptr->next != NULL)
