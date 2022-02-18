@@ -11,7 +11,7 @@
             "program": "${fileDirname}/push_swap",
             "args": [
                 "12",
-                "-15",
+                // "-15",
                 "0",
                 "23"
             ],

@@ -42,7 +42,7 @@ void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem);
 void	ps_new_elem_at_bottom(t_ps **ptr_top, int val);
 /* ---------------------------------------- */
 void	ps_display_1_list(t_ps *top_elem);
-void	ps_display_2_list(t_ps *top_elem);
+void	ps_display_2_list(t_data *d);
 /* ---------------------------------------- */
 void	ps_del_list(t_ps *top_elem);
 void	ps_del_elem(t_ps *elem);
@@ -55,6 +55,7 @@ void	swap_a(t_data *d);
 void	swap_b(t_data *d);
 void	swap_2(t_data *d);
 /* ---------------------------------------- */
+void	push_to(t_ps *src, t_ps *dst);
 void	push_to_a(t_data *d);
 void	push_to_b(t_data *d);
 /* ---------------------------------------- */
