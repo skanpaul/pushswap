@@ -39,6 +39,7 @@ int main (int argc, char **argv)
 	ps_display(d.stack_a);
 	d.size_a = ps_size(d.stack_a);
 	printf("Size of stack_a: [%d]\n", d.size_a);
+	printf("Size of stack_b: [%d]\n", d.size_b);
 
 	ps_del_list(d.stack_a);
 
