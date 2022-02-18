@@ -44,5 +44,17 @@ void	ps_del_list(t_ps *top_elem);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
 
+void swap_a();
+void swap_b();
+void swap_2();
+void push_to_a();
+void push_to_b();
+void rotate_a();
+void rotate_b();
+void rotate_2();
+void rev_rot_a();
+void rev_rot_b();
+void rev_rot_2();
+
 /* ************************************************************************** */
 #endif
