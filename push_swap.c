@@ -36,26 +36,32 @@ int main (int argc, char **argv)
 		i++;
 	}
 	/* ---------------------------------- */
-	// ps_display_1_list(d.stack_a);
 	ps_display_2_list(&d);
 	d.size_a = ps_size(d.stack_a);
-	printf("Size of stack_a: [%d]\n", d.size_a);
-	printf("Size of stack_b: [%d]\n\n", d.size_b);
+	d.size_b = ps_size(d.stack_b);
+	printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 
-	// swap_a(&d);
-	// rotate_a(&d);
-	// rev_rot_a(&d);
 	push_to_b(&d);
 	push_to_b(&d);
 	push_to_b(&d);
+	ps_display_2_list(&d);
+	d.size_a = ps_size(d.stack_a);
+	d.size_b = ps_size(d.stack_b);
+	printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
+
+	swap_2(&d);
+	ps_display_2_list(&d);
+	d.size_a = ps_size(d.stack_a);
+	d.size_b = ps_size(d.stack_b);
+	printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
+	
 	push_to_b(&d);
 	push_to_b(&d);
 	push_to_a(&d);
-	// push_to_b(&d);
 	ps_display_2_list(&d);
 	d.size_a = ps_size(d.stack_a);
-	printf("Size of stack_a: [%d]\n", d.size_a);
-	printf("Size of stack_b: [%d]\n\n", d.size_b);
+	d.size_b = ps_size(d.stack_b);
+	printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 
 	ps_del_list(d.stack_a);
 	ps_del_list(d.stack_b);

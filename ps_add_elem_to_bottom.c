@@ -23,6 +23,8 @@ void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem)
 	if (elem == NULL)
 	{
 		*ptr_top = new_elem;
+		new_elem->prev = NULL;
+		new_elem->next = NULL;
 		return ;
 	}
 	while (elem->next != NULL)
@@ -30,5 +32,6 @@ void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem)
 	
 	elem->next = new_elem;
 	new_elem->prev = elem;
+	new_elem->next = NULL;
 	return ;
 }

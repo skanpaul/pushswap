@@ -44,13 +44,13 @@ void	ps_display_2_list(t_data *d)
 
         if ((height_a >= i) && (height_b < i))
         {
-            printf("[%d]\t[ ]\n", ptr_a->val);
+            printf("[%d]\t   \n", ptr_a->val);
             ptr_a = ptr_a->next;
         }
 
         if ((height_a < i) && (height_b >= i))
         {
-            printf("[ ]\t[%d]\n", ptr_b->val);
+            printf("   \t[%d]\n", ptr_b->val);
             ptr_b = ptr_b->next;
         }
         i--;
