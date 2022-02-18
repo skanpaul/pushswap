@@ -14,19 +14,21 @@
 /* ************************************************************************** */
 void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem)
 {
-	t_ps	*ptr;
+	t_ps	*elem;
 
 	if(!ptr_top)
 		return;
 
-	ptr = *ptr_top;
-	if (ptr == NULL)
+	elem = *ptr_top;
+	if (elem == NULL)
 	{
 		*ptr_top = new_elem;
 		return ;
 	}
-	while (ptr->next != NULL)
-		ptr = ptr->next;
-	ptr->next = new_elem;
+	while (elem->next != NULL)
+		elem = elem->next;
+	
+	elem->next = new_elem;
+	new_elem->prev = elem;
 	return ;
 }

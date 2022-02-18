@@ -43,6 +43,7 @@ int main (int argc, char **argv)
 
 	// swap_a(&d);
 	rotate_a(&d);
+	// rev_rot_a(&d);
 	ps_display_1_list(d.stack_a);
 	d.size_a = ps_size(d.stack_a);
 	printf("Size of stack_a: [%d]\n", d.size_a);

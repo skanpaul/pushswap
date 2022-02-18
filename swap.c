@@ -14,22 +14,25 @@
 /* ************************************************************************** */
 void swap(t_ps **ptr_top)
 {
-    t_ps *elem_1;    
-    t_ps *elem_2;
-    t_ps *elem_3;
+    t_ps *top_elem;    
+    t_ps *sec_elem;
+    t_ps *trd_elem;
 
     if ((ptr_top == NULL) 
         || (*ptr_top == NULL) 
         || ((*ptr_top)->next == NULL))
         return ;
 
-    elem_1 = *ptr_top;
-    elem_2 = elem_1->next;
-    elem_3 = elem_2->next;
+    top_elem = *ptr_top;
+    sec_elem = top_elem->next;
+    trd_elem = sec_elem->next;
 
-    *ptr_top = elem_2;
-    elem_2->next = elem_1;
-    elem_1->next = elem_3;
+    *ptr_top = sec_elem;
+    sec_elem->prev = NULL;
+    sec_elem->next = top_elem;
+    
+    top_elem->prev = sec_elem;
+    top_elem->next = trd_elem;
     return ;
 }
 

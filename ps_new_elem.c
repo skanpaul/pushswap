@@ -20,6 +20,7 @@ t_ps	*ps_new_elem(int val)
 	if (!elem)
 		return (NULL);
 	elem->val = val;
+	elem->prev = NULL;
 	elem->next = NULL;
 	return (elem);
 }

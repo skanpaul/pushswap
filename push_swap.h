@@ -63,9 +63,10 @@ void	rotate_a(t_data *d);
 void	rotate_b(t_data *d);
 void	rotate_2(t_data *d);
 /* ---------------------------------------- */
-void	rev_rot_a();
-void	rev_rot_b();
-void	rev_rot_2();
+void	rev_rot(t_ps **ptr_top);
+void	rev_rot_a(t_data *d);
+void	rev_rot_b(t_data *d);
+void	rev_rot_2(t_data *d);
 /* ---------------------------------------- */
 
 /* ************************************************************************** */
