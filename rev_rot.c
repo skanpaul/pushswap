@@ -43,12 +43,14 @@ void	rev_rot_a(t_data *d)
     rev_rot(&d->stack_a);
     return ;
 }
+
 /* ************************************************************************** */
 void	rev_rot_b(t_data *d)
 {
     rev_rot(&d->stack_b);
     return ;
 }
+
 /* ************************************************************************** */
 void	rev_rot_2(t_data *d)
 {
@@ -56,3 +58,13 @@ void	rev_rot_2(t_data *d)
     rev_rot(&d->stack_b);
     return ;
 }
+
+/* ************************************************************************** */
+/* rra : reverse rotate a - shift down all elements of stack a by 1.          */
+/* The last element becomes the first one.                                    */
+/* ************************************************************************** */
+/* rrb : reverse rotate b- shift down all elements of stack b by 1.           */
+/* The last element becomes the first one.                                    */
+/* ************************************************************************** */
+/* rrr : rra and rrb at the same time.                                        */
+/* ************************************************************************** */

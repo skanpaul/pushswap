@@ -10,10 +10,9 @@
             "request": "launch",
             "program": "${fileDirname}/push_swap",
             "args": [
-                "12",
-                // "-15",
-                "0",
-                "23"
+                "1",
+                "2",
+                "3"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

@@ -12,9 +12,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 /* ************************************************************************** */
+# include <ctype.h>
 // # include "libft.h"
 # include "stdio.h"
 # include "stdlib.h"
+# include "stdbool.h"
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_ps t_ps;
@@ -36,6 +38,10 @@ typedef struct s_ps
 }	t_ps;
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
+
+
+
+bool	is_countable(char *str);
 /* ---------------------------------------- */
 t_ps	*ps_new_elem(int val);
 void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem);
@@ -49,7 +55,6 @@ void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
 t_ps	*ps_get_last_elem(t_ps **ptr_top);
 /* ************************************************************************** */
-
 void	swap(t_ps **ptr_top);
 void	swap_a(t_data *d);
 void	swap_b(t_data *d);
