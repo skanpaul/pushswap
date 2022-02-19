@@ -12,9 +12,11 @@
             "args": [
                 "1",
                 "2",
-                "3"
+                "7",
+                "1",
+                "5"
             ],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,

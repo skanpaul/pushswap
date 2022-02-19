@@ -18,6 +18,9 @@
 # include "stdlib.h"
 # include "stdbool.h"
 /* ************************************************************************** */
+# define EXIT_YES	1
+# define EXIT_NO	0
+/* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_ps t_ps;
 /* ************************************************************************** */
@@ -25,9 +28,9 @@ typedef struct s_data
 {
 	t_ps	*stack_a;
 	t_ps	*stack_b;
+	int		size_a;
+	int		size_b;
 
-	int	size_a;
-	int	size_b;
 } t_data;
 /* ************************************************************************** */
 typedef struct s_ps
@@ -38,11 +41,14 @@ typedef struct s_ps
 }	t_ps;
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
-
-
-
-bool	is_countable(char *str);
+bool	manage_parameter(int argc, char **argv, t_data *d);
 /* ---------------------------------------- */
+bool	is_param_ok(char *str, int pos);
+bool	is_countable(char *str);
+long	ft_atoil(const char *str);
+bool	is_bigger_than_int(char *str);
+bool	is_duplicated (t_ps **stack, int val);
+/* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
 void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem);
 void	ps_new_elem_at_bottom(t_ps **ptr_top, int val);
@@ -73,7 +79,5 @@ void	rev_rot(t_ps **ptr_top);
 void	rev_rot_a(t_data *d);
 void	rev_rot_b(t_data *d);
 void	rev_rot_2(t_data *d);
-/* ---------------------------------------- */
-
 /* ************************************************************************** */
 #endif

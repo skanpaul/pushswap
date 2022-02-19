@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_validated.c                                     :+:      :+:    :+:   */
+/*   is_bigger_than_int.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,35 +12,25 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_countable(char *str)
+bool is_bigger_than_int(char *str)
 {
-	int i;
+    long value;
+    int i;
 
     if (!str)
         return (false);
 
-    i = 0;    
-    if ((str[i] == '+') || (str[i] == '-'))
+    i = 0;
+    while (str[i] != '\0')
         i++;
 
-    if (!isdigit(str[i]))
-        return (false);
+    if (i > 11)
+        return (true);    
 
-    while ((str[i] != '\0') && (isdigit(str[i])))
-        i++;
+    value = ft_atoil(str);
 
-    if (str[i] == '\0')
-		return (true);
+    if ((value < -2147483648) || ( value > 2147483647))
+        return (true);
 
-    if (!isdigit(str[i]))
-        return (false);
-
-    return (true);
+    return (false);
 }
-
-// positive and negative
-
-// print error with "\n" on standard error
-// error: non integer parameters
-// error: parameters bigger than integer
-// error: parameters are duplicated

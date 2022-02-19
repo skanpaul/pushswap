@@ -15,7 +15,7 @@ LIBFTPATH	= ./
 # **************************************************************************
 HD	= push_swap.h
 
-# SRC		= pushswap.c```````
+# SRC		= pushswap.c
 SRC		= $(wildcard *.c)
 OBJ		= $(SRC:.c=.o)
 
@@ -24,7 +24,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HD)
 # $(CC) $(CFLAG) -L$(LIBFTPATH) -l$(LIBFTLIB) $(OBJ) -o $(NAME)
-	$(CC) $(CFLAG) -std=c90 $(OBJ) -o $(NAME)
+# $(CC) $(CFLAG) -std=c90 $(OBJ) -o $(NAME)
+	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
 # **************************************************************************
 clean:
