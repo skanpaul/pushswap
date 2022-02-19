@@ -11,9 +11,7 @@
             "program": "${fileDirname}/push_swap",
             "args": [
                 "1",
-                "2",
-                "7",
-                "1",
+                "4",
                 "5"
             ],
             "stopAtEntry": true,
