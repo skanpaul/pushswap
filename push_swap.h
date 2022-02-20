@@ -52,6 +52,8 @@ typedef struct s_cmd
 }	t_cmd;
 /* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
+bool	is_in_order(t_ps *stack);
+
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);

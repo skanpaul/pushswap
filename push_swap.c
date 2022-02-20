@@ -34,7 +34,11 @@ int main (int argc, char **argv)
 	printf("\n");
 	ps_print_size(&d);
 
-	d.stack_b = sort_insertion(d.stack_a);
+	// d.stack_b = sort_insertion(d.stack_a);
+	if(is_in_order(d.stack_a))
+		printf("en ordre croissant\n");
+	else
+		printf("en desordre\n");
 
 	ps_display_2_list(&d);
 	ps_print_size(&d);

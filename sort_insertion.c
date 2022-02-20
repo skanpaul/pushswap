@@ -12,6 +12,10 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
+// static void ps_rec_sort_insertion(t_ps **sub_bot_elem, t_data *d);
+// static bool is_top_elem(t_ps *elem);
+
+/* ************************************************************************** */
 // void ps_sort_insertion(t_data *d)
 // {
 // 	t_ps	*temp;
@@ -23,15 +27,7 @@
 // 	if ((top_elem == NULL) || (top_elem->next == NULL))
 // 		return ;
 
-
-
-
-
-
-
 // 	temp = d->stack_a
-
-
 
 // 	return ;
 // }
@@ -42,24 +38,50 @@
 /* input:	bot_elem of SUB-stack (BEFORE SORTING)                            */
 /* output:	new_bot_elem of SORTED SUB-stack (AFTER SORTING)                  */
 /* ************************************************************************** */
-static t_ps *ps_sort_insertion_rec(t_ps *sub_bot, t_data *d)
-{
-	t_ps *sub_top;
+// static void ps_rec_sort_insertion(t_ps **sub_bot_elem, t_data *d)
+// {
+// 	t_ps *prev_elem;
+// 	t_ps *bot_elem;
 
-	sub_top = sub_bot->prev;
+// 	bot_elem = *sub_bot_elem;
+// 	prev_elem = bot_elem->prev;
 
-	if (sub_top->prev == NULL)
-		if (sub_top->val > sub_bot->val)
-			swap_a(d);
-	else
-	{
-		// recusrion
-	}
+// 	// if SUB-stack has 2 elements ONLY
+// 	/* ------------------------------------------------ */
+// 	if (is_top_elem(prev_elem) && (bot_elem->val < prev_elem->val))
+// 	{
+// 		swap_a(d);
+// 	}
+// 	/* if SUB-stack has MORE THAN 2 elements ---------- */
+// 	else
+// 	{
+// 		ps_rec_sort_insertion(&prev_elem, d);
+
+// 		if (bot_elem->val < prev_elem->val)
+// 		{
+// 			while (is_top_elem(prev_elem) == false)
+// 				push_to_b(d);
+// 			swap_a(d);
+// 			prev_elem = bot_elem->prev;
+// 		}
 
 
-	return (null);
-}
 
+		
+// 	}
+// 	/* ------------------------------------------------ */
+
+// 	return ;
+// }
+/* ************************************************************************** */
+
+// static bool is_top_elem(t_ps *elem)
+// {
+// 	if (elem->prev == NULL)
+// 		return (true);
+// 	else
+// 		return (fales);
+// }
 
 
 
