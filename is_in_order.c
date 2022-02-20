@@ -12,13 +12,13 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_in_order(t_ps *stack)
+bool is_in_order(t_ps *top_elem)
 {
 	t_ps *elem;
 	t_ps *next_elem;
 
 	/* test si 0 ou 1 element --> pas besoin de controller */
-	elem = stack;
+	elem = top_elem;
 	if (elem == NULL)
 		return (true);
 	next_elem = elem->next;

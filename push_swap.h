@@ -28,7 +28,9 @@ typedef struct s_cmd t_cmd;
 typedef struct s_data
 {
 	t_ps	*stack_a;
+	t_ps	*stack_a_bottom;
 	t_ps	*stack_b;
+	t_ps	*stack_b_bottom;
 	t_ps	*stk_cmd;
 	int		size_a;
 	int		size_b;
@@ -52,17 +54,18 @@ typedef struct s_cmd
 }	t_cmd;
 /* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
-bool	is_in_order(t_ps *stack);
 
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 /* ---------------------------------------- */
+long	ft_atoil(const char *str);
 bool	is_param_ok(char *str, int pos);
 bool	is_countable(char *str);
-long	ft_atoil(const char *str);
 bool	is_bigger_than_int(char *str);
 bool	is_duplicated (t_ps **stack, int val);
+bool	is_in_order(t_ps *top_elem);
+bool	has_less_than_2_elem(t_ps *top_elem);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
 void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem);
