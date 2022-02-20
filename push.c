@@ -48,6 +48,7 @@ void	push_to(t_ps **stack_src, t_ps **stack_dst)
 void	push_to_a(t_data *d)
 {
     push_to(&d->stack_b, &d->stack_a);
+	printf("PA\n");
     return ;
 }
 
@@ -59,5 +60,6 @@ void	push_to_a(t_data *d)
 void	push_to_b(t_data *d)
 {
     push_to(&d->stack_a, &d->stack_b);
+	printf("PB\n");
     return ;
 }

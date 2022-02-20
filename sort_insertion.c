@@ -12,6 +12,60 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
+// void ps_sort_insertion(t_data *d)
+// {
+// 	t_ps	*temp;
+// 	t_ps	*temp_next;
+// 	t_ps	*top_elem;
+
+// 	top_elem = d->stack_a;
+
+// 	if ((top_elem == NULL) || (top_elem->next == NULL))
+// 		return ;
+
+
+
+
+
+
+
+// 	temp = d->stack_a
+
+
+
+// 	return ;
+// }
+
+/* ************************************************************************** */
+/* ps_sort_insertion_rec()                                                    */
+/* -----------------------                                                    */
+/* input:	bot_elem of SUB-stack (BEFORE SORTING)                            */
+/* output:	new_bot_elem of SORTED SUB-stack (AFTER SORTING)                  */
+/* ************************************************************************** */
+static t_ps *ps_sort_insertion_rec(t_ps *sub_bot, t_data *d)
+{
+	t_ps *sub_top;
+
+	sub_top = sub_bot->prev;
+
+	if (sub_top->prev == NULL)
+		if (sub_top->val > sub_bot->val)
+			swap_a(d);
+	else
+	{
+		// recusrion
+	}
+
+
+	return (null);
+}
+
+
+
+
+
+
+/* ************************************************************************** */
 t_ps *sort_insertion(t_ps *stack)
 {
 	t_ps *stack_sorted;

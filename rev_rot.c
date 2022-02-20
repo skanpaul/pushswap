@@ -40,7 +40,8 @@ void rev_rot(t_ps **ptr_top)
 /* ************************************************************************** */
 void	rev_rot_a(t_data *d)
 {
-    rev_rot(&d->stack_a);
+    rev_rot(&d->stack_a);    
+	printf("RRA\n");
     return ;
 }
 
@@ -48,6 +49,7 @@ void	rev_rot_a(t_data *d)
 void	rev_rot_b(t_data *d)
 {
     rev_rot(&d->stack_b);
+	printf("RRB\n");
     return ;
 }
 
@@ -56,6 +58,7 @@ void	rev_rot_2(t_data *d)
 {
     rev_rot(&d->stack_a);
     rev_rot(&d->stack_b);
+	printf("RRR\n");
     return ;
 }
 

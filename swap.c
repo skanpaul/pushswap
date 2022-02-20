@@ -40,6 +40,7 @@ void swap(t_ps **ptr_top)
 void	swap_a(t_data *d)
 {
     swap(&d->stack_a);
+    printf("SA\n");
     return ;
 }
 
@@ -47,6 +48,7 @@ void	swap_a(t_data *d)
 void	swap_b(t_data *d)
 {
     swap(&d->stack_b);
+    printf("SB\n");
     return ;
 }
 
@@ -55,6 +57,7 @@ void	swap_2(t_data *d)
 {
     swap(&d->stack_a);
     swap(&d->stack_b);
+    printf("SS\n");
     return ;
 }
 

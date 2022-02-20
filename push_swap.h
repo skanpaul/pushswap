@@ -23,11 +23,13 @@
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_ps t_ps;
+typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
 typedef struct s_data
 {
 	t_ps	*stack_a;
 	t_ps	*stack_b;
+	t_ps	*stk_cmd;
 	int		size_a;
 	int		size_b;
 
@@ -39,6 +41,15 @@ typedef struct s_ps
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
+/* ************************************************************************** */
+typedef struct s_cmd
+{
+	int				val_cmd;
+	char			*str_cmd;
+	int				should_print;
+	struct s_cmd	*prev;
+	struct s_cmd	*next;
+}	t_cmd;
 /* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
 /* ************************************************************************** */
@@ -57,6 +68,7 @@ void	ps_new_elem_at_bottom(t_ps **ptr_top, int val);
 /* ---------------------------------------- */
 void	ps_display_1_list(t_ps *top_elem);
 void	ps_display_2_list(t_data *d);
+void	ps_print_size(t_data *d);
 /* ---------------------------------------- */
 void	ps_del_list(t_ps *top_elem);
 void	ps_del_elem(t_ps *elem);

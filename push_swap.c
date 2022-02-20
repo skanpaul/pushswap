@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+/* Smallest number on the top *********************************************** */
 /* ************************************************************************** */
 int main (int argc, char **argv)
 {
@@ -31,10 +32,12 @@ int main (int argc, char **argv)
 
 	ps_display_2_list(&d);
 	printf("\n");
+	ps_print_size(&d);
 
 	d.stack_b = sort_insertion(d.stack_a);
 
 	ps_display_2_list(&d);
+	ps_print_size(&d);
 	printf("\n");
 
 

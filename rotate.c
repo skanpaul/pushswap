@@ -41,12 +41,14 @@ void rotate(t_ps **ptr_top)
 void	rotate_a(t_data *d)
 {
 	rotate(&d->stack_a);
+	printf("RA\n");
 	return ;
 }
 /* ************************************************************************** */
 void	rotate_b(t_data *d)
 {
 	rotate(&d->stack_b);
+	printf("RB\n");
 	return ;
 }
 /* ************************************************************************** */
@@ -54,6 +56,7 @@ void	rotate_2(t_data *d)
 {
 	rotate(&d->stack_a);
 	rotate(&d->stack_b);
+	printf("RR\n");
 	return ;
 }
 
