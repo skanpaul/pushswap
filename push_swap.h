@@ -86,7 +86,7 @@ void	display_2_list(t_data *d);
 void	display_size(t_data *d);
 void	display_stack_address(t_data *d);
 /* ---------------------------------------- */
-void	ps_del_list(t_ps *top_elem);
+void	ps_del_list(t_ps **stack);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
 t_ps	*ps_get_last_elem(t_ps **ptr_top);

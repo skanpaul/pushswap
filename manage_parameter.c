@@ -29,8 +29,8 @@ bool manage_parameter(int argc, char **argv, t_data *d)
 		val = atoi(argv[i]);
         if (is_duplicated(&d->stack_a, val))
         {
-            ps_del_list(d->stack_a);
-            ps_del_list(d->stack_b);
+            ps_del_list(&d->stack_a);
+            ps_del_list(&d->stack_b);
             printf("argv[%d]: is duplicated [%d]\n", i, val);
             return (EXIT_YES);
         }

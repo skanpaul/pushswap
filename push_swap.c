@@ -38,6 +38,9 @@ int main (int argc, char **argv)
 	swap_a(&d);
 	display(&d);
 	/* --------------------------- */
+	swap_a(&d);
+	display(&d);
+	/* --------------------------- */
 
 	// push_to_b(&d);
 	// display(&d);
@@ -47,8 +50,9 @@ int main (int argc, char **argv)
 
 	
 	/* ********************************************* */
-	ps_del_list(d.stack_a);
-	ps_del_list(d.stack_b);
+	ps_del_list(&d.stack_a);
+	ps_del_list(&d.stack_a);
+	ps_del_list(&d.stack_b);
 	return 0;
 }
 
