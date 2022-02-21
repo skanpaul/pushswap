@@ -28,26 +28,27 @@ int main (int argc, char **argv)
 	flag_exit = manage_parameter(argc, argv, &d);
 	if (flag_exit == EXIT_YES)
 		return (EXIT_YES);
-	/* --------------------------------------------- */
 
-	ps_display_2_list(&d);
-	printf("\n");
-	ps_print_size(&d);
-
-	// d.stack_b = sort_insertion(d.stack_a);
-	if(is_in_order(d.stack_a))
-		printf("en ordre croissant\n");
-	else
-		printf("en desordre\n");
-
-	ps_display_2_list(&d);
-	ps_print_size(&d);
-	printf("\n");
+	/* ********************************************* */
 
 
+	display(&d);
+	/* --------------------------- */
 
-	/* --------------------------------------------- */
+	swap_a(&d);
+	display(&d);
+	/* --------------------------- */
+
+	// push_to_b(&d);
+	// display(&d);
+	/* --------------------------- */
+
+
+
+	
+	/* ********************************************* */
 	ps_del_list(d.stack_a);
+	ps_del_list(d.stack_b);
 	return 0;
 }
 

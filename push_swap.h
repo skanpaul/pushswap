@@ -60,27 +60,38 @@ void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 /* ---------------------------------------- */
 long	ft_atoil(const char *str);
+/* ---------------------------------------- */
 bool	is_param_ok(char *str, int pos);
 bool	is_countable(char *str);
 bool	is_bigger_than_int(char *str);
 bool	is_duplicated (t_ps **stack, int val);
 bool	is_in_order(t_ps *top_elem);
+/* ---------------------------------------- */
+bool	has_0_elem_only(t_ps **stack);
+bool	has_1_elem_only(t_ps **stack);
+bool	has_2_elem_only(t_ps **stack);
+/* ---------------------------------------- */
+bool	has_1_elem_or_more(t_ps **stack);
+bool	has_2_elem_or_more(t_ps **stack);
+/* ---------------------------------------- */
 bool	has_less_than_2_elem(t_ps *top_elem);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
-void	ps_add_elem_to_bottom(t_ps **ptr_top, t_ps *new_elem);
-void	ps_new_elem_at_bottom(t_ps **ptr_top, int val);
+void	ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom);
+void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);
 /* ---------------------------------------- */
-void	ps_display_1_list(t_ps *top_elem);
-void	ps_display_2_list(t_data *d);
-void	ps_print_size(t_data *d);
+void	display(t_data *d);
+void	display_1_list(t_ps *top_elem);
+void	display_2_list(t_data *d);
+void	display_size(t_data *d);
+void	display_stack_address(t_data *d);
 /* ---------------------------------------- */
 void	ps_del_list(t_ps *top_elem);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
 t_ps	*ps_get_last_elem(t_ps **ptr_top);
 /* ************************************************************************** */
-void	swap(t_ps **ptr_top);
+void	swap(t_ps **stack, t_ps **stack_bottom);
 void	swap_a(t_data *d);
 void	swap_b(t_data *d);
 void	swap_2(t_data *d);

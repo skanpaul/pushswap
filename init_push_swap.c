@@ -15,7 +15,10 @@
 void init_push_swap(t_data *d)
 {
     d->stack_a = NULL;
+    d->stack_a_bottom = NULL;
+
     d->stack_b = NULL;
+    d->stack_b_bottom = NULL;
    
     d->size_a = 0;
     d->size_b = 0;
