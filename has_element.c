@@ -96,17 +96,23 @@ bool has_2_elem_or_more(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_less_than_2_elem(t_ps *top_elem)
+bool has_less_than_2_elem(t_ps **stack)
 {
-    t_ps *elem;
-	t_ps *next_elem;
+    t_ps *elem_1;
+	t_ps *elem_2;
 
 	/* test si 0 ou 1 element --> pas besoin de controller */
-	elem = top_elem;
-	if (elem == NULL)
+	if (!stack)
+        return (true);
+    
+    elem_1 = *stack;
+
+	if (elem_1 == NULL)
 		return (true);
-	next_elem = elem->next;
-	if (next_elem == NULL)
+
+	elem_2 = elem_1->next;
+
+	if (elem_2 == NULL)
 		return (true);
     
     return (false);

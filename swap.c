@@ -14,26 +14,26 @@
 /* ************************************************************************** */
 void swap(t_ps **stack, t_ps **stack_tail)
 {
-    t_ps *top_elem;    
-    t_ps *sec_elem;
-    t_ps *trd_elem;
+    t_ps *elem_1;    
+    t_ps *elem_2;
+    t_ps *elem_3;
 
-    if (has_2_elem_or_more(stack))
-    {
-        top_elem = *stack;
-        sec_elem = top_elem->next;
-        trd_elem = sec_elem->next;
+    if ((!stack) || (!stack_tail) || (has_less_than_2_elem(stack)))
+        return;
+   
+    elem_1 = *stack;
+    elem_2 = elem_1->next;
+    elem_3 = elem_2->next;
 
-        *stack = sec_elem;
-        sec_elem->prev = NULL;
-        sec_elem->next = top_elem;
-        
-        top_elem->prev = sec_elem;
-        top_elem->next = trd_elem;
+    *stack = elem_2;
+    elem_2->prev = NULL;
+    elem_2->next = elem_1;
+    
+    elem_1->prev = elem_2;
+    elem_1->next = elem_3;
 
-        if (has_2_elem_only(stack))
-            *stack_tail = top_elem; 
-    }
+    if (has_2_elem_only(stack))
+        *stack_tail = elem_1;  
 
     return ;
 }
@@ -72,3 +72,4 @@ void	swap_2(t_data *d)
 /* ************************************************************************** */
 /* ss : sa and sb at the same time.                                           */
 /* ************************************************************************** */
+

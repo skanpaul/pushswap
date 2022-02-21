@@ -86,7 +86,7 @@ bool	has_2_elem_only(t_ps **stack);
 bool	has_1_elem_or_more(t_ps **stack);
 bool	has_2_elem_or_more(t_ps **stack);
 /* ---------------------------------------- */
-bool	has_less_than_2_elem(t_ps *top_elem);
+bool	has_less_than_2_elem(t_ps **stack);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
 void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);

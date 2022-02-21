@@ -28,8 +28,7 @@ void rev_rot(t_ps **stack, t_ps **stack_bottom)
 		extracted_elem = ps_rem_elem_from_bottom(stack, stack_bottom);
 		ps_add_elem_to_top(extracted_elem, stack, stack_bottom);		
 	}
-	return ; 
-
+	return ;
 }
 
 /* ************************************************************************** */
