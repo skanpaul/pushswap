@@ -14,36 +14,61 @@
 /* ************************************************************************** */
 void ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom)
 {
-	t_ps *top_elem;
-	t_ps *bot_elem;
 	
 	if ((!stack) || (new == NULL))
 		return;
 
+	new->prev = NULL;
+
 	if (has_0_elem_only(stack)) // IF there is NO top_elem
-	{
-		*stack = new; // then new become head_of_stack
-		new->prev = NULL;
+	{		
 		new->next = NULL;
-		*stack_bottom = new; // then new become (also ) bottom_of_stack
+		*stack = new;
+		*stack_bottom = new;
 	}
-	else if (has_1_elem_only(stack))
+	else //if (has_1_elem_or_more)
 	{
-		bot_elem = *stack_bottom;
-		bot_elem->prev = new;		
-		new->prev = NULL;
-		new->next = *stack_bottom;
+		(*stack)->prev = new;
+		new->next = *stack;
 		*stack = new;
 	}
-	else  // if (has_2_elem_or_more)
-	{
-		top_elem = *stack;
-		top_elem->prev = new;
-		new->prev = NULL;
-		new->next = top_elem;
-		*stack = new;	
-	}
 }
+
+
+
+// /* ************************************************************************** */
+// void ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+// {
+// 	t_ps *top_elem;
+// 	t_ps *bot_elem;
+	
+// 	if ((!stack) || (new == NULL))
+// 		return;
+
+// 	if (has_0_elem_only(stack)) // IF there is NO top_elem
+// 	{
+// 		*stack = new; // then new become head_of_stack
+// 		new->prev = NULL;
+// 		new->next = NULL;
+// 		*stack_bottom = new; // then new become (also ) bottom_of_stack
+// 	}
+// 	else if (has_1_elem_only(stack))
+// 	{
+// 		bot_elem = *stack_bottom;
+// 		bot_elem->prev = new;		
+// 		new->prev = NULL;
+// 		new->next = *stack_bottom;
+// 		*stack = new;
+// 	}
+// 	else  // if (has_2_elem_or_more)
+// 	{
+// 		top_elem = *stack;
+// 		top_elem->prev = new;
+// 		new->prev = NULL;
+// 		new->next = top_elem;
+// 		*stack = new;	
+// 	}
+// }
 
 
 

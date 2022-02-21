@@ -14,31 +14,59 @@
 /* ************************************************************************** */
 void ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom)
 {
-	t_ps *top_elem;
-	t_ps *bot_elem;
 	
 	if ((!stack) || (new == NULL))
 		return;
+
+	new->next = NULL;
+
 	if (has_0_elem_only(stack)) 
 	{
-		*stack = new;
 		new->prev = NULL;
+		*stack = new;
+		*stack_bottom = new;
 	}
-	else if (has_1_elem_only(stack))
+	else // if (has_1_elem_or_more())
 	{
-		top_elem = *stack;
-		top_elem->next = new;
-		new->prev = top_elem;
+		(*stack_bottom)->next = new;
+		new->prev = *stack_bottom;
+		*stack_bottom = new;
 	}
-	else // if (has_2_elem_or_more)
-	{
-		bot_elem = *stack_bottom;
-		bot_elem->next = new;
-		new->prev = bot_elem;
-	}
-	new->next = NULL;
-	*stack_bottom = new;
 }
+
+
+
+
+// /* ************************************************************************** */
+// void ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+// {
+// 	t_ps *top_elem;
+// 	t_ps *bot_elem;
+	
+// 	if ((!stack) || (new == NULL))
+// 		return;
+// 	if (has_0_elem_only(stack)) 
+// 	{
+// 		*stack = new;
+// 		new->prev = NULL;
+// 	}
+// 	else if (has_1_elem_only(stack))
+// 	{
+// 		top_elem = *stack;
+// 		top_elem->next = new;
+// 		new->prev = top_elem;
+// 	}
+// 	else // if (has_2_elem_or_more)
+// 	{
+// 		bot_elem = *stack_bottom;
+// 		bot_elem->next = new;
+// 		new->prev = bot_elem;
+// 	}
+// 	new->next = NULL;
+// 	*stack_bottom = new;
+// }
+
+
 
 // /* ************************************************************************** */
 // void ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom)

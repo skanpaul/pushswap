@@ -36,17 +36,17 @@ int main (int argc, char **argv)
 	display(&d);
 	/* --------------------------- */
 
-	// push_to_b(&d);
-	// push_to_b(&d);
-	// push_to_b(&d);
+	push_to_b(&d);
+	push_to_b(&d);
+	push_to_b(&d);
 	/* --------------------------- */
 	rotate_a(&d);
 	display(&d);
-	/* --------------------------- */
-	push_to_b(&d);
-	push_to_b(&d);
-	push_to_b(&d);
-	display(&d);
+	// /* --------------------------- */
+	push_to_a(&d);
+	// push_to_b(&d);
+	// push_to_b(&d);
+	// display(&d);
 	/* --------------------------- */
 	rev_rot_a(&d);
 	display(&d);
