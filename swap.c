@@ -12,7 +12,7 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void swap(t_ps **stack, t_ps **stack_bottom)
+void swap(t_ps **stack, t_ps **stack_tail)
 {
     t_ps *top_elem;    
     t_ps *sec_elem;
@@ -32,7 +32,7 @@ void swap(t_ps **stack, t_ps **stack_bottom)
         top_elem->next = trd_elem;
 
         if (has_2_elem_only(stack))
-            *stack_bottom = top_elem; 
+            *stack_tail = top_elem; 
     }
 
     return ;
@@ -41,7 +41,7 @@ void swap(t_ps **stack, t_ps **stack_bottom)
 /* ************************************************************************** */
 void	swap_a(t_data *d)
 {
-    swap(&d->stack_a, &d->stack_a_bottom);
+    swap(&d->stack_a, &d->stack_a_tail);
     printf("SA\n");
     return ;
 }
@@ -49,7 +49,7 @@ void	swap_a(t_data *d)
 /* ************************************************************************** */
 void	swap_b(t_data *d)
 {
-    swap(&d->stack_b, &d->stack_b_bottom);
+    swap(&d->stack_b, &d->stack_b_tail);
     printf("SB\n");
     return ;
 }
@@ -57,8 +57,8 @@ void	swap_b(t_data *d)
 /* ************************************************************************** */
 void	swap_2(t_data *d)
 {
-    swap(&d->stack_a, &d->stack_a_bottom);
-    swap(&d->stack_b, &d->stack_b_bottom);
+    swap(&d->stack_a, &d->stack_a_tail);
+    swap(&d->stack_b, &d->stack_b_tail);
     printf("SS\n");
     return ;
 }

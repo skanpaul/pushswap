@@ -15,6 +15,7 @@
 void display(t_data *d)
 {
     display_2_list(d);
+	printf("\n");
     display_size(d);
     display_stack_address(d);
 	printf("-----------------------------------------------------\n");
@@ -82,7 +83,7 @@ void	display_2_list(t_data *d)
 
         if ((height_a < i) && (height_b >= i))
         {
-            printf("\t   \t%p:[%d]\n", ptr_b, ptr_b->val);
+            printf("\t\t\t\t%p:[%d]\n", ptr_b, ptr_b->val);
             // printf("\t   \t[%d]\n", ptr_b->val);
             ptr_b = ptr_b->next;
         }
@@ -97,12 +98,19 @@ void display_size(t_data *d)
 {
     d->size_a = ps_size(d->stack_a);
 	d->size_b = ps_size(d->stack_b);
-	printf("Size\t\ta:[%d]\t\t\tb:[%d]\n\n", d->size_a, d->size_b);
+	printf("Size\ta:[%d]\t\t\tb:[%d]\n", d->size_a, d->size_b);
 }
 
 /* ************************************************************************** */
 void display_stack_address(t_data *d)
 {
-    printf("HEAD_a\t[%p]\t[%p]\tHEAD_b\n", (*d).stack_a, (*d).stack_b);
-    printf("BOT_a\t[%p]\t[%p]\tBOT_b\n", (*d).stack_a_bottom, (*d).stack_b_bottom);
+    if((*d).stack_a == NULL)
+        printf("HEAD_a\t[%p]\t\t\tHEAD_b\t[%p]\n", (*d).stack_a, (*d).stack_b);
+    else
+        printf("HEAD_a\t[%p]\tHEAD_b\t[%p]\n", (*d).stack_a, (*d).stack_b);
+    
+    if((*d).stack_a_tail == NULL)
+        printf("BOT_a\t[%p]\t\t\tBOT_b\t[%p]\n", (*d).stack_a_tail, (*d).stack_b_tail);
+    else
+        printf("BOT_a\t[%p]\tBOT_b\t[%p]\n", (*d).stack_a_tail, (*d).stack_b_tail);
 }

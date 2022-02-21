@@ -12,31 +12,14 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void	push_to(t_ps **stack_src, t_ps **stack_dst)
+void	push_to(t_stk *src, t_stk *dst)
 {
-	t_ps *top_elem_src;
-	t_ps *top_elem_dst;
+    t_ps *elem_extracted;
+
+    elem_extracted = ps_rem_elem_from_top(src->head, src->tail);
     
-    t_ps *sec_elem_src;
-
-    top_elem_src = *stack_src;
-    top_elem_dst = *stack_dst;
-
-    if (!top_elem_src)
-        return ;
-
-    // soustrait top_elem_a de stack_a
-    sec_elem_src = top_elem_src->next;
-    *stack_src = sec_elem_src;
-    if(sec_elem_src != NULL)
-        sec_elem_src->prev = NULL;
-    // mettre top_elem_a au dessus de top_elem_b
-    *stack_dst = top_elem_src;
-    top_elem_src->prev = NULL;
-    top_elem_src->next = top_elem_dst;
-
-    if (top_elem_dst != NULL)
-        top_elem_dst->prev = top_elem_src;
+    ps_add_elem_to_top(elem_extracted, dst->head, dst->tail);
+    
     return ;
 }
 
@@ -47,7 +30,15 @@ void	push_to(t_ps **stack_src, t_ps **stack_dst)
 /* ************************************************************************** */
 void	push_to_a(t_data *d)
 {
-    push_to(&d->stack_b, &d->stack_a);
+    t_stk a;
+    t_stk b;
+
+    a.head = &(d->stack_a);
+    a.tail = &(d->stack_a_tail);
+    b.head = &(d->stack_b);
+    b.tail = &(d->stack_b_tail);
+    
+    push_to(&b, &a);
 	printf("PA\n");
     return ;
 }
@@ -59,7 +50,72 @@ void	push_to_a(t_data *d)
 /* ************************************************************************** */
 void	push_to_b(t_data *d)
 {
-    push_to(&d->stack_a, &d->stack_b);
+    t_stk a;
+    t_stk b;
+
+    a.head = &(d->stack_a);
+    a.tail = &(d->stack_a_tail);
+    b.head = &(d->stack_b);
+    b.tail = &(d->stack_b_tail);
+    
+    push_to(&a, &b);
 	printf("PB\n");
     return ;
 }
+
+
+
+
+
+
+// /* ************************************************************************** */
+// void	push_to(t_ps **stack_src, t_ps **stack_dst)
+// {
+// 	t_ps *top_elem_src;
+// 	t_ps *top_elem_dst;
+    
+//     t_ps *sec_elem_src;
+
+//     top_elem_src = *stack_src;
+//     top_elem_dst = *stack_dst;
+
+//     if (!top_elem_src)
+//         return ;
+
+//     // soustrait top_elem_a de stack_a
+//     sec_elem_src = top_elem_src->next;
+//     *stack_src = sec_elem_src;
+//     if(sec_elem_src != NULL)
+//         sec_elem_src->prev = NULL;
+//     // mettre top_elem_a au dessus de top_elem_b
+//     *stack_dst = top_elem_src;
+//     top_elem_src->prev = NULL;
+//     top_elem_src->next = top_elem_dst;
+
+//     if (top_elem_dst != NULL)
+//         top_elem_dst->prev = top_elem_src;
+//     return ;
+// }
+// /* ************************************************************************** */
+// /* pa : push a                                                                */
+// /* - take the first element at the top of b and put it at the top of a.       */
+// /* - Do nothing if b is empty.                                                */
+// /* ************************************************************************** */
+// void	push_to_a(t_data *d)
+// {
+//     push_to(&d->stack_b, &d->stack_a);
+// 	printf("PA\n");
+//     return ;
+// }
+
+// /* ************************************************************************** */
+// /* pb : push b                                                                */
+// /* - take the first element at the top of a and put it at the top of b.       */
+// /* - Do nothing if a is empty.                                                */
+// /* ************************************************************************** */
+// void	push_to_b(t_data *d)
+// {
+//     push_to(&d->stack_a, &d->stack_b);
+// 	printf("PB\n");
+//     return ;
+// }

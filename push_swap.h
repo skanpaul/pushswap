@@ -22,18 +22,22 @@
 # define EXIT_NO	0
 /* ************************************************************************** */
 typedef struct s_data t_data;
+typedef struct s_stk t_stk;
 typedef struct s_ps t_ps;
 typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
 typedef struct s_data
 {
 	t_ps	*stack_a;
-	t_ps	*stack_a_bottom;
+	t_ps	*stack_a_tail;
 	t_ps	*stack_b;
-	t_ps	*stack_b_bottom;
+	t_ps	*stack_b_tail;
 	t_ps	*stk_cmd;
 	int		size_a;
 	int		size_b;
+	/* ---------------------------- */
+	// t_stk	*a;
+	// t_stk	*b;
 
 } t_data;
 /* ************************************************************************** */
@@ -53,9 +57,17 @@ typedef struct s_cmd
 	struct s_cmd	*next;
 }	t_cmd;
 /* ************************************************************************** */
+typedef struct s_stk
+{
+	t_ps	**head;
+	t_ps	**tail;
+	int		size;
+}	t_stk;
+/* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
 
 /* ************************************************************************** */
+// void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 /* ---------------------------------------- */
@@ -77,8 +89,12 @@ bool	has_2_elem_or_more(t_ps **stack);
 bool	has_less_than_2_elem(t_ps *top_elem);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
-void	ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom);
 void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);
+/* ---------------------------------------- */
+void	ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom);
+void	ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom);
+t_ps	*ps_rem_elem_from_top(t_ps **stack, t_ps **stack_bottom);
+t_ps 	*ps_rem_elem_from_bottom(t_ps **stack, t_ps **stack_bottom);
 /* ---------------------------------------- */
 void	display(t_data *d);
 void	display_1_list(t_ps *top_elem);
@@ -96,11 +112,13 @@ void	swap_a(t_data *d);
 void	swap_b(t_data *d);
 void	swap_2(t_data *d);
 /* ---------------------------------------- */
-void	push_to(t_ps **stack_src, t_ps **stack_dst);
+// void	push_to(t_ps **stack_src, t_ps **stack_dst);
+void	push_to(t_stk *src, t_stk *dst);
 void	push_to_a(t_data *d);
 void	push_to_b(t_data *d);
 /* ---------------------------------------- */
-void	rotate(t_ps **ptr_top);
+// void	rotate(t_ps **ptr_top);
+void	rotate(t_ps **stack, t_ps **stack_bottom);
 void	rotate_a(t_data *d);
 void	rotate_b(t_data *d);
 void	rotate_2(t_data *d);

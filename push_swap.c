@@ -15,7 +15,8 @@
 /* ************************************************************************** */
 int main (int argc, char **argv)
 {
-	t_data	d;
+	t_data	d; // data
+
 	bool	flag_exit;
 
 	flag_exit = false;	
@@ -35,22 +36,25 @@ int main (int argc, char **argv)
 	display(&d);
 	/* --------------------------- */
 
-	swap_a(&d);
+	push_to_b(&d);
 	display(&d);
 	/* --------------------------- */
-	swap_a(&d);
+	push_to_b(&d);
 	display(&d);
 	/* --------------------------- */
-
-	// push_to_b(&d);
-	// display(&d);
+	push_to_b(&d);
+	display(&d);
 	/* --------------------------- */
-
+	rotate_a(&d);
+	display(&d);
+	/* --------------------------- */
+	rotate_b(&d);
+	display(&d);
+	/* --------------------------- */
 
 
 	
 	/* ********************************************* */
-	ps_del_list(&d.stack_a);
 	ps_del_list(&d.stack_a);
 	ps_del_list(&d.stack_b);
 	return 0;

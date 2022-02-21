@@ -63,6 +63,21 @@ bool has_2_elem_only(t_ps **stack)
 }
 
 /* ************************************************************************** */
+bool has_1_elem_or_more(t_ps **stack)
+{
+    t_ps *top_elem;
+
+    if(stack == NULL)
+        return (false);
+        
+    top_elem = *stack;
+    if (top_elem == NULL)
+        return (false);
+
+    return (true);
+}
+
+/* ************************************************************************** */
 bool has_2_elem_or_more(t_ps **stack)
 {
     t_ps *top_elem;
@@ -79,23 +94,6 @@ bool has_2_elem_or_more(t_ps **stack)
 
     return (true);
 }
-
-/* ************************************************************************** */
-bool has_1_elem_or_more(t_ps **stack)
-{
-    t_ps *top_elem;
-
-    if(stack == NULL)
-        return (false);
-        
-    top_elem = *stack;
-    if (top_elem == NULL)
-        return (false);
-
-    return (true);
-}
-
-
 
 /* ************************************************************************** */
 bool has_less_than_2_elem(t_ps *top_elem)
