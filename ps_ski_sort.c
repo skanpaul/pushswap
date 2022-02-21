@@ -12,40 +12,74 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-// void ps_ski_sort(t_data *d)
-// {
-//     bool f_in_order; // 0: NOT in order - 1: IN-ORDER
-//     t_ps *top_a;
-//     t_ps *bottom_a;
-//     t_ps *top_b;
-//     t_ps *bottom_b;
+void ps_ski_sort(t_data *d)
+{
+    bool a_in_order; // 0: NOT in order - 1: IN-ORDER
+    bool b_in_order; // 0: NOT in order - 1: IN-ORDER
 
-//     /* --------------------------------------------------------- */
-//     f_in_order = false;
-//     top_a = NULL;
-//     top_b = NULL;
-//     bottom_a = NULL;
-//     bottom_b = NULL;
-//     /* --------------------------------------------------------- */    
-//     if ((has_less_than_2_elem(d->stack_a)) || (is_in_order(d->stack_a)))
-//         return ;
-//     /* --------------------------------------------------------- */
-//     top_a = d->stack_a;
-//     top_b = d->stack_b;
-//     bottom_a = ps_get_last_elem(&d->stack_a);
-//     bottom_b = ps_get_last_elem(&d->stack_b);
-    
+    /* --------------------------------------------------------- */
+    a_in_order = false;
+    b_in_order = false;
+    /* --------------------------------------------------------- */    
+    if ((has_less_than_2_elem(&(d->stack_a))) || (is_in_order(d->stack_a)))
+        return ;
+    /* --------------------------------------------------------- */
 
 
-    // while (f_in_order == false)
-    // {
-    //     while (top_a->val = bottom_a->val)
-    //         rotate_a(d);
+    // si A en ORDRE ET B est VIDE | alors sortir du programme
 
-    //     if ()
-    //         swap_a(d);
-    // }
-// }
+    // BOUCLE-1 (tant que A en DESORDRE) ----------------------------------
+
+        // cas_1: boucle tant que head A > fond A | alors rot(A)
+        // cas_2: boucle tant que head B < fond B | alors rot(B)
+        // si cas_1 et cas_2 | alors rot(2) 
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+
+        // cas_3: si head A > next A | alors swap(A)
+        // cas_4: si head B < next A | alors swap(B)
+        // si cas_3 et cas_4 | alors swap(2) 
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+        
+        // cas_1: boucle tant que head A > fond A | alors rot(A)
+        // cas_2: boucle tant que head B < fond B | alors rot(B)
+        // si cas_1 et cas_2 | alors rot(2) 
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+
+        // PUSH_TO_B 1 fois
+
+        // RETOUR_BOUCLE
+    // --------------------------------------------------------------
+
+    // si A en ORDRE ET B est VIDE | alors sortir du programme   
+
+    // sauvegarde REPERE sur grande piece du fond A
+
+    // tant que sommet A < sommet B (ET que B n'est PAS VIDE)| alors rot(A)
+
+    // BOUCLE (tant que B n'est PAS VIDE) ---------------------------    
+
+        // tant que sommet B > fond A (ET que B n est PAS VIDE)| alors PUSH_TO_A
+
+        // test: si B est vide ET A est en ORDRE | alors sortir boucle
+        // test: si B est vide ET A en DESORDRE | alors sortir + afficher AVERTISSEMENT
+
+        // tant que fond A > sommet B (ET que fond A != REPERE) | alors rev_rot(A)
+        
+        // si fond A = REPERE (ET A en DESORDRE) | alors SORTIR + afficher AVERTISSEMENT
+
+        // RETOUR BOUCLE
+    // --------------------------------------------------------------
+
+
+
+
+}
 
 /* ************************************************************************** */
 
