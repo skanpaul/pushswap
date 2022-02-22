@@ -24,14 +24,20 @@ bool manage_parameter(int argc, char **argv, t_data *d)
 	{
 	    /* --------------------------------------------- */
         if(!is_param_ok(argv[i], i))
+		{
+			printf("Error\n");	
 			return (EXIT_YES);
+		}
 	    /* --------------------------------------------- */
 		val = atoi(argv[i]);
         if (is_duplicated(&d->head_a, val))
         {
             ps_del_list(&d->head_a);
             ps_del_list(&d->head_b);
-            printf("argv[%d]: is duplicated [%d]\n", i, val);
+
+            if (FLAG_INFO)
+				printf("argv[%d]: is duplicated [%d]\n", i, val);
+			printf("Error\n");	
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */

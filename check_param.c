@@ -16,14 +16,16 @@ bool is_param_ok(char *str, int pos)
 {
     if (!is_countable(str))
     {
-        printf("argv[%d]: not countable: [%s]\n", pos, str);
+        if(FLAG_INFO)
+			printf("argv[%d]: not countable: [%s]\n", pos, str);
         // write(2, "", nnnnn);
         // ft_print_error
         return (false);
     }
     if (is_bigger_than_int(str))
     {
-        printf("argv[%d]: bigger than int: [%s]\n", pos, str);
+        if(FLAG_INFO)
+			printf("argv[%d]: bigger than int: [%s]\n", pos, str);
         // write(2, "", nnnnn);
         // ft_print_error
         return (false);

@@ -39,7 +39,7 @@ void	push_to_a(t_data *d)
     b.tail = &(d->tail_b);
     
     push_to(&b, &a);
-	printf("PA\n");
+	printf("pa\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -61,7 +61,7 @@ void	push_to_b(t_data *d)
     b.tail = &(d->tail_b);
     
     push_to(&a, &b);
-	printf("PB\n");
+	printf("pb\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
