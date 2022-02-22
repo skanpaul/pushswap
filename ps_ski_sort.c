@@ -14,11 +14,8 @@
 /* ************************************************************************** */
 void ps_ski_sort(t_data *d)
 {
-	t_ps *tail_ref;
-	bool flag_0_b;  // A EFFACER
-	bool flag_order_a; // A EFFACER
-
-
+	// bool flag_0_b;  // A EFFACER
+	// bool flag_order_a; // A EFFACER
 	/* --------------------------------------------------------- */    
 	if ((has_less_than_2_elem(&(d->head_a))) || (is_in_order(d->head_a)))
 		return ;
@@ -41,7 +38,8 @@ void ps_ski_sort(t_data *d)
 		{
 			// ATTENTION B en ORDRE 	si 	(!)is_in_order(B)
 			// ATTENTION B en DESORDRE 	si 	is_in_order(B)
-			if (is_in_order(d->head_b)) {printf("stack B en DESORDRE\n");} 
+			// if (is_in_order(d->head_b))
+			// 	{printf("stack B en DESORDRE\n");} 
 			break;
 		}
 		// PUSH_TO_B 1 fois
@@ -50,7 +48,7 @@ void ps_ski_sort(t_data *d)
 	// RETOUR BOUCLE-1 ------------------------------------------------
 
 	// sauvegarde REPERE sur grande piece du fond A
-	tail_ref = d->tail_a;
+	d->tail_ref = d->tail_a;
 
 	// ROT_A: tant que
 	//      sommet A < sommet B 
@@ -61,52 +59,74 @@ void ps_ski_sort(t_data *d)
 			&& 
 			(d->head_a->val < d->head_b->val) 
 			&& 
-			(d->head_a != tail_ref)
+			(d->head_a != d->tail_ref)
 		)
 		rotate_a(d);
 
 
-	
-	flag_0_b = has_0_elem_only(&d->head_b);  // A EFFACER
-	flag_order_a = is_in_order(d->head_a); // A EFFACER
-
 	// BOUCLE-3 (tant que B n-est PAS VIDE) ----------------------------------
-	while (!(flag_0_b && flag_order_a))
-	// while ((has_1_elem_or_more(&d->head_b)) || (!is_in_order(d->head_a)))
+	// while (!(has_0_elem_only(&d->head_b) && is_in_order(d->head_a)))
+	while (!(has_0_elem_only(&d->head_b)))
 	{		
-		// SWAP_B: si
-		// 		[B n est PAS VIDE (ET) sommet B < next B]
-		if ((has_2_elem_or_more(&d->head_b)) && (d->head_b->val < d->head_b->next->val))
-			swap_b(d);
+		while (!is_ready_push_a(d))
+		{
+			// SWAP_B: si
+			// 		[B n est PAS VIDE (ET) sommet B < next B]
+			if ((has_2_elem_or_more(&d->head_b)) && (d->head_b->val < d->head_b->next->val))
+				swap_b(d);
 
-		// REV_ROT(A): tant que 
-		//		[fond A != REPERE (ET) B n est PAS VIDE (ET) fond A > sommet B] 
-		//		(OU) 
-		//		[fond A != REPERE (ET) B est VIDE ]
-		if ((d->tail_a != tail_ref) && (
-			((has_1_elem_or_more(&d->head_b)) && (d->tail_a->val > d->head_b->val)				)
-			|| 
-			(has_0_elem_only(&d->head_b))))
-			rev_rot_a(d);
+			// REV_ROT(A): tant que 
+			//		[fond A != REPERE (ET) B n est PAS VIDE (ET) fond A > sommet B] 
+			//		(OU) 
+			//		[fond A != REPERE (ET) B est VIDE ]
+			while ((d->tail_a != d->tail_ref) && (
+				((has_1_elem_or_more(&d->head_b)) && (d->tail_a->val > d->head_b->val)				)
+				|| 
+				(has_0_elem_only(&d->head_b))))
+				rev_rot_a(d);
 
-		// PUSH_TO_A: si
-		//		[B n est PAS VIDE (ET) TAIL_REF != fond A (ET)  sommet B > fond A]
-		//		(OU)
-		//		[B n est PAS VIDE (ET) TAIL_REF = fond A]
-		if((has_1_elem_or_more(&d->head_b)) &&(
-				((d->tail_a != tail_ref) && (d->head_b->val > d->tail_a->val))
-				||
-				(d->tail_a == tail_ref)))
-			push_to_a(d);
+			while(
+				(has_2_elem_or_more(&d->head_a))
+				&&			
+				(has_1_elem_or_more(&d->head_b))				
+				&&
+				(d->head_a != d->tail_ref)
+				&&
+				(d->head_a->val < d->head_b->val)
 
-		flag_0_b = has_0_elem_only(&d->head_b);  // A EFFACER
-		flag_order_a = is_in_order(d->head_a); // A EFFACER
+				)
+				rotate_a(d);
+		}
+
+		push_to_a(d);			
 
 	}	
 	// RETOUR BOUCLE-3 ------------------------------------------------
 
-	// test: si B est vide ET A est en ORDRE | alors sortir boucle
+	// REV_ROT(A): tant que 
+	//		[fond A != REPERE (ET) B n est PAS VIDE (ET) fond A > sommet B] 
+	//		(OU) 
+	//		[fond A != REPERE (ET) B est VIDE ]
+	while ((d->tail_a != d->tail_ref))
+		rev_rot_a(d);
 
+	// ----------------------------------------------------------------
+	if (FLAG_INFO_RES)
+	{
+		if (has_0_elem_only(&d->head_b))
+			printf("B est vide\n");
+		else
+			printf("B est PAS VIDE !!! \n");
+
+		if (is_in_order(d->head_a))
+			printf("A est en ordre\n");
+		else
+			printf("A est EN DESORDRE !!!\n");
+
+		printf("Nombre de commande: %d\n", d->cnt_cmd);
+		printf("Taille de la stack A: %d\n", ps_size(d->head_a));
+
+	}
 }
 
 /* ************************************************************************** */
@@ -149,3 +169,46 @@ void ps_ski_sort(t_data *d)
 
 	// si fond A = REPERE (ET A en DESORDRE) | alors SORTIR + afficher AVERTISSEMENT		
 	// test: si B est vide ET A est en ORDRE | alors sortir boucle
+
+
+
+
+
+
+	// flag_0_b = has_0_elem_only(&d->head_b);  // A EFFACER
+	// flag_order_a = is_in_order(d->head_a); // A EFFACER
+
+	// // BOUCLE-3 (tant que B n-est PAS VIDE) ----------------------------------
+	// while (!(flag_0_b && flag_order_a))
+	// // while ((has_1_elem_or_more(&d->head_b)) || (!is_in_order(d->head_a)))
+	// {		
+	// 	// SWAP_B: si
+	// 	// 		[B n est PAS VIDE (ET) sommet B < next B]
+	// 	if ((has_2_elem_or_more(&d->head_b)) && (d->head_b->val < d->head_b->next->val))
+	// 		swap_b(d);
+
+	// 	// REV_ROT(A): tant que 
+	// 	//		[fond A != REPERE (ET) B n est PAS VIDE (ET) fond A > sommet B] 
+	// 	//		(OU) 
+	// 	//		[fond A != REPERE (ET) B est VIDE ]
+	// 	if ((d->tail_a != d->tail_ref) && (
+	// 		((has_1_elem_or_more(&d->head_b)) && (d->tail_a->val > d->head_b->val)				)
+	// 		|| 
+	// 		(has_0_elem_only(&d->head_b))))
+	// 		rev_rot_a(d);
+
+	// 	// PUSH_TO_A: si
+	// 	//		[B n est PAS VIDE (ET) TAIL_REF != fond A (ET)  sommet B > fond A]
+	// 	//		(OU)
+	// 	//		[B n est PAS VIDE (ET) TAIL_REF = fond A]
+	// 	if((has_1_elem_or_more(&d->head_b)) &&(
+	// 			((d->tail_a != d->tail_ref) && (d->head_b->val > d->tail_a->val))
+	// 			||
+	// 			(d->tail_a == d->tail_ref)))
+	// 		push_to_a(d);
+
+	// 	flag_0_b = has_0_elem_only(&d->head_b);  // A EFFACER
+	// 	flag_order_a = is_in_order(d->head_a); // A EFFACER
+
+	// }	
+	// // RETOUR BOUCLE-3 ------------------------------------------------

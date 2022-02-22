@@ -14,11 +14,14 @@
 /* ************************************************************************** */
 void display(t_data *d)
 {
-    display_2_list(d);
-	printf("\n");
-    display_size(d);
-    display_stack_address(d);
-	printf("-------------------------------------------------------- CMD[%d]\n", d->cnt_cmd);
+    if (FLAG_INFO)
+	{
+		display_2_list(d);
+		printf("\n");
+		display_size(d);
+		display_stack_address(d);
+		printf("-------------------------------------------------------- CMD[%d]\n", d->cnt_cmd);
+	}
     return ;
 }
 

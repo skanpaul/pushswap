@@ -21,6 +21,9 @@
 # define EXIT_YES	1
 # define EXIT_NO	0
 /* ************************************************************************** */
+# define FLAG_INFO	0
+# define FLAG_INFO_RES	1
+/* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_stk t_stk;
 typedef struct s_ps t_ps;
@@ -28,16 +31,19 @@ typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
 typedef struct s_data
 {
+	/* ---------------- */
 	t_ps	*head_a;
 	t_ps	*tail_a;
 	int		size_a;
-
+	/* ---------------- */
 	t_ps	*head_b;
 	t_ps	*tail_b;
 	int		size_b;
-
+	/* ---------------- */
 	t_ps	*stk_cmd;
 	int		cnt_cmd;
+	/* ---------------- */
+	t_ps	*tail_ref;
 
 } t_data;
 /* ************************************************************************** */
