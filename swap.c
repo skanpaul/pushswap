@@ -41,7 +41,7 @@ void swap(t_ps **stack, t_ps **stack_tail)
 /* ************************************************************************** */
 void	swap_a(t_data *d)
 {
-    swap(&d->stack_a, &d->stack_a_tail);
+    swap(&d->head_a, &d->tail_a);
     printf("SA\n");
     return ;
 }
@@ -49,7 +49,7 @@ void	swap_a(t_data *d)
 /* ************************************************************************** */
 void	swap_b(t_data *d)
 {
-    swap(&d->stack_b, &d->stack_b_tail);
+    swap(&d->head_b, &d->tail_b);
     printf("SB\n");
     return ;
 }
@@ -57,8 +57,8 @@ void	swap_b(t_data *d)
 /* ************************************************************************** */
 void	swap_2(t_data *d)
 {
-    swap(&d->stack_a, &d->stack_a_tail);
-    swap(&d->stack_b, &d->stack_b_tail);
+    swap(&d->head_a, &d->tail_a);
+    swap(&d->head_b, &d->tail_b);
     printf("SS\n");
     return ;
 }

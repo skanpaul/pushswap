@@ -33,10 +33,10 @@ void	push_to_a(t_data *d)
     t_stk a;
     t_stk b;
 
-    a.head = &(d->stack_a);
-    a.tail = &(d->stack_a_tail);
-    b.head = &(d->stack_b);
-    b.tail = &(d->stack_b_tail);
+    a.head = &(d->head_a);
+    a.tail = &(d->tail_a);
+    b.head = &(d->head_b);
+    b.tail = &(d->tail_b);
     
     push_to(&b, &a);
 	printf("PA\n");
@@ -53,10 +53,10 @@ void	push_to_b(t_data *d)
     t_stk a;
     t_stk b;
 
-    a.head = &(d->stack_a);
-    a.tail = &(d->stack_a_tail);
-    b.head = &(d->stack_b);
-    b.tail = &(d->stack_b_tail);
+    a.head = &(d->head_a);
+    a.tail = &(d->tail_a);
+    b.head = &(d->head_b);
+    b.tail = &(d->tail_b);
     
     push_to(&a, &b);
 	printf("PB\n");
@@ -82,7 +82,7 @@ void	push_to_b(t_data *d)
 //     if (!top_elem_src)
 //         return ;
 
-//     // soustrait top_elem_a de stack_a
+//     // soustrait top_elem_a de head_a
 //     sec_elem_src = top_elem_src->next;
 //     *stack_src = sec_elem_src;
 //     if(sec_elem_src != NULL)
@@ -103,7 +103,7 @@ void	push_to_b(t_data *d)
 // /* ************************************************************************** */
 // void	push_to_a(t_data *d)
 // {
-//     push_to(&d->stack_b, &d->stack_a);
+//     push_to(&d->head_b, &d->head_a);
 // 	printf("PA\n");
 //     return ;
 // }
@@ -115,7 +115,7 @@ void	push_to_b(t_data *d)
 // /* ************************************************************************** */
 // void	push_to_b(t_data *d)
 // {
-//     push_to(&d->stack_a, &d->stack_b);
+//     push_to(&d->head_a, &d->head_b);
 // 	printf("PB\n");
 //     return ;
 // }

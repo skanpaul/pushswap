@@ -39,12 +39,9 @@ int main (int argc, char **argv)
 	display(&d);
 	/* --------------------------- */
 
-
-
-
 	/* ********************************************* */
-	ps_del_list(&d.stack_a);
-	ps_del_list(&d.stack_b);
+	ps_del_list(&d.head_a);
+	ps_del_list(&d.head_b);
 	return 0;
 }
 
@@ -52,31 +49,31 @@ int main (int argc, char **argv)
 
 
 	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.stack_a);
-	// d.size_b = ps_size(d.stack_b);
+	// d.size_a = ps_size(d.head_a);
+	// d.size_b = ps_size(d.head_b);
 	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 
 	// push_to_b(&d);
 	// push_to_b(&d);
 	// push_to_b(&d);
 	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.stack_a);
-	// d.size_b = ps_size(d.stack_b);
+	// d.size_a = ps_size(d.head_a);
+	// d.size_b = ps_size(d.head_b);
 	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 
 	// swap_2(&d);
 	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.stack_a);
-	// d.size_b = ps_size(d.stack_b);
+	// d.size_a = ps_size(d.head_a);
+	// d.size_b = ps_size(d.head_b);
 	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 	
 	// push_to_b(&d);
 	// push_to_b(&d);
 	// push_to_a(&d);
 	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.stack_a);
-	// d.size_b = ps_size(d.stack_b);
+	// d.size_a = ps_size(d.head_a);
+	// d.size_b = ps_size(d.head_b);
 	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
 	
-	// ps_del_list(d.stack_a);
-	// ps_del_list(d.stack_b);
+	// ps_del_list(d.head_a);
+	// ps_del_list(d.head_b);

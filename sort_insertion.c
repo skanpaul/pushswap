@@ -22,12 +22,12 @@
 // 	t_ps	*temp_next;
 // 	t_ps	*top_elem;
 
-// 	top_elem = d->stack_a;
+// 	top_elem = d->head_a;
 
 // 	if ((top_elem == NULL) || (top_elem->next == NULL))
 // 		return ;
 
-// 	temp = d->stack_a
+// 	temp = d->head_a
 
 // 	return ;
 // }

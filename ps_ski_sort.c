@@ -21,12 +21,45 @@ void ps_ski_sort(t_data *d)
     a_in_order = false;
     b_in_order = false;
     /* --------------------------------------------------------- */    
-    if ((has_less_than_2_elem(&(d->stack_a))) || (is_in_order(d->stack_a)))
+    if ((has_less_than_2_elem(&(d->head_a))) || (is_in_order(d->head_a)))
         return ;
     /* --------------------------------------------------------- */
 
-
     // si A en ORDRE ET B est VIDE | alors sortir du programme
+
+    // BOUCLE-1 (tant que A en DESORDRE) ----------------------------------
+    while(!is_in_order(d->head_a))
+    {
+        // faire ROTATION autant que necessaire
+        // do_rotation(d);
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+        
+        // faire SWAP si necessaire
+        // do_swap(d);
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+        
+        // cas_1: boucle tant que head A > fond A | alors rot(A)
+        // cas_2: boucle tant que head B < fond B | alors rot(B)
+        // si cas_1 et cas_2 | alors rot(2) 
+
+        // test: si A en ordre | alors flag A = true ET sortir boucle
+        // test: si A en ordre ET B en DESORDRE | alors afficher AVERTISSEMENT
+
+        // PUSH_TO_B 1 fois
+
+        // RETOUR_BOUCLE
+    }
+    // --------------------------------------------------------------
+}
+
+
+
+
+ // si A en ORDRE ET B est VIDE | alors sortir du programme
 
     // BOUCLE-1 (tant que A en DESORDRE) ----------------------------------
 
@@ -74,27 +107,3 @@ void ps_ski_sort(t_data *d)
 
         // RETOUR BOUCLE
     // --------------------------------------------------------------
-
-
-
-
-}
-
-/* ************************************************************************** */
-
-//     rotate_b(d);
-//     rotate_2(d);
-
-//     swap_b(d);
-//     swap_2(d);
-
-//     rev_rot_a(d);
-//     rev_rot_b(d);
-//     rev_rot_2(d);
-
-//     push_to_a(d);
-//     push_to_b(d);
-
-
-
-

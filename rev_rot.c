@@ -34,7 +34,7 @@ void rev_rot(t_ps **stack, t_ps **stack_bottom)
 /* ************************************************************************** */
 void	rev_rot_a(t_data *d)
 {
-    rev_rot(&d->stack_a, &d->stack_a_tail);    
+    rev_rot(&d->head_a, &d->tail_a);    
 	printf("RRA\n");
     return ;
 }
@@ -42,7 +42,7 @@ void	rev_rot_a(t_data *d)
 /* ************************************************************************** */
 void	rev_rot_b(t_data *d)
 {
-    rev_rot(&d->stack_b, &d->stack_b_tail);
+    rev_rot(&d->head_b, &d->tail_b);
 	printf("RRB\n");
     return ;
 }
@@ -50,8 +50,8 @@ void	rev_rot_b(t_data *d)
 /* ************************************************************************** */
 void	rev_rot_2(t_data *d)
 {
-    rev_rot(&d->stack_a, &d->stack_a_tail);    
-    rev_rot(&d->stack_b, &d->stack_b_tail);
+    rev_rot(&d->head_a, &d->tail_a);    
+    rev_rot(&d->head_b, &d->tail_b);
 	printf("RRR\n");
     return ;
 }
@@ -96,7 +96,7 @@ void	rev_rot_2(t_data *d)
 // /* ************************************************************************** */
 // void	rev_rot_a(t_data *d)
 // {
-//     rev_rot(&d->stack_a);    
+//     rev_rot(&d->head_a);    
 // 	printf("RRA\n");
 //     return ;
 // }
@@ -104,7 +104,7 @@ void	rev_rot_2(t_data *d)
 // /* ************************************************************************** */
 // void	rev_rot_b(t_data *d)
 // {
-//     rev_rot(&d->stack_b);
+//     rev_rot(&d->head_b);
 // 	printf("RRB\n");
 //     return ;
 // }
@@ -112,8 +112,8 @@ void	rev_rot_2(t_data *d)
 // /* ************************************************************************** */
 // void	rev_rot_2(t_data *d)
 // {
-//     rev_rot(&d->stack_a);
-//     rev_rot(&d->stack_b);
+//     rev_rot(&d->head_a);
+//     rev_rot(&d->head_b);
 // 	printf("RRR\n");
 //     return ;
 // }

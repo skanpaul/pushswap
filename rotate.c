@@ -34,22 +34,22 @@ void rotate(t_ps **stack, t_ps **stack_bottom)
 /* ************************************************************************** */
 void	rotate_a(t_data *d)
 {
-	rotate(&d->stack_a, &d->stack_a_tail);
+	rotate(&d->head_a, &d->tail_a);
 	printf("RA\n");
 	return ;
 }
 /* ************************************************************************** */
 void	rotate_b(t_data *d)
 {
-	rotate(&d->stack_b, &d->stack_b_tail);
+	rotate(&d->head_b, &d->tail_b);
 	printf("RB\n");
 	return ;
 }
 /* ************************************************************************** */
 void	rotate_2(t_data *d)
 {
-	rotate(&d->stack_a, &d->stack_a_tail);
-	rotate(&d->stack_b, &d->stack_b_tail);
+	rotate(&d->head_a, &d->tail_a);
+	rotate(&d->head_b, &d->tail_b);
 	printf("RR\n");
 	return ;
 }
@@ -94,22 +94,22 @@ void	rotate_2(t_data *d)
 // /* ************************************************************************** */
 // void	rotate_a(t_data *d)
 // {
-// 	rotate(&d->stack_a);
+// 	rotate(&d->head_a);
 // 	printf("RA\n");
 // 	return ;
 // }
 // /* ************************************************************************** */
 // void	rotate_b(t_data *d)
 // {
-// 	rotate(&d->stack_b);
+// 	rotate(&d->head_b);
 // 	printf("RB\n");
 // 	return ;
 // }
 // /* ************************************************************************** */
 // void	rotate_2(t_data *d)
 // {
-// 	rotate(&d->stack_a);
-// 	rotate(&d->stack_b);
+// 	rotate(&d->head_a);
+// 	rotate(&d->head_b);
 // 	printf("RR\n");
 // 	return ;
 // }

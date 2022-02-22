@@ -28,16 +28,15 @@ typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
 typedef struct s_data
 {
-	t_ps	*stack_a;
-	t_ps	*stack_a_tail;
-	t_ps	*stack_b;
-	t_ps	*stack_b_tail;
-	t_ps	*stk_cmd;
+	t_ps	*head_a;
+	t_ps	*tail_a;
 	int		size_a;
+
+	t_ps	*head_b;
+	t_ps	*tail_b;
 	int		size_b;
-	/* ---------------------------- */
-	// t_stk	*a;
-	// t_stk	*b;
+
+	t_ps	*stk_cmd;
 
 } t_data;
 /* ************************************************************************** */
@@ -70,6 +69,10 @@ t_ps	*sort_insertion(t_ps *stack);
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
+void	ps_ski_sort(t_data *d);
+void	do_rot_and_swap(t_data *d);
+void	do_rotation(t_data *d);
+void	do_swap(t_data *d);
 /* ---------------------------------------- */
 long	ft_atoil(const char *str);
 /* ---------------------------------------- */

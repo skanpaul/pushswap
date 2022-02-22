@@ -27,15 +27,15 @@ bool manage_parameter(int argc, char **argv, t_data *d)
 			return (EXIT_YES);
 	    /* --------------------------------------------- */
 		val = atoi(argv[i]);
-        if (is_duplicated(&d->stack_a, val))
+        if (is_duplicated(&d->head_a, val))
         {
-            ps_del_list(&d->stack_a);
-            ps_del_list(&d->stack_b);
+            ps_del_list(&d->head_a);
+            ps_del_list(&d->head_b);
             printf("argv[%d]: is duplicated [%d]\n", i, val);
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */
-		ps_new_elem_at_bottom(val, &d->stack_a, &d->stack_a_tail);
+		ps_new_elem_at_bottom(val, &d->head_a, &d->tail_a);
 		i++;
 	}     
     return (EXIT_NO);
