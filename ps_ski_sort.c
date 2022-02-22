@@ -67,9 +67,8 @@ void ps_ski_sort(t_data *d)
         // tant que sommet B > fond A (ET que B n est PAS VIDE)| alors PUSH_TO_A
 
         // test: si B est vide ET A est en ORDRE | alors sortir boucle
-        // test: si B est vide ET A en DESORDRE | alors sortir + afficher AVERTISSEMENT
 
-        // tant que fond A > sommet B (ET que fond A != REPERE) | alors rev_rot(A)
+        // tant que (fond A > sommet B OU B est VIDE) ET (fond A != REPERE) | alors rev_rot(A)
         
         // si fond A = REPERE (ET A en DESORDRE) | alors SORTIR + afficher AVERTISSEMENT
 
