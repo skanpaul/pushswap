@@ -37,6 +37,7 @@ typedef struct s_data
 	int		size_b;
 
 	t_ps	*stk_cmd;
+	int		cnt_cmd;
 
 } t_data;
 /* ************************************************************************** */
@@ -70,9 +71,10 @@ t_ps	*sort_insertion(t_ps *stack);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 void	ps_ski_sort(t_data *d);
-void	do_rot_and_swap(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
+bool	is_ready_push_b(t_data *d);
+bool    is_ready_push_a(t_data *d);
 /* ---------------------------------------- */
 long	ft_atoil(const char *str);
 /* ---------------------------------------- */

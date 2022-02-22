@@ -18,7 +18,7 @@ void display(t_data *d)
 	printf("\n");
     display_size(d);
     display_stack_address(d);
-	printf("-----------------------------------------------------\n");
+	printf("-------------------------------------------------------- CMD[%d]\n", d->cnt_cmd);
     return ;
 }
 

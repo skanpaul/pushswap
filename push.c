@@ -40,6 +40,8 @@ void	push_to_a(t_data *d)
     
     push_to(&b, &a);
 	printf("PA\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
@@ -60,6 +62,8 @@ void	push_to_b(t_data *d)
     
     push_to(&a, &b);
 	printf("PB\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 

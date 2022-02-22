@@ -8,5 +8,7 @@
 	"explorer.sortOrder": "type",
 	"files.associations": {
 		"push_swap.h": "c"
-	},
+    },
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
 }

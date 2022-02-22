@@ -43,6 +43,8 @@ void	swap_a(t_data *d)
 {
     swap(&d->head_a, &d->tail_a);
     printf("SA\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
@@ -51,6 +53,8 @@ void	swap_b(t_data *d)
 {
     swap(&d->head_b, &d->tail_b);
     printf("SB\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
@@ -60,6 +64,8 @@ void	swap_2(t_data *d)
     swap(&d->head_a, &d->tail_a);
     swap(&d->head_b, &d->tail_b);
     printf("SS\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 

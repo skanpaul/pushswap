@@ -12,31 +12,44 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
+// cas_3: si head A > next A | alors swap(A)
+// cas_4: si head B < next b | alors swap(B)
+// si cas_3 et cas_4 | alors swap(2) 
 /* ************************************************************************** */
-// void do_swap(t_data *d)
-// {
-//     t_ps **head_a;
-//     t_ps **tail_a;
-//     t_ps **head_b;
-//     t_ps **tail_b;
+void do_swap(t_data *d)
+{
+    while (
+			(
+				(has_2_elem_or_more(&d->head_a))
+				&&
+				(d->head_a->val > d->head_a->next->val)
+			)
+        	||
+			(
+				(has_2_elem_or_more(&d->head_b))
+				&&
+				(d->head_b->val < d->head_b->next->val)
+			)	
+		)
+    {
+        if (
+			(has_2_elem_or_more(&d->head_a))
+			&&
+			(has_2_elem_or_more(&d->head_b))
+			&&
+			(d->head_a->val > d->head_a->next->val) 
+        	&& 
+			(d->head_b->val < d->head_b->next->val)
+			)
+            swap_2(d);
 
-//     head_a = &d->stack_a;
-//     tail_a = &d->stack_a_tail;
-//     head_b = &d->stack_b;
-//     tail_b = &d->stack_b_tail;
+        if ((has_2_elem_or_more(&d->head_a))
+			&& (d->head_a->val > d->head_a->next->val))
+            swap_a(d);
 
-// // cas_3: si head A > next A | alors swap(A)
-// // cas_4: si head B < next b | alors swap(B)
-// // si cas_3 et cas_4 | alors swap(2) 
-//     while (((*head_a)->val > (*tail_a)->val) 
-//         || ((*head_b)->val < (*tail_b)->val))
-//     {
-//         if (((*head_a)->val > (*tail_a)->val) 
-//             && ((*head_b)->val < (*tail_b)->val))
-//             rotate_2(d);
-//         if ((*head_a)->val > (*tail_a)->val)
-//             rotate_a(d);
-//         if ((*head_b)->val < (*tail_b)->val)
-//             rotate_b(d);
-//     }
-// }
+        if ((has_2_elem_or_more(&d->head_b))
+			&& (d->head_b->val < d->head_b->next->val))
+            swap_b(d);        
+    }
+}
+/* ************************************************************************** */

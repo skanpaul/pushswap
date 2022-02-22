@@ -36,6 +36,8 @@ void	rotate_a(t_data *d)
 {
 	rotate(&d->head_a, &d->tail_a);
 	printf("RA\n");
+	d->cnt_cmd++;
+	display(d);
 	return ;
 }
 /* ************************************************************************** */
@@ -43,6 +45,8 @@ void	rotate_b(t_data *d)
 {
 	rotate(&d->head_b, &d->tail_b);
 	printf("RB\n");
+	d->cnt_cmd++;
+	display(d);
 	return ;
 }
 /* ************************************************************************** */
@@ -51,6 +55,8 @@ void	rotate_2(t_data *d)
 	rotate(&d->head_a, &d->tail_a);
 	rotate(&d->head_b, &d->tail_b);
 	printf("RR\n");
+	d->cnt_cmd++;
+	display(d);
 	return ;
 }
 

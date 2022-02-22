@@ -36,6 +36,8 @@ void	rev_rot_a(t_data *d)
 {
     rev_rot(&d->head_a, &d->tail_a);    
 	printf("RRA\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
@@ -44,6 +46,8 @@ void	rev_rot_b(t_data *d)
 {
     rev_rot(&d->head_b, &d->tail_b);
 	printf("RRB\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
@@ -53,6 +57,8 @@ void	rev_rot_2(t_data *d)
     rev_rot(&d->head_a, &d->tail_a);    
     rev_rot(&d->head_b, &d->tail_b);
 	printf("RRR\n");
+	d->cnt_cmd++;
+	display(d);
     return ;
 }
 
