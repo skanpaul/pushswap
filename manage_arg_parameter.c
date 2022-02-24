@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_parameter.c                                 :+:      :+:    :+:   */
+/*   manage_arg_parameter.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,35 +12,43 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool manage_parameter(int argc, char **argv, t_data *d)
+bool manage_arg_parameter(char **argv, t_data *d)
 {
     int i;
-	int val;    
+	int val;
+	int split_c;
+	char **split_v;
 
-	i = 1;
-    while (i < argc)
+	split_v = ft_split(argv[1], ' ');
+	split_c = ft_split_count(split_v);
+
+	i = 0;
+    while (i < split_c)
 	{
 	    /* --------------------------------------------- */
-        if(!is_param_ok(argv[i], i))
+        if(!is_param_ok(split_v[i], i))
 		{
 			printf("Error\n");	
+			ft_split_free(split_v);
 			return (EXIT_YES);
 		}
 	    /* --------------------------------------------- */
-		val = atoi(argv[i]);
+		val = atoi(split_v[i]);
         if (is_duplicated(&d->head_a, val))
         {
             ps_del_list(&d->head_a);
             ps_del_list(&d->head_b);
 
             if (FLAG_INFO)
-				printf("argv[%d]: is duplicated [%d]\n", i, val);
-			printf("Error\n");	
+				printf("split_v[%d]: is duplicated [%d]\n", i, val);
+			printf("Error\n");
+			ft_split_free(split_v);	
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */
 		ps_new_elem_at_bottom(val, &d->head_a, &d->tail_a);
 		i++;
-	}     
+	}
+	ft_split_free(split_v);    
     return (EXIT_NO);
 }

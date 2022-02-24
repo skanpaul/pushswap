@@ -26,9 +26,18 @@ int main (int argc, char **argv)
 	if (argc == 1)
 		return 0;
 	/* SAVE PARAMETERS ----------------------------- */
-	flag_exit = manage_parameter(argc, argv, &d);
-	if (flag_exit == EXIT_YES)
-		return (EXIT_YES);
+	if (argc == 2)
+	{
+		flag_exit = manage_arg_parameter(argv, &d);
+		if (flag_exit == EXIT_YES)
+			return (EXIT_YES);
+	}
+	else
+	{
+		flag_exit = manage_parameter(argc, argv, &d);
+		if (flag_exit == EXIT_YES)
+			return (EXIT_YES);
+	}
 
 	/* ********************************************* */
 

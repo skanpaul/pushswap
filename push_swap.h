@@ -13,7 +13,7 @@
 # define PUSH_SWAP_H
 /* ************************************************************************** */
 # include <ctype.h>
-// # include "libft.h"
+# include "libft.h"
 # include "stdio.h"
 # include "stdlib.h"
 # include "stdbool.h"
@@ -21,7 +21,7 @@
 # define EXIT_YES	1
 # define EXIT_NO	0
 /* ************************************************************************** */
-# define FLAG_INFO	0
+# define FLAG_INFO	1
 # define FLAG_INFO_RES	1
 /* ************************************************************************** */
 typedef struct s_data t_data;
@@ -76,6 +76,7 @@ t_ps	*sort_insertion(t_ps *stack);
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
+bool	manage_arg_parameter(char **argv, t_data *d);
 void	ps_ski_sort(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);

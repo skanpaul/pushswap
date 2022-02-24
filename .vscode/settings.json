@@ -3,7 +3,7 @@
 		"checker*": true, 
 		"annexe": true,
 		"*.o": true,
-		"libft.*": true
+		"libft.*": false
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {
