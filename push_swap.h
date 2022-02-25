@@ -141,4 +141,8 @@ void	rev_rot_a(t_data *d);
 void	rev_rot_b(t_data *d);
 void	rev_rot_2(t_data *d);
 /* ************************************************************************** */
+void	printf_red();
+void	printf_yellow();
+void	printf_reset();
+/* ************************************************************************** */
 #endif

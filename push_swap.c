@@ -19,6 +19,14 @@ int main (int argc, char **argv)
 
 	bool	flag_exit;
 
+	printf_red();
+	printf("red\n");
+	printf_yellow();
+	printf("yellow\n");
+	printf_reset();
+	printf("reset\n");
+
+
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);
