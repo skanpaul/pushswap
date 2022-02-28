@@ -20,35 +20,35 @@ void do_swap(t_data *d)
 {
     while (
 			(
-				(has_2_elem_or_more(&d->head_a))
+				(has_2_elem_or_more(&d->a.head))
 				&&
-				(d->head_a->val > d->head_a->next->val)
+				(d->a.head->val > d->a.head->next->val)
 			)
         	||
 			(
-				(has_2_elem_or_more(&d->head_b))
+				(has_2_elem_or_more(&d->b.head))
 				&&
-				(d->head_b->val < d->head_b->next->val)
+				(d->b.head->val < d->b.head->next->val)
 			)	
 		)
     {
         if (
-			(has_2_elem_or_more(&d->head_a))
+			(has_2_elem_or_more(&d->a.head))
 			&&
-			(has_2_elem_or_more(&d->head_b))
+			(has_2_elem_or_more(&d->b.head))
 			&&
-			(d->head_a->val > d->head_a->next->val) 
+			(d->a.head->val > d->a.head->next->val) 
         	&& 
-			(d->head_b->val < d->head_b->next->val)
+			(d->b.head->val < d->b.head->next->val)
 			)
             swap_2(d);
 
-        if ((has_2_elem_or_more(&d->head_a))
-			&& (d->head_a->val > d->head_a->next->val))
+        if ((has_2_elem_or_more(&d->a.head))
+			&& (d->a.head->val > d->a.head->next->val))
             swap_a(d);
 
-        if ((has_2_elem_or_more(&d->head_b))
-			&& (d->head_b->val < d->head_b->next->val))
+        if ((has_2_elem_or_more(&d->b.head))
+			&& (d->b.head->val < d->b.head->next->val))
             swap_b(d);        
     }
 }

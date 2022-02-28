@@ -16,9 +16,9 @@ void	push_to(t_stk *src, t_stk *dst)
 {
     t_ps *elem_extracted;
 
-    elem_extracted = ps_rem_elem_from_top(src->head, src->tail);
+    elem_extracted = ps_rem_elem_from_top(&src->head, &src->tail);
     
-    ps_add_elem_to_top(elem_extracted, dst->head, dst->tail);
+    ps_add_elem_to_top(elem_extracted, &dst->head, &dst->tail);
     
     return ;
 }
@@ -30,15 +30,15 @@ void	push_to(t_stk *src, t_stk *dst)
 /* ************************************************************************** */
 void	push_to_a(t_data *d)
 {
-    t_stk a;
-    t_stk b;
+    // t_stk a;
+    // t_stk b;
 
-    a.head = &(d->head_a);
-    a.tail = &(d->tail_a);
-    b.head = &(d->head_b);
-    b.tail = &(d->tail_b);
+    // a.head = &(d->a.head);
+    // a.tail = &(d->a.tail);
+    // b.head = &(d->b.head);
+    // b.tail = &(d->b.tail);
     
-    push_to(&b, &a);
+    push_to(&d->b, &d->a);
 	printf("pa\n");
 	d->cnt_cmd++;
 	display(d);
@@ -52,15 +52,15 @@ void	push_to_a(t_data *d)
 /* ************************************************************************** */
 void	push_to_b(t_data *d)
 {
-    t_stk a;
-    t_stk b;
+    // t_stk a;
+    // t_stk b;
 
-    a.head = &(d->head_a);
-    a.tail = &(d->tail_a);
-    b.head = &(d->head_b);
-    b.tail = &(d->tail_b);
+    // a.head = &(d->a.head);
+    // a.tail = &(d->a.tail);
+    // b.head = &(d->b.head);
+    // b.tail = &(d->b.tail);
     
-    push_to(&a, &b);
+    push_to(&d->a, &d->b);
 	printf("pb\n");
 	d->cnt_cmd++;
 	display(d);

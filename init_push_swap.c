@@ -16,13 +16,19 @@ void init_push_swap(t_data *d)
 {
     
     /* ---------------------------- */
-    d->head_a = NULL;
-    d->tail_a = NULL;
-    d->size_a = 0;
+    // d->head_a = NULL;
+    // d->tail_a = NULL;
+    // d->size_a = 0;
+	d->a.head = NULL;
+	d->a.tail = NULL;
+	d->a.size = 0;
     /* ---------------------------- */
-    d->head_b = NULL;
-    d->tail_b = NULL;   
-    d->size_b = 0;
+    // d->head_b = NULL;
+    // d->tail_b = NULL;   
+    // d->size_b = 0;
+	d->b.head = NULL;
+	d->b.tail = NULL;
+	d->b.size = 0;
     /* ---------------------------- */
 	d->cnt_cmd = 0;
     return ;

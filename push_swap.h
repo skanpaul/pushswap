@@ -29,27 +29,48 @@ typedef struct s_stk t_stk;
 typedef struct s_ps t_ps;
 typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
+typedef struct s_stk
+{
+	/* ---------------- */
+	// t_ps	**head;
+	// t_ps	**tail;
+	// int		size;
+	/* ---------------- */
+	t_ps	*head;
+	t_ps	*tail;
+	int		size;
+	/* ---------------- */
+}	t_stk;
+/* ************************************************************************** */
 typedef struct s_data
 {
 	/* ---------------- */
-	t_ps	*head_a;
-	t_ps	*tail_a;
-	int		size_a;
+	t_stk	a;
+	t_stk	b;
 	/* ---------------- */
-	t_ps	*head_b;
-	t_ps	*tail_b;
-	int		size_b;
+	t_ps	*pivot;
+	t_ps	*bigger;
+	t_ps	*smaller;
 	/* ---------------- */
 	t_ps	*stk_cmd;
 	int		cnt_cmd;
 	/* ---------------- */
 	t_ps	*tail_ref;
+	/* ---------------- */
+	// t_ps	*head_a;
+	// t_ps	*tail_a;
+	// int		size_a;
+	/* ---------------- */
+	// t_ps	*head_b;
+	// t_ps	*tail_b;
+	// int		size_b;
 
 } t_data;
 /* ************************************************************************** */
 typedef struct s_ps
 {
 	int			val;
+	int			stack;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -63,14 +84,10 @@ typedef struct s_cmd
 	struct s_cmd	*next;
 }	t_cmd;
 /* ************************************************************************** */
-typedef struct s_stk
-{
-	t_ps	**head;
-	t_ps	**tail;
-	int		size;
-}	t_stk;
-/* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
+/* ---------------------------------------- */
+void	quick_sort(t_data *d);
+
 
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);

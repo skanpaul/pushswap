@@ -20,35 +20,35 @@ void do_rotation(t_data* d)
 {
 	while (
 			(
-				(has_2_elem_or_more(&d->head_a))
+				(has_2_elem_or_more(&d->a.head))
 				&&
-				(d->head_a->val > d->tail_a->val)
+				(d->a.head->val > d->a.tail->val)
 			)
 			||
 			(
-				(has_2_elem_or_more(&d->head_b))
+				(has_2_elem_or_more(&d->b.head))
 				&&
-				(d->head_b->val < d->tail_b->val)
+				(d->b.head->val < d->b.tail->val)
 			)
 		)
 	{
 		if (
-			(has_2_elem_or_more(&d->head_a))
+			(has_2_elem_or_more(&d->a.head))
 			&&
-			(has_2_elem_or_more(&d->head_b))
+			(has_2_elem_or_more(&d->b.head))
 			&&
-			(d->head_a->val > d->tail_a->val)
+			(d->a.head->val > d->a.tail->val)
 			&&
-			(d->head_b->val < d->tail_b->val)
+			(d->b.head->val < d->b.tail->val)
 			)
 			rotate_2(d);
 
-		if ((has_2_elem_or_more(&d->head_a))
-			&& (d->head_a->val > d->tail_a->val))
+		if ((has_2_elem_or_more(&d->a.head))
+			&& (d->a.head->val > d->a.tail->val))
 			rotate_a(d);
 
-		if ((has_2_elem_or_more(&d->head_b))
-			&& (d->head_b->val < d->tail_b->val))
+		if ((has_2_elem_or_more(&d->b.head))
+			&& (d->b.head->val < d->b.tail->val))
 			rotate_b(d);
 	}
 }
@@ -56,17 +56,17 @@ void do_rotation(t_data* d)
 
 // void do_rotation(t_data *d)
 // {
-//     while ((d->head_a->val > d->tail_a->val) 
-//         || (d->head_b->val < d->tail_b->val))
+//     while ((d->a.head->val > d->a.tail->val) 
+//         || (d->b.head->val < d->b.tail->val))
 //     {
-//         if ((d->head_a->val > d->tail_a->val) 
-//             && (d->head_b->val < d->tail_b->val))
+//         if ((d->a.head->val > d->a.tail->val) 
+//             && (d->b.head->val < d->b.tail->val))
 //             rotate_2(d);
 
-//         if (d->head_a->val > d->tail_a->val)
+//         if (d->a.head->val > d->a.tail->val)
 //             rotate_a(d);
 
-//         if (d->head_b->val < d->tail_b->val)
+//         if (d->b.head->val < d->b.tail->val)
 //             rotate_b(d);
 //     }
 // }

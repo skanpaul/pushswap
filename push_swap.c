@@ -16,16 +16,7 @@
 int main (int argc, char **argv)
 {
 	t_data	d; // data
-
 	bool	flag_exit;
-
-	printf_red();
-	printf("red\n");
-	printf_yellow();
-	printf("yellow\n");
-	printf_reset();
-	printf("reset\n");
-
 
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
@@ -52,13 +43,14 @@ int main (int argc, char **argv)
 	display(&d);
 	/* --------------------------- */
 	
-    ps_ski_sort(&d);
+	// quick_sort(&d);
+	ps_ski_sort(&d);
 	// display(&d);
 	/* --------------------------- */
 
 	/* ********************************************* */
-	ps_del_list(&d.head_a);
-	ps_del_list(&d.head_b);
+	ps_del_list(&d.a.head);
+	ps_del_list(&d.b.head);
 	return 0;
 }
 

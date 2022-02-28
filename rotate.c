@@ -34,7 +34,7 @@ void rotate(t_ps **stack, t_ps **stack_bottom)
 /* ************************************************************************** */
 void	rotate_a(t_data *d)
 {
-	rotate(&d->head_a, &d->tail_a);
+	rotate(&d->a.head, &d->a.tail);
 	printf("ra\n");
 	d->cnt_cmd++;
 	display(d);
@@ -43,7 +43,7 @@ void	rotate_a(t_data *d)
 /* ************************************************************************** */
 void	rotate_b(t_data *d)
 {
-	rotate(&d->head_b, &d->tail_b);
+	rotate(&d->b.head, &d->b.tail);
 	printf("rb\n");
 	d->cnt_cmd++;
 	display(d);
@@ -52,8 +52,8 @@ void	rotate_b(t_data *d)
 /* ************************************************************************** */
 void	rotate_2(t_data *d)
 {
-	rotate(&d->head_a, &d->tail_a);
-	rotate(&d->head_b, &d->tail_b);
+	rotate(&d->a.head, &d->a.tail);
+	rotate(&d->b.head, &d->b.tail);
 	printf("rr\n");
 	d->cnt_cmd++;
 	display(d);

@@ -14,25 +14,25 @@
 /* ************************************************************************** */
 bool is_ready_push_a(t_data *d)
 {
-	if ((has_1_elem_or_more(&d->head_a))
-		&& (has_2_elem_or_more(&d->head_b)) 
-		&& (d->head_b->val < d->head_b->next->val))
+	if ((has_1_elem_or_more(&d->a.head))
+		&& (has_2_elem_or_more(&d->b.head)) 
+		&& (d->b.head->val < d->b.head->next->val))
 		return (false);
 
-	if ((has_1_elem_or_more(&d->head_a))
-		&& (has_1_elem_or_more(&d->head_b))
-		&& (d->head_a->val < d->head_b->val)
+	if ((has_1_elem_or_more(&d->a.head))
+		&& (has_1_elem_or_more(&d->b.head))
+		&& (d->a.head->val < d->b.head->val)
 		)
 		return (false);
 	
 	if (
-		has_1_elem_or_more(&d->head_a)
+		has_1_elem_or_more(&d->a.head)
 		&&
-		has_1_elem_or_more(&d->head_b)
+		has_1_elem_or_more(&d->b.head)
 		&&
-		(d->tail_ref != d->tail_a) 
+		(d->tail_ref != d->a.tail) 
 		&& 
-		(d->head_b->val < d->tail_a->val))
+		(d->b.head->val < d->a.tail->val))
 		return (false);
 
 
@@ -42,8 +42,8 @@ bool is_ready_push_a(t_data *d)
 // /* ************************************************************************** */
 
 
-		// if((has_1_elem_or_more(&d->head_b)) &&(
-		// 		((d->tail_a != tail_ref) && (d->head_b->val > d->tail_a->val))
+		// if((has_1_elem_or_more(&d->b.head)) &&(
+		// 		((d->a.tail != tail_ref) && (d->b.head->val > d->a.tail->val))
 		// 		||
-		// 		(d->tail_a == tail_ref)))
+		// 		(d->a.tail == tail_ref)))
 

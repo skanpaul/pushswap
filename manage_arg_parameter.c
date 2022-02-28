@@ -34,10 +34,10 @@ bool manage_arg_parameter(char **argv, t_data *d)
 		}
 	    /* --------------------------------------------- */
 		val = atoi(split_v[i]);
-        if (is_duplicated(&d->head_a, val))
+        if (is_duplicated(&d->a.head, val))
         {
-            ps_del_list(&d->head_a);
-            ps_del_list(&d->head_b);
+            ps_del_list(&d->a.head);
+            ps_del_list(&d->b.head);
 
             if (FLAG_INFO)
 				printf("split_v[%d]: is duplicated [%d]\n", i, val);
@@ -46,7 +46,7 @@ bool manage_arg_parameter(char **argv, t_data *d)
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */
-		ps_new_elem_at_bottom(val, &d->head_a, &d->tail_a);
+		ps_new_elem_at_bottom(val, &d->a.head, &d->a.tail);
 		i++;
 	}
 	ft_split_free(split_v);    
