@@ -12,10 +12,11 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom)
+// void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom)
+void	ps_new_elem_at_bottom(int val, t_data *d, int stk_id)
 {
 	t_ps	*new;
 
 	new = ps_new_elem(val);
-	ps_add_elem_to_bottom(new, stack, stack_bottom);
+	ps_add_elem_to_bottom(new, d, STACK_A);
 }

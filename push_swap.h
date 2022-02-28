@@ -24,6 +24,9 @@
 # define FLAG_INFO	1
 # define FLAG_INFO_RES	1
 /* ************************************************************************** */
+# define STACK_A	1
+# define STACK_B	2
+/* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_stk t_stk;
 typedef struct s_ps t_ps;
@@ -31,10 +34,6 @@ typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
 typedef struct s_stk
 {
-	/* ---------------- */
-	// t_ps	**head;
-	// t_ps	**tail;
-	// int		size;
 	/* ---------------- */
 	t_ps	*head;
 	t_ps	*tail;
@@ -57,14 +56,6 @@ typedef struct s_data
 	/* ---------------- */
 	t_ps	*tail_ref;
 	/* ---------------- */
-	// t_ps	*head_a;
-	// t_ps	*tail_a;
-	// int		size_a;
-	/* ---------------- */
-	// t_ps	*head_b;
-	// t_ps	*tail_b;
-	// int		size_b;
-
 } t_data;
 /* ************************************************************************** */
 typedef struct s_ps
@@ -118,10 +109,11 @@ bool	has_2_elem_or_more(t_ps **stack);
 bool	has_less_than_2_elem(t_ps **stack);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
-void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);
+// void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);
+void	ps_new_elem_at_bottom(int val, t_data *d, int stk_id);
 /* ---------------------------------------- */
 void	ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom);
-void	ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom);
+void	ps_add_elem_to_bottom(t_ps *new, t_data *d, int stk_id);
 t_ps	*ps_rem_elem_from_top(t_ps **stack, t_ps **stack_bottom);
 t_ps 	*ps_rem_elem_from_bottom(t_ps **stack, t_ps **stack_bottom);
 /* ---------------------------------------- */

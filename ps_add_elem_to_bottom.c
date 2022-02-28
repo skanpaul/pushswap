@@ -12,27 +12,51 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+void ps_add_elem_to_bottom(t_ps *new, t_data *d, int stk_id)
 {
-	
-	if ((!stack) || (new == NULL))
+
+	if ((!d->a.head) || (new == NULL))
 		return;
 
+	new->stack = stk_id;
 	new->next = NULL;
 
-	if (has_0_elem_only(stack)) 
+	if (has_0_elem_only(&d->a.head)) 
 	{
 		new->prev = NULL;
-		*stack = new;
-		*stack_bottom = new;
+		d->a.head = new;
+		d->a.tail = new;
 	}
 	else // if (has_1_elem_or_more())
 	{
-		(*stack_bottom)->next = new;
-		new->prev = *stack_bottom;
-		*stack_bottom = new;
+		d->a.tail->next = new;
+		new->prev = d->a.tail;
+		d->a.tail = new;
 	}
 }
+
+// /* ************************************************************************** */
+// void ps_add_elem_to_bottom(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+// {
+	
+// 	if ((!stack) || (new == NULL))
+// 		return;
+
+// 	new->next = NULL;
+
+// 	if (has_0_elem_only(stack)) 
+// 	{
+// 		new->prev = NULL;
+// 		*stack = new;
+// 		*stack_bottom = new;
+// 	}
+// 	else // if (has_1_elem_or_more())
+// 	{
+// 		(*stack_bottom)->next = new;
+// 		new->prev = *stack_bottom;
+// 		*stack_bottom = new;
+// 	}
+// }
 
 
 

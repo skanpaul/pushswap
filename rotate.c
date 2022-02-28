@@ -14,9 +14,11 @@
 /* ************************************************************************** */
 /* PULL the stack from the bottom to the top ******************************** */
 /* ************************************************************************** */
-void rotate(t_ps **stack, t_ps **stack_bottom)
+// void rotate(t_ps **stack, t_ps **stack_bottom)
+void rotate(t_data *d, int stk_id)
 {
 	t_ps *extracted_elem;
+	t_stk	*stack;
 
 	if ((!stack) || (!has_2_elem_or_more(stack)))
 		return ;
@@ -26,7 +28,8 @@ void rotate(t_ps **stack, t_ps **stack_bottom)
 	else
 	{
 		extracted_elem = ps_rem_elem_from_top(stack, stack_bottom);
-		ps_add_elem_to_bottom(extracted_elem, stack, stack_bottom);		
+		// ps_add_elem_to_bottom(extracted_elem, stack, stack_bottom);		
+		ps_add_elem_to_bottom(extracted_elem, d, stk_id);		
 	}
 	return ; 
 }
