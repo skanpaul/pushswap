@@ -18,6 +18,7 @@ void ps_add_elem_to_top(t_ps *new, t_stk *stk)
 	if ((!stk) || (new == NULL))
 		return;
 
+	new->stk_id = stk->stk_id;
 	new->prev = NULL;
 
 	if (has_0_elem_only(&stk->head)) // IF there is NO top_elem

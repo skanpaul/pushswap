@@ -18,11 +18,11 @@
 # include "stdlib.h"
 # include "stdbool.h"
 /* ************************************************************************** */
+# define FLAG_INFO	1
+# define FLAG_INFO_RES	2
+/* ************************************************************************** */
 # define EXIT_YES	1
 # define EXIT_NO	0
-/* ************************************************************************** */
-# define FLAG_INFO	0
-# define FLAG_INFO_RES	0
 /* ************************************************************************** */
 # define STACK_ID_A	1
 # define STACK_ID_B	2
@@ -80,7 +80,6 @@ t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
 void	quick_sort(t_data *d);
 
-
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
@@ -116,13 +115,7 @@ void	ps_add_elem_to_top(t_ps *new, t_stk *stk);
 void	ps_add_elem_to_bottom(t_ps *new, t_stk *stk);
 t_ps	*ps_rem_elem_from_top(t_stk *stk);
 t_ps	*ps_rem_elem_from_bottom(t_stk *stk);
-/* ---------------------------------------- */
-void	display(t_data *d);
-void	display_1_list(t_ps *top_elem);
-void	display_2_list(t_data *d);
-void	display_size(t_data *d);
-void	display_stack_address(t_data *d);
-/* ---------------------------------------- */
+/* ************************************************************************** */
 void	ps_del_list(t_ps **stack);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
@@ -146,6 +139,12 @@ void	rev_rot(t_stk *stk);
 void	rev_rot_a(t_data *d);
 void	rev_rot_b(t_data *d);
 void	rev_rot_2(t_data *d);
+/* ************************************************************************** */
+void	display(t_data *d);
+void	display_1_list(t_ps *top_elem);
+void	display_2_list(t_data *d);
+void	display_size(t_data *d);
+void	display_stack_address(t_data *d);
 /* ************************************************************************** */
 void	printf_red();
 void	printf_yellow();

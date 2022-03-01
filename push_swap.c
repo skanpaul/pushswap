@@ -45,7 +45,7 @@ int main (int argc, char **argv)
 	
 	// quick_sort(&d);
 	ps_ski_sort(&d);
-	display(&d);
+	// display(&d);
 	/* --------------------------- */
 
 	/* ********************************************* */
