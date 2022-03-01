@@ -17,12 +17,15 @@ int main (int argc, char **argv)
 {
 	t_data	d; // data
 	bool	flag_exit;
+	t_ps	*temp;
+	int		pos;
+	int		distance;
 
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);
 	/* CHECK ARG-C --------------------------------- */
-	if (argc == 1)
+if (argc == 1)
 		return 0;
 	/* SAVE PARAMETERS ----------------------------- */
 	if (argc == 2)
@@ -44,8 +47,25 @@ int main (int argc, char **argv)
 	/* --------------------------- */
 	
 	// quick_sort(&d);
-	ps_ski_sort(&d);
-	// display(&d);
+	temp = ps_get_elem(&d.a, 3);
+	distance = distance_to_top_upwards(temp);
+	distance = distance_to_top_downwards(temp);
+	pos = ps_get_position(&d, temp);
+
+	temp = ps_get_elem(&d.a, 0);
+	distance = distance_to_top_upwards(temp);
+	distance = distance_to_top_downwards(temp);
+	pos = ps_get_position(&d, temp);	
+
+	temp = ps_get_elem(&d.a, 7);
+	distance = distance_to_top_upwards(temp);
+	distance = distance_to_top_downwards(temp);
+	pos = ps_get_position(&d, temp);
+
+	temp = ps_get_elem(&d.a, 100);
+	distance = distance_to_top_upwards(temp);
+	distance = distance_to_top_downwards(temp);
+	pos = ps_get_position(&d, temp);
 	/* --------------------------- */
 
 	/* ********************************************* */

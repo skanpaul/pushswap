@@ -63,6 +63,7 @@ typedef struct s_ps
 {
 	int			val;
 	int			stk_id;
+	bool		is_pivot;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -79,6 +80,10 @@ typedef struct s_cmd
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
 void	quick_sort(t_data *d);
+void	find_bigger_than_pivot(t_data *d);
+void	find_smaller_than_pivot(t_data *d);
+int		distance_to_top_upwards(t_ps *elem);
+int		distance_to_top_downwards(t_ps *elem);
 
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
@@ -119,7 +124,9 @@ t_ps	*ps_rem_elem_from_bottom(t_stk *stk);
 void	ps_del_list(t_ps **stack);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
+t_ps	*ps_get_elem(t_stk *stk, int position);
 t_ps	*ps_get_last_elem(t_ps **ptr_top);
+int		ps_get_position(t_data *d, t_ps *elem);
 /* ************************************************************************** */
 void	swap(t_stk *stk);
 void	swap_a(t_data *d);

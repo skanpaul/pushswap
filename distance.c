@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_push_swap.c                                   :+:      :+:    :+:   */
+/*   distance.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,38 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void init_push_swap(t_data *d)
-{    
-    /* ---------------------------- */
-	d->a.head = NULL;
-	d->a.tail = NULL;
-	d->a.size = 0;
-	d->a.stk_id = STACK_ID_A;
-    /* ---------------------------- */
+int distance_to_top_upwards(t_ps *elem)
+{
+	int distance;
 
-	d->b.head = NULL;
-	d->b.tail = NULL;
-	d->b.size = 0;
-	d->b.stk_id = STACK_ID_B;
-    /* ---------------------------- */
-	d->cnt_cmd = 0;
-    return ;
+	if (!elem)
+		return (0);
+
+	distance = 0;
+	while (elem->prev != NULL)
+	{
+		elem = elem->prev;
+		distance++;
+	}
+
+	return (distance);
+}
+
+/* ************************************************************************** */
+int distance_to_top_downwards(t_ps *elem)
+{
+	int distance;
+
+	if (!elem)
+		return (0);
+
+	distance = 0;
+	while (elem->next != NULL)
+	{
+		elem = elem->next;
+		distance++;
+	}
+	distance++;
+
+	return (distance);
 }

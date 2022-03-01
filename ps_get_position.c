@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_push_swap.c                                   :+:      :+:    :+:   */
+/*   ps_get_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,33 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void init_push_swap(t_data *d)
-{    
-    /* ---------------------------- */
-	d->a.head = NULL;
-	d->a.tail = NULL;
-	d->a.size = 0;
-	d->a.stk_id = STACK_ID_A;
-    /* ---------------------------- */
+int ps_get_position(t_data *d, t_ps *elem)
+{
+	int		i;
+	t_ps	*temp;
+	int		stk_size;
 
-	d->b.head = NULL;
-	d->b.tail = NULL;
-	d->b.size = 0;
-	d->b.stk_id = STACK_ID_B;
-    /* ---------------------------- */
-	d->cnt_cmd = 0;
-    return ;
+	if (elem->stk_id == STACK_ID_A)
+	{
+		temp = d->a.head;
+		stk_size = d->a.size;
+	}
+	else
+	{
+		temp = d->b.head;
+		stk_size = d->b.size;		
+	}
+
+	i = 0;
+	while ((temp != elem) && (i < stk_size))
+	{
+		temp = temp->next;
+		i++;
+	}
+
+	if ((temp != elem) && (i >= stk_size))
+		return (-1);
+
+	return (i);	
+
 }

@@ -17,13 +17,11 @@ void quick_sort(t_data *d)
 	int loop;
 	int i;
 
-	d->a.size = ps_size(d->a.head);
-	d->b.size = ps_size(d->b.head);
-
+	// 1) CHOOSE THE PIVOT -----------------------
 	loop = d->a.size / 2;
 	i = 0;
-	// swap pivot with end_element
 
+	// 2) swap pivot with end_element ------------
 	while(i < loop - 1)
 	{
 		push_to_b(d);
@@ -35,18 +33,15 @@ void quick_sort(t_data *d)
 	swap_a(d);
 	rotate_a(d);
 
+	// 3) Positioning p_small and p_big ----------
 	d->pivot = d->a.tail;
 	d->smaller = d->pivot->prev;
 	d->bigger	= d->b.tail;
 
-	// find elem bigger than pivot
+	// 4) find elem bigger than pivot ------------
+	find_bigger_than_pivot(d);
+	find_smaller_than_pivot(d);
 
-
-
-
-
-
-
-
+	
 	
 }
