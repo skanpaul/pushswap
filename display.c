@@ -99,8 +99,8 @@ void	display_2_list(t_data *d)
 /* ************************************************************************** */
 void display_size(t_data *d)
 {
-    d->a.size = ps_size(d->a.head);
-	d->b.size = ps_size(d->b.head);
+    // d->a.size = ps_size(d->a.head);
+	// d->b.size = ps_size(d->b.head);
 	printf("Size\ta:[%d]\t\t\tb:[%d]\n", d->a.size, d->b.size);
 }
 

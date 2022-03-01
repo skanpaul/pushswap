@@ -20,6 +20,7 @@ t_ps *ps_rem_elem_from_top(t_stk *stk)
 		return (NULL);   
 
     elem_extracted = stk->head;
+	stk->size--;
 	elem_extracted->stk_id = 0;
 
     if (has_1_elem_only(&stk->head))
