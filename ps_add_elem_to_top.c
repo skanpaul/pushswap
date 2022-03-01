@@ -12,27 +12,50 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+void ps_add_elem_to_top(t_ps *new, t_stk *stk)
 {
 	
-	if ((!stack) || (new == NULL))
+	if ((!stk) || (new == NULL))
 		return;
 
 	new->prev = NULL;
 
-	if (has_0_elem_only(stack)) // IF there is NO top_elem
+	if (has_0_elem_only(&stk->head)) // IF there is NO top_elem
 	{		
 		new->next = NULL;
-		*stack = new;
-		*stack_bottom = new;
+		stk->head = new;
+		stk->tail= new;
 	}
 	else //if (has_1_elem_or_more)
 	{
-		(*stack)->prev = new;
-		new->next = *stack;
-		*stack = new;
+		stk->head->prev = new;
+		new->next = stk->head;
+		stk->head = new;
 	}
 }
+
+// /* ************************************************************************** */
+// void ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom)
+// {
+	
+// 	if ((!stack) || (new == NULL))
+// 		return;
+
+// 	new->prev = NULL;
+
+// 	if (has_0_elem_only(stack)) // IF there is NO top_elem
+// 	{		
+// 		new->next = NULL;
+// 		*stack = new;
+// 		*stack_bottom = new;
+// 	}
+// 	else //if (has_1_elem_or_more)
+// 	{
+// 		(*stack)->prev = new;
+// 		new->next = *stack;
+// 		*stack = new;
+// 	}
+// }
 
 
 

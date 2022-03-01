@@ -14,19 +14,19 @@
 /* ************************************************************************** */
 /* PUSH the stack from the top to the bottom ******************************** */
 /* ************************************************************************** */
-void rev_rot(t_ps **stack, t_ps **stack_bottom)
+void rev_rot(t_stk *stk)
 {
 	t_ps *extracted_elem;
 
-	if ((!stack) || (!has_2_elem_or_more(stack)))
+	if ((!stk) || (!has_2_elem_or_more(&stk->head)))
 		return ;
 
-	if (has_2_elem_only(stack))
-		swap(stack, stack_bottom);
+	if (has_2_elem_only(&stk->head))
+		swap(stk);
 	else
 	{
-		extracted_elem = ps_rem_elem_from_bottom(stack, stack_bottom);
-		ps_add_elem_to_top(extracted_elem, stack, stack_bottom);		
+		extracted_elem = ps_rem_elem_from_bottom(stk);
+		ps_add_elem_to_top(extracted_elem, stk);		
 	}
 	return ;
 }
@@ -34,7 +34,7 @@ void rev_rot(t_ps **stack, t_ps **stack_bottom)
 /* ************************************************************************** */
 void	rev_rot_a(t_data *d)
 {
-    rev_rot(&d->a.head, &d->a.tail);
+    rev_rot(&d->a);
 	printf("rra\n");
 	d->cnt_cmd++;
 	display(d);
@@ -44,7 +44,7 @@ void	rev_rot_a(t_data *d)
 /* ************************************************************************** */
 void	rev_rot_b(t_data *d)
 {
-    rev_rot(&d->b.head, &d->b.tail);
+    rev_rot(&d->b);
 	printf("rrb\n");
 	d->cnt_cmd++;
 	display(d);
@@ -54,13 +54,64 @@ void	rev_rot_b(t_data *d)
 /* ************************************************************************** */
 void	rev_rot_2(t_data *d)
 {
-    rev_rot(&d->a.head, &d->a.tail); 
-    rev_rot(&d->b.head, &d->b.tail);
+    rev_rot(&d->a); 
+    rev_rot(&d->b);
 	printf("rrr\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
 }
+
+// /* ************************************************************************** */
+// /* PUSH the stack from the top to the bottom ******************************** */
+// /* ************************************************************************** */
+// void rev_rot(t_ps **stack, t_ps **stack_bottom)
+// {
+// 	t_ps *extracted_elem;
+
+// 	if ((!stack) || (!has_2_elem_or_more(stack)))
+// 		return ;
+
+// 	if (has_2_elem_only(stack))
+// 		swap(stack, stack_bottom);
+// 	else
+// 	{
+// 		extracted_elem = ps_rem_elem_from_bottom(stack, stack_bottom);
+// 		ps_add_elem_to_top(extracted_elem, stack, stack_bottom);		
+// 	}
+// 	return ;
+// }
+
+// /* ************************************************************************** */
+// void	rev_rot_a(t_data *d)
+// {
+//     rev_rot(&d->a.head, &d->a.tail);
+// 	printf("rra\n");
+// 	d->cnt_cmd++;
+// 	display(d);
+//     return ;
+// }
+
+// /* ************************************************************************** */
+// void	rev_rot_b(t_data *d)
+// {
+//     rev_rot(&d->b.head, &d->b.tail);
+// 	printf("rrb\n");
+// 	d->cnt_cmd++;
+// 	display(d);
+//     return ;
+// }
+
+// /* ************************************************************************** */
+// void	rev_rot_2(t_data *d)
+// {
+//     rev_rot(&d->a.head, &d->a.tail); 
+//     rev_rot(&d->b.head, &d->b.tail);
+// 	printf("rrr\n");
+// 	d->cnt_cmd++;
+// 	display(d);
+//     return ;
+// }
 
 /* ************************************************************************** */
 /* rra : reverse rotate a - shift down all elements of stack a by 1.          */

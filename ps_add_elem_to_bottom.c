@@ -12,26 +12,26 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void ps_add_elem_to_bottom(t_ps *new, t_data *d, int stk_id)
+void ps_add_elem_to_bottom(t_ps *new, t_stk *stk)
 {
 
-	if ((!d->a.head) || (new == NULL))
+	if ((!stk) || (new == NULL))
 		return;
 
-	new->stack = stk_id;
+	new->stk_id = stk->stk_id;
 	new->next = NULL;
 
-	if (has_0_elem_only(&d->a.head)) 
+	if (has_0_elem_only(&stk->head)) 
 	{
 		new->prev = NULL;
-		d->a.head = new;
-		d->a.tail = new;
+		stk->head = new;
+		stk->tail = new;
 	}
 	else // if (has_1_elem_or_more())
 	{
-		d->a.tail->next = new;
-		new->prev = d->a.tail;
-		d->a.tail = new;
+		stk->tail->next = new;
+		new->prev = stk->tail;
+		stk->tail = new;
 	}
 }
 

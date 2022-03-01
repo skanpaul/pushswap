@@ -16,9 +16,9 @@ void	push_to(t_stk *src, t_stk *dst)
 {
     t_ps *elem_extracted;
 
-    elem_extracted = ps_rem_elem_from_top(&src->head, &src->tail);
+    elem_extracted = ps_rem_elem_from_top(src);
     
-    ps_add_elem_to_top(elem_extracted, &dst->head, &dst->tail);
+    ps_add_elem_to_top(elem_extracted, dst);
     
     return ;
 }

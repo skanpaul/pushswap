@@ -21,11 +21,11 @@
 # define EXIT_YES	1
 # define EXIT_NO	0
 /* ************************************************************************** */
-# define FLAG_INFO	1
-# define FLAG_INFO_RES	1
+# define FLAG_INFO	0
+# define FLAG_INFO_RES	0
 /* ************************************************************************** */
-# define STACK_A	1
-# define STACK_B	2
+# define STACK_ID_A	1
+# define STACK_ID_B	2
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_stk t_stk;
@@ -38,6 +38,7 @@ typedef struct s_stk
 	t_ps	*head;
 	t_ps	*tail;
 	int		size;
+	int		stk_id;
 	/* ---------------- */
 }	t_stk;
 /* ************************************************************************** */
@@ -61,7 +62,7 @@ typedef struct s_data
 typedef struct s_ps
 {
 	int			val;
-	int			stack;
+	int			stk_id;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -109,13 +110,12 @@ bool	has_2_elem_or_more(t_ps **stack);
 bool	has_less_than_2_elem(t_ps **stack);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
-// void	ps_new_elem_at_bottom(int val, t_ps **stack, t_ps **stack_bottom);
-void	ps_new_elem_at_bottom(int val, t_data *d, int stk_id);
+void	ps_new_elem_at_bottom(int val, t_stk *stk);
 /* ---------------------------------------- */
-void	ps_add_elem_to_top(t_ps *new, t_ps **stack, t_ps **stack_bottom);
-void	ps_add_elem_to_bottom(t_ps *new, t_data *d, int stk_id);
-t_ps	*ps_rem_elem_from_top(t_ps **stack, t_ps **stack_bottom);
-t_ps 	*ps_rem_elem_from_bottom(t_ps **stack, t_ps **stack_bottom);
+void	ps_add_elem_to_top(t_ps *new, t_stk *stk);
+void	ps_add_elem_to_bottom(t_ps *new, t_stk *stk);
+t_ps	*ps_rem_elem_from_top(t_stk *stk);
+t_ps	*ps_rem_elem_from_bottom(t_stk *stk);
 /* ---------------------------------------- */
 void	display(t_data *d);
 void	display_1_list(t_ps *top_elem);
@@ -128,24 +128,21 @@ void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
 t_ps	*ps_get_last_elem(t_ps **ptr_top);
 /* ************************************************************************** */
-void	swap(t_ps **stack, t_ps **stack_bottom);
+void	swap(t_stk *stk);
 void	swap_a(t_data *d);
 void	swap_b(t_data *d);
 void	swap_2(t_data *d);
 /* ---------------------------------------- */
-// void	push_to(t_ps **stack_src, t_ps **stack_dst);
 void	push_to(t_stk *src, t_stk *dst);
 void	push_to_a(t_data *d);
 void	push_to_b(t_data *d);
 /* ---------------------------------------- */
-// void	rotate(t_ps **ptr_top);
-void	rotate(t_ps **stack, t_ps **stack_bottom);
+void	rotate(t_stk *stk);
 void	rotate_a(t_data *d);
 void	rotate_b(t_data *d);
 void	rotate_2(t_data *d);
 /* ---------------------------------------- */
-// void	rev_rot(t_ps **ptr_top);
-void 	rev_rot(t_ps **stack, t_ps **stack_bottom);
+void	rev_rot(t_stk *stk);
 void	rev_rot_a(t_data *d);
 void	rev_rot_b(t_data *d);
 void	rev_rot_2(t_data *d);

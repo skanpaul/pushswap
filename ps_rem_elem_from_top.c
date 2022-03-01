@@ -12,29 +12,54 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-t_ps *ps_rem_elem_from_top(t_ps **stack, t_ps **stack_bottom)
+t_ps *ps_rem_elem_from_top(t_stk *stk)
 {
 	t_ps *elem_extracted;
 	
-	if ((!stack) || (has_0_elem_only(stack)))
+	if ((!stk) || (has_0_elem_only(&stk->head)))
 		return (NULL);   
 
-    elem_extracted = *stack;
+    elem_extracted = stk->head;
 
-    if (has_1_elem_only(stack))
+    if (has_1_elem_only(&stk->head))
     {
-        *stack = NULL;
-        *stack_bottom = NULL;
+        stk->head = NULL;
+        stk->tail = NULL;
     }  
 	else // if (has_2_elem_or_more)
     {
-        *stack = (*stack)->next;
-        (*stack)->prev = NULL;
+        stk->head = stk->head->next;
+        stk->head->prev = NULL;
 	}
     elem_extracted->prev = NULL;
     elem_extracted->next = NULL;
 	return (elem_extracted);
 }
+
+// /* ************************************************************************** */
+// t_ps *ps_rem_elem_from_top(t_ps **stack, t_ps **stack_bottom)
+// {
+// 	t_ps *elem_extracted;
+	
+// 	if ((!stack) || (has_0_elem_only(stack)))
+// 		return (NULL);   
+
+//     elem_extracted = *stack;
+
+//     if (has_1_elem_only(stack))
+//     {
+//         *stack = NULL;
+//         *stack_bottom = NULL;
+//     }  
+// 	else // if (has_2_elem_or_more)
+//     {
+//         *stack = (*stack)->next;
+//         (*stack)->prev = NULL;
+// 	}
+//     elem_extracted->prev = NULL;
+//     elem_extracted->next = NULL;
+// 	return (elem_extracted);
+// }
 
 
 // /* ************************************************************************** */

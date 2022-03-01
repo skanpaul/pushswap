@@ -22,6 +22,7 @@ void init_push_swap(t_data *d)
 	d->a.head = NULL;
 	d->a.tail = NULL;
 	d->a.size = 0;
+	d->a.stk_id = STACK_ID_A;
     /* ---------------------------- */
     // d->head_b = NULL;
     // d->tail_b = NULL;   
@@ -29,6 +30,7 @@ void init_push_swap(t_data *d)
 	d->b.head = NULL;
 	d->b.tail = NULL;
 	d->b.size = 0;
+	d->b.stk_id = STACK_ID_B;
     /* ---------------------------- */
 	d->cnt_cmd = 0;
     return ;

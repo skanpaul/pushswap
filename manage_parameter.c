@@ -39,7 +39,7 @@ bool manage_parameter(int argc, char **argv, t_data *d)
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */
-		ps_new_elem_at_bottom(val, &d->a.head, &d->a.tail);
+		ps_new_elem_at_bottom(val, &d->a);
 		i++;
 	}     
     return (EXIT_NO);
