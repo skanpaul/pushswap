@@ -27,6 +27,19 @@
 # define STACK_ID_A	1
 # define STACK_ID_B	2
 /* ************************************************************************** */
+# define ALGO_1	1
+# define ALGO_2	2
+# define ALGO_3	3
+# define ALGO_4	4
+# define ALGO_5	5
+# define ALGO_6	6
+# define ALGO_7	7
+# define ALGO_8	8
+# define STACK_ID_B	2
+/* ************************************************************************** */
+# define DIR_A_TO_B 1
+# define DIR_B_TO_A 2
+/* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_stk t_stk;
 typedef struct s_ps t_ps;
@@ -42,6 +55,14 @@ typedef struct s_stk
 	/* ---------------- */
 }	t_stk;
 /* ************************************************************************** */
+typedef struct s_algo
+{
+	/* ---------------- */
+	int		id;
+	int		coef;
+	/* ---------------- */
+}	t_algo;
+/* ************************************************************************** */
 typedef struct s_data
 {
 	/* ---------------- */
@@ -56,6 +77,33 @@ typedef struct s_data
 	int		cnt_cmd;
 	/* ---------------- */
 	t_ps	*tail_ref;
+	/* ---------------- */
+	int		algo_direction;
+	int		algo_choosed;
+	/* ---------------- */
+	t_algo	algo_1;
+	t_algo	algo_2;
+	t_algo	algo_3;
+	t_algo	algo_4;
+	t_algo	algo_5;
+	t_algo	algo_6;
+	t_algo	algo_7;
+	t_algo	algo_8;
+	/* ---------------- */
+	t_ps	*h_elem;
+	t_ps	*l_elem;
+	int		pos_h_elem;
+	int		pos_l_elem;
+	int 	cur_stk;
+	int 	cur_stk_size;
+	/* ---------------- */
+	t_ps	*a_elem;
+	t_ps	*b_elem;
+	/* ---------------- */
+	int		coef_a;
+	int		coef_b;
+	int		coef_c;
+	int		coef_d;
 	/* ---------------- */
 } t_data;
 /* ************************************************************************** */
@@ -96,8 +144,12 @@ void	do_swap(t_data *d);
 bool	is_ready_push_b(t_data *d);
 bool    is_ready_push_a(t_data *d);
 /* ---------------------------------------- */
-long	ft_atoil(const char *str);
+
+void	swap_far_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
+int		caluculate_algo_coef(t_ps *elem_1, t_ps *elem_2, t_data *d);
 /* ---------------------------------------- */
+long	ft_atoil(const char *str);
+/* ************************************************************************** */
 bool	is_param_ok(char *str, int pos);
 bool	is_countable(char *str);
 bool	is_bigger_than_int(char *str);
@@ -120,7 +172,7 @@ void	ps_add_elem_to_top(t_ps *new, t_stk *stk);
 void	ps_add_elem_to_bottom(t_ps *new, t_stk *stk);
 t_ps	*ps_rem_elem_from_top(t_stk *stk);
 t_ps	*ps_rem_elem_from_bottom(t_stk *stk);
-/* ************************************************************************** */
+/* ---------------------------------------- */
 void	ps_del_list(t_ps **stack);
 void	ps_del_elem(t_ps *elem);
 int		ps_size(t_ps *top_elem);
@@ -136,16 +188,24 @@ void	swap_2(t_data *d);
 void	push_to(t_stk *src, t_stk *dst);
 void	push_to_a(t_data *d);
 void	push_to_b(t_data *d);
+void	push_to_a_loop(t_data *d, int loop);
+void	push_to_b_loop(t_data *d, int loop);
 /* ---------------------------------------- */
 void	rotate(t_stk *stk);
 void	rotate_a(t_data *d);
 void	rotate_b(t_data *d);
 void	rotate_2(t_data *d);
+void	rotate_a_loop(t_data *d, int loop);
+void	rotate_b_loop(t_data *d, int loop);
+void	rotate_2_loop(t_data *d, int loop);
 /* ---------------------------------------- */
 void	rev_rot(t_stk *stk);
 void	rev_rot_a(t_data *d);
 void	rev_rot_b(t_data *d);
 void	rev_rot_2(t_data *d);
+void	rev_rot_a_loop(t_data *d, int loop);
+void	rev_rot_b_loop(t_data *d, int loop);
+void	rev_rot_2_loop(t_data *d, int loop);
 /* ************************************************************************** */
 void	display(t_data *d);
 void	display_1_list(t_ps *top_elem);

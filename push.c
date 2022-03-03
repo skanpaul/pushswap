@@ -16,10 +16,8 @@ void	push_to(t_stk *src, t_stk *dst)
 {
     t_ps *elem_extracted;
 
-    elem_extracted = ps_rem_elem_from_top(src);
-    
-    ps_add_elem_to_top(elem_extracted, dst);
-    
+    elem_extracted = ps_rem_elem_from_top(src);    
+    ps_add_elem_to_top(elem_extracted, dst);    
     return ;
 }
 
@@ -29,15 +27,7 @@ void	push_to(t_stk *src, t_stk *dst)
 /* - Do nothing if b is empty.                                                */
 /* ************************************************************************** */
 void	push_to_a(t_data *d)
-{
-    // t_stk a;
-    // t_stk b;
-
-    // a.head = &(d->a.head);
-    // a.tail = &(d->a.tail);
-    // b.head = &(d->b.head);
-    // b.tail = &(d->b.tail);
-    
+{ 
     push_to(&d->b, &d->a);
 	printf("pa\n");
 	d->cnt_cmd++;
@@ -51,26 +41,31 @@ void	push_to_a(t_data *d)
 /* - Do nothing if a is empty.                                                */
 /* ************************************************************************** */
 void	push_to_b(t_data *d)
-{
-    // t_stk a;
-    // t_stk b;
-
-    // a.head = &(d->a.head);
-    // a.tail = &(d->a.tail);
-    // b.head = &(d->b.head);
-    // b.tail = &(d->b.tail);
-    
+{    
     push_to(&d->a, &d->b);
 	printf("pb\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
 }
-
-
-
-
-
+// /* ************************************************************************** */
+void	push_to_a_loop(t_data *d, int loop)
+{
+	while (loop > 0)
+	{
+		push_to_a(d);
+		loop--;
+	}
+}
+// /* ************************************************************************** */
+void	push_to_b_loop(t_data *d, int loop)
+{
+	while (loop > 0)
+	{
+		push_to_b(d);
+		loop--;
+	}
+}
 
 // /* ************************************************************************** */
 // void	push_to(t_ps **stack_src, t_ps **stack_dst)

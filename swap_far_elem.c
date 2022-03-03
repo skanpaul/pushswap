@@ -12,15 +12,10 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void swap_far_elem(t_ps *x, t_ps *y)
+void swap_far_elem(t_ps *elem_1, t_ps *elem_2, t_data *d)
 {
-
-
-
-
-
-
+	caluculate_algo_coef(elem_1, elem_2, d);
 	
 }
 
-
+/* ************************************************************************** */
