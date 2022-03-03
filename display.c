@@ -117,3 +117,12 @@ void display_stack_address(t_data *d)
     else
         printf("BOT_a\t[%p]\tBOT_b\t[%p]\n", (*d).a.tail, (*d).b.tail);
 }
+
+/* ************************************************************************** */
+void display_algo_coef(t_data *d)
+{
+	printf("coef_1[%d] \tcoef_2[%d]\n", d->algo_1.coef, d->algo_2.coef);
+	printf("coef_3[%d] \tcoef_4[%d]\n", d->algo_3.coef, d->algo_4.coef);
+	printf("coef_5[%d] \tcoef_6[%d]\n", d->algo_5.coef, d->algo_6.coef);
+	printf("coef_7[%d] \tcoef_8[%d]\n", d->algo_7.coef, d->algo_8.coef);
+}

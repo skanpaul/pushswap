@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   caluculate_algo.c                                  :+:      :+:    :+:   */
+/*   caluculate_coef.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,61 +12,25 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-static void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-static void	assign_a_and_b_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-static void caluculate_algo_1_or_2(t_data *d);
-static void caluculate_algo_3_or_4(t_data *d);
-static void caluculate_algo_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d);
-/* ************************************************************************** */
-int caluculate_algo_coef(t_ps *elem_1, t_ps *elem_2, t_data *d)
+void calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d)
 {
 
 	if (elem_1->stk_id != elem_2->stk_id)
 	{
-		assign_a_and_b_elem(elem_1, elem_2, d);
-		caluculate_algo_5_to_8(d->a_elem, d->b_elem, d);
+		assign_high_and_low_elem(elem_1, elem_2, d);
+		d->cur_stk = elem_1->stk_id;
+		calculate_coef_1_or_2(d);
+		calculate_coef_3_or_4(d);
 	}
 	else
 	{
-		assign_high_and_low_elem(elem_1, elem_2, d);
-		d->cur_stk = elem_1->stk_id;
-		caluculate_algo_1_or_2(d);
-		caluculate_algo_3_or_4(d);
-	}
-	return (0);
-}
-// /* ************************************************************************** */
-static void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d)
-{
-	int temp;
-	
-	d->h_elem = elem_1;
-	d->l_elem = elem_2;
-	d->pos_h_elem = ps_get_position(d, elem_1);
-	d->pos_l_elem = ps_get_position(d, elem_2);
-	if ( d->pos_l_elem < d->pos_h_elem)
-	{
-		d->h_elem = elem_2;
-		d->l_elem = elem_1;
-
-		temp = d->pos_l_elem;
-		d->pos_l_elem = d->pos_h_elem;
-		d->pos_l_elem = temp;
+		assign_a_and_b_elem(elem_1, elem_2, d);
+		calculate_coef_5_to_8(d->a_elem, d->b_elem, d);
 	}
 }
 
-// /* ************************************************************************** */
-static void	assign_a_and_b_elem(t_ps *elem_1, t_ps *elem_2, t_data *d)
-{
-	d->a_elem = elem_1;
-	d->b_elem = elem_2;
-
-	if (elem_1->stk_id == STACK_ID_B)
-		d->a_elem = elem_2;
-		d->b_elem = elem_1;
-}
-// /* ************************************************************************** */
-static void caluculate_algo_1_or_2(t_data *d)
+/* ************************************************************************** */
+void calculate_coef_1_or_2(t_data *d)
 {
 	d->cur_stk_size = ps_size(d->a.head);
 	if (d->cur_stk == STACK_ID_B)
@@ -80,8 +44,8 @@ static void caluculate_algo_1_or_2(t_data *d)
 	d->algo_2.coef = d->coef_a + (2 * d->coef_c) + 3;
 }
 
-// /* ************************************************************************** */
-static void caluculate_algo_3_or_4(t_data *d)
+/* ************************************************************************** */
+void calculate_coef_3_or_4(t_data *d)
 {
 	d->cur_stk_size = ps_size(d->a.head);
 	if (d->cur_stk == STACK_ID_B)
@@ -95,8 +59,8 @@ static void caluculate_algo_3_or_4(t_data *d)
 	d->algo_4.coef = (2 * d->coef_a) + (2* d->coef_c) + 5;
 }
 
-// /* ************************************************************************** */
-static void caluculate_algo_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d)
+/* for algo 5 to 8 ********************************************************** */
+void calculate_coef_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d)
 {
 	d->coef_a = ps_get_position(d, elem_a);
 	d->coef_b = d->a.size - d->coef_a;
@@ -108,4 +72,3 @@ static void caluculate_algo_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d)
 	d->algo_7.coef = (2 * d->coef_b) + (2 * d->coef_c) + 3;
 	d->algo_8.coef = (2 * d->coef_b) + (2 * d->coef_d) + 3;
 }
-

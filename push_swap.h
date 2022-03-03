@@ -42,6 +42,7 @@
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_stk t_stk;
+typedef struct s_algo t_algo;
 typedef struct s_ps t_ps;
 typedef struct s_cmd t_cmd;
 /* ************************************************************************** */
@@ -105,6 +106,12 @@ typedef struct s_data
 	int		coef_c;
 	int		coef_d;
 	/* ---------------- */
+	void (*p)(t_data *d, int loop);
+	void (*p_back)(t_data *d, int loop);
+	void (*rot)(t_data *d, int loop);
+	void (*rev)(t_data *d, int loop);
+	void (*s)(t_data *d);
+	/* ---------------- */
 } t_data;
 /* ************************************************************************** */
 typedef struct s_ps
@@ -132,7 +139,6 @@ void	find_bigger_than_pivot(t_data *d);
 void	find_smaller_than_pivot(t_data *d);
 int		distance_to_top_upwards(t_ps *elem);
 int		distance_to_top_downwards(t_ps *elem);
-
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
@@ -143,11 +149,26 @@ void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
 bool	is_ready_push_b(t_data *d);
 bool    is_ready_push_a(t_data *d);
-/* ---------------------------------------- */
-
+/* ************************************************************************** */
 void	swap_far_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-int		caluculate_algo_coef(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo1(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo2(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo3(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo4(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo5(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo6(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo7(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo8(t_ps *elem_1, t_ps *elem_2, t_data *d);
 /* ---------------------------------------- */
+void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	assign_a_and_b_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	assign_fct(t_ps *elem_1, t_ps *elem_2, t_data *d);
+/* ---------------------------------------- */
+void	calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	calculate_coef_1_or_2(t_data *d);
+void	calculate_coef_3_or_4(t_data *d);
+void	calculate_coef_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d);
+/* ************************************************************************** */
 long	ft_atoil(const char *str);
 /* ************************************************************************** */
 bool	is_param_ok(char *str, int pos);
@@ -212,6 +233,7 @@ void	display_1_list(t_ps *top_elem);
 void	display_2_list(t_data *d);
 void	display_size(t_data *d);
 void	display_stack_address(t_data *d);
+void	display_algo_coef(t_data *d);
 /* ************************************************************************** */
 void	printf_red();
 void	printf_yellow();
