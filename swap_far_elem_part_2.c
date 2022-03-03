@@ -24,7 +24,7 @@ void swap_far_algo3(t_ps *elem_1, t_ps *elem_2, t_data *d)
 	d->p_back(d, 1);
 	d->s(d);
 	d->p(d, 1);
-	d->rev(d, d->coef_d);
+	d->rev(d, d->coef_b);
 	d->p_back(d, 1);
 	d->rot(d, d->coef_a);
 }
@@ -38,11 +38,11 @@ void swap_far_algo4(t_ps *elem_1, t_ps *elem_2, t_data *d)
 
 	d->rev(d, d->coef_a);
 	d->p(d, 1);
-	d->rev(d, d->coef_b);
+	d->rev(d, d->coef_c);
 	d->p_back(d, 1);
 	d->s(d);
 	d->p(d, 1);
-	d->rot(d, d->coef_d);
+	d->rot(d, d->coef_c);
 	d->p_back(d, 1);
 	d->rot(d, d->coef_a);
 }

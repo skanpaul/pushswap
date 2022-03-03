@@ -46,11 +46,13 @@ if (argc == 1)
 	/* ********************************************* */
 
 	display(&d);
-	push_to_b_loop(&d, 7);
+	push_to_b_loop(&d, 8);
 	/* --------------------------- */
 	
-	elem_1 = ps_get_elem(&d.b, 1);
-	elem_2 = ps_get_elem(&d.b, 5);
+	elem_1 = ps_get_elem(&d.a, 6);
+	elem_2 = ps_get_elem(&d.a, 7);
+	// elem_1 = ps_get_elem(&d.b, 6);
+	// elem_2 = ps_get_elem(&d.b, 4);
 
 	swap_far_elem(elem_1, elem_2, &d);
 	/* --------------------------- */
