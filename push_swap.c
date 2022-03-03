@@ -17,9 +17,11 @@ int main (int argc, char **argv)
 {
 	t_data	d; // data
 	bool	flag_exit;
-	t_ps	*temp;
-	int		pos;
-	int		distance;
+	// t_ps	*temp;
+	t_ps	*elem_1;
+	t_ps	*elem_2;
+	// int		pos;
+	// int		distance;
 
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
@@ -44,28 +46,13 @@ if (argc == 1)
 	/* ********************************************* */
 
 	display(&d);
+	push_to_b_loop(&d, 7);
 	/* --------------------------- */
 	
-	// quick_sort(&d);
-	temp = ps_get_elem(&d.a, 3);
-	distance = distance_to_top_upwards(temp);
-	distance = distance_to_top_downwards(temp);
-	pos = ps_get_position(&d, temp);
+	elem_1 = ps_get_elem(&d.b, 1);
+	elem_2 = ps_get_elem(&d.b, 5);
 
-	temp = ps_get_elem(&d.a, 0);
-	distance = distance_to_top_upwards(temp);
-	distance = distance_to_top_downwards(temp);
-	pos = ps_get_position(&d, temp);	
-
-	temp = ps_get_elem(&d.a, 7);
-	distance = distance_to_top_upwards(temp);
-	distance = distance_to_top_downwards(temp);
-	pos = ps_get_position(&d, temp);
-
-	temp = ps_get_elem(&d.a, 100);
-	distance = distance_to_top_upwards(temp);
-	distance = distance_to_top_downwards(temp);
-	pos = ps_get_position(&d, temp);
+	swap_far_elem(elem_1, elem_2, &d);
 	/* --------------------------- */
 
 	/* ********************************************* */
@@ -74,35 +61,23 @@ if (argc == 1)
 	return 0;
 }
 
-/* ************************************************************************** */
+	// // quick_sort(&d);
+	// temp = ps_get_elem(&d.a, 3);
+	// distance = distance_to_top_upwards(temp);
+	// distance = distance_to_top_downwards(temp);
+	// pos = ps_get_position(&d, temp);
 
+	// temp = ps_get_elem(&d.a, 0);
+	// distance = distance_to_top_upwards(temp);
+	// distance = distance_to_top_downwards(temp);
+	// pos = ps_get_position(&d, temp);	
 
-	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.head_a);
-	// d.size_b = ps_size(d.head_b);
-	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
+	// temp = ps_get_elem(&d.a, 7);
+	// distance = distance_to_top_upwards(temp);
+	// distance = distance_to_top_downwards(temp);
+	// pos = ps_get_position(&d, temp);
 
-	// push_to_b(&d);
-	// push_to_b(&d);
-	// push_to_b(&d);
-	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.head_a);
-	// d.size_b = ps_size(d.head_b);
-	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
-
-	// swap_2(&d);
-	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.head_a);
-	// d.size_b = ps_size(d.head_b);
-	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
-	
-	// push_to_b(&d);
-	// push_to_b(&d);
-	// push_to_a(&d);
-	// ps_display_2_list(&d);
-	// d.size_a = ps_size(d.head_a);
-	// d.size_b = ps_size(d.head_b);
-	// printf("Size a:[%d] b:[%d]\n\n", d.size_a, d.size_b);
-	
-	// ps_del_list(d.head_a);
-	// ps_del_list(d.head_b);
+	// temp = ps_get_elem(&d.a, 100);
+	// distance = distance_to_top_upwards(temp);
+	// distance = distance_to_top_downwards(temp);
+	// pos = ps_get_position(&d, temp);

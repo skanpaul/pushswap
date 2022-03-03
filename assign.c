@@ -27,7 +27,7 @@ void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d)
 
 		temp = d->pos_l_elem;
 		d->pos_l_elem = d->pos_h_elem;
-		d->pos_l_elem = temp;
+		d->pos_h_elem = temp;
 	}
 }
 

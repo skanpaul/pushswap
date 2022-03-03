@@ -15,19 +15,32 @@
 void calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d)
 {
 
-	if (elem_1->stk_id != elem_2->stk_id)
-	{
-		assign_high_and_low_elem(elem_1, elem_2, d);
+	assign_high_and_low_elem(elem_1, elem_2, d);
+	calculate_coef_1_or_2(d);
+	calculate_coef_3_or_4(d);
+	assign_a_and_b_elem(elem_1, elem_2, d);
+	calculate_coef_5_to_8(d->a_elem, d->b_elem, d);
+	
+	if (elem_1->stk_id == elem_2->stk_id)
 		d->cur_stk = elem_1->stk_id;
-		calculate_coef_1_or_2(d);
-		calculate_coef_3_or_4(d);
-	}
-	else
-	{
-		assign_a_and_b_elem(elem_1, elem_2, d);
-		calculate_coef_5_to_8(d->a_elem, d->b_elem, d);
-	}
+
 }
+// void calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d)
+// {
+
+// 	if (elem_1->stk_id == elem_2->stk_id)
+// 	{
+// 		assign_high_and_low_elem(elem_1, elem_2, d);
+// 		d->cur_stk = elem_1->stk_id;
+// 		calculate_coef_1_or_2(d);
+// 		calculate_coef_3_or_4(d);
+// 	}
+// 	else
+// 	{
+// 		assign_a_and_b_elem(elem_1, elem_2, d);
+// 		calculate_coef_5_to_8(d->a_elem, d->b_elem, d);
+// 	}
+// }
 
 /* ************************************************************************** */
 void calculate_coef_1_or_2(t_data *d)
