@@ -62,12 +62,12 @@ void	swap_far_algo8(t_ps *elem_1, t_ps *elem_2, t_data *d)
 	assign_a_and_b_elem(elem_1, elem_2, d);
 	calculate_coef_5_to_8(d->a_elem, d->b_elem, d);
 
-	rotate_a_loop(d, d->coef_b);
+	rev_rot_a_loop(d, d->coef_b);
 	rev_rot_b_loop(d, d->coef_d);
 	push_to_a(d);
 	swap_a(d);
 	push_to_b(d);
-	rev_rot_a_loop(d, d->coef_b);
+	rotate_a_loop(d, d->coef_b);
 	rotate_b_loop(d, d->coef_d);
 }
 /* ************************************************************************** */

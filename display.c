@@ -20,6 +20,7 @@ void display(t_data *d)
 		printf("\n");
 		display_size(d);
 		display_stack_address(d);
+		// display_algo_coef(d);
 		printf("-------------------------------------------------------- CMD[%d]\n", d->cnt_cmd);
 	}
     return ;
@@ -121,8 +122,7 @@ void display_stack_address(t_data *d)
 /* ************************************************************************** */
 void display_algo_coef(t_data *d)
 {
-	printf("coef_1[%d] \tcoef_2[%d]\n", d->algo_1.coef, d->algo_2.coef);
-	printf("coef_3[%d] \tcoef_4[%d]\n", d->algo_3.coef, d->algo_4.coef);
-	printf("coef_5[%d] \tcoef_6[%d]\n", d->algo_5.coef, d->algo_6.coef);
-	printf("coef_7[%d] \tcoef_8[%d]\n", d->algo_7.coef, d->algo_8.coef);
+	printf("Algo RATE: 1[%d]\t2[%d]\t3[%d]\t4[%d]\n", d->algo_1.coef, d->algo_2.coef, d->algo_3.coef, d->algo_4.coef);
+	printf("Algo RATE: 5[%d]\t6[%d]\t7[%d]\t8[%d]\n", d->algo_5.coef, d->algo_6.coef, d->algo_7.coef, d->algo_8.coef);
+	printf("Used [ALGO_%d]\n", d->algo.id);
 }

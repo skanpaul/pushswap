@@ -35,7 +35,8 @@
 # define ALGO_6	6
 # define ALGO_7	7
 # define ALGO_8	8
-# define STACK_ID_B	2
+# define ALGO_9 9
+# define ALGO_10 10
 /* ************************************************************************** */
 # define DIR_A_TO_B 1
 # define DIR_B_TO_A 2
@@ -97,6 +98,10 @@ typedef struct s_data
 	t_algo	algo_6;
 	t_algo	algo_7;
 	t_algo	algo_8;
+	t_algo	algo_9;
+	t_algo	algo_10;
+	/* ---------------- */
+	t_algo	algo;
 	/* ---------------- */
 	t_ps	*h_elem;
 	t_ps	*l_elem;
@@ -166,6 +171,8 @@ void	swap_far_algo5(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	swap_far_algo6(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	swap_far_algo7(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	swap_far_algo8(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo9(t_ps *elem_1, t_ps *elem_2, t_data *d);
+void	swap_far_algo10(t_ps *elem_1, t_ps *elem_2, t_data *d);
 /* ---------------------------------------- */
 void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	assign_a_and_b_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
@@ -175,6 +182,7 @@ void	calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	calculate_coef_1_or_2(t_data *d);
 void	calculate_coef_3_or_4(t_data *d);
 void	calculate_coef_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d);
+void	calculate_coef_9_or_10(t_data *d);
 /* ************************************************************************** */
 long	ft_atoil(const char *str);
 /* ************************************************************************** */

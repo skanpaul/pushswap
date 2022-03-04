@@ -36,6 +36,8 @@ void init_push_swap(t_data *d)
 	d->algo_6.id = ALGO_6;
 	d->algo_7.id = ALGO_7;
 	d->algo_8.id = ALGO_8;
+	d->algo_9.id = ALGO_9;
+	d->algo_10.id = ALGO_10;
     /* ---------------------------- */
 	d->cnt_cmd = 0;
     /* ---------------------------- */
