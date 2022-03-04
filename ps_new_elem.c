@@ -22,5 +22,7 @@ t_ps	*ps_new_elem(int val)
 	elem->val = val;
 	elem->prev = NULL;
 	elem->next = NULL;
+	elem->is_pivot = false;
+	elem->sorted = false;
 	return (elem);
 }

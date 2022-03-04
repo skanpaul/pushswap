@@ -68,8 +68,6 @@ typedef struct s_algo
 	int		b;
 	int		c;
 	int		d;
-
-
 }	t_algo;
 /* ************************************************************************** */
 typedef struct s_data
@@ -131,6 +129,7 @@ typedef struct s_ps
 	int			val;
 	int			stk_id;
 	bool		is_pivot;
+	bool		sorted;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -146,7 +145,8 @@ typedef struct s_cmd
 /* ************************************************************************** */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
-void	quick_sort(t_data *d);
+// void	quick_sort(t_data *d);
+void	quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d);
 void	find_bigger_than_pivot(t_data *d);
 void	find_smaller_than_pivot(t_data *d);
 int		distance_to_top_upwards(t_ps *elem);

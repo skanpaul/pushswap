@@ -1,47 +1,143 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_sort.c                                      :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 15:21:11 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 15:21:13 by ski              ###   ########.fr       */
+/*   Created: 2022/03/04 10:40:02 by ski               #+#    #+#             */
+/*   Updated: 2022/03/04 10:40:05 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void quick_sort(t_data *d)
+void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 {
-	int loop;
-	int i;
+	t_ps *big;
+	t_ps *small;
+	t_ps *pivot;
+	t_ps *temp;
+	t_ps *temp_start;
+	t_ps *temp_end;
 
-	// 1) CHOOSE THE PIVOT -----------------------
-	loop = d->a.size / 2;
-	i = 0;
 
-	// 2) swap pivot with end_element ------------
-	while(i < loop - 1)
+	if (ps_get_position(d, start) < ps_get_position(d, end))
 	{
-		push_to_b(d);
-		i++;
-		// display_2_list(d);
+		pivot = start;
+		big = start;
+		small = end;
+		/* -------------------------------------------------- */
+		while (ps_get_position(d, big) < ps_get_position(d, small))
+		{
+			/* Go find big number than pivot ---------- */
+			while (big->val <= pivot->val && ps_get_position(d, big) < ps_get_position(d, end))
+				big = big->next;
+			
+			/* Go find small number than pivot -------- */
+			while (small->val > pivot->val)
+				small = small->prev;
+
+			/* Then swap big and small number --------- */
+			if (ps_get_position(d, big) < ps_get_position(d, small))
+			{
+				temp_start = NULL;
+				temp_end = NULL;
+
+				if (big == start)
+					temp_start = small;
+				if (small == start)
+					temp_start = big;
+
+				if (big == end)
+					temp_end = small;
+				if (small == end)
+					temp_end = big;
+			
+				swap_far_elem(big, small, d);
+				temp = big;
+				big = small;
+				small = temp;
+				if (temp_start)
+					start = temp_start;
+				if (temp_end)
+					end = temp_end;
+				// end = ps_get_last_elem(&d->a.head);
+			}
+		}
+		/* -------------------------------------------------- */
+		temp_start = NULL;
+		temp_end = NULL;
+
+		if (pivot == start)
+			temp_start = small;
+		if (small == start)
+			temp_start = pivot;
+
+		if (pivot == end)
+			temp_end = small;
+		if (small == end)
+			temp_end = pivot;
+		
+		swap_far_elem(pivot, small, d);
+		temp = pivot;
+		pivot = small;
+		small = temp;
+		if (temp_start)
+			start = temp_start;
+		if (temp_end)
+			end = temp_end;
+		// end = ps_get_last_elem(&d->a.head); 
+
+		quick_sort(stk, start, small->prev, d);
+		// if (small->next == NULL)
+		// 	quick_sort(stk, small, end, d);
+		// else
+			quick_sort(stk, small->next, end, d);
+		/* -------------------------------------------------- */
 	}
-
-	rev_rot_a(d);
-	swap_a(d);
-	rotate_a(d);
-
-	// 3) Positioning p_small and p_big ----------
-	d->pivot = d->a.tail;
-	d->smaller = d->pivot->prev;
-	d->bigger	= d->b.tail;
-
-	// 4) find elem bigger than pivot ------------
-	find_bigger_than_pivot(d);
-	find_smaller_than_pivot(d);
-
-	
-	
 }
+
+
+/* ************************************************************************** */
+
+// void quick_sort(int n[25], int start, int end)
+// {
+// 	int big;
+// 	int small;
+// 	int pivot;
+// 	int temp;
+
+// 	if (start < end)
+// 	{
+// 		pivot = start;
+// 		big = start;
+// 		small = end;
+// 		/* -------------------------------------------------- */
+// 		while (big < small)
+// 		{
+// 			/* Go find big number than pivot ---------- */
+// 			while (n[big] <= n[pivot] && big < end)
+// 				big++;
+			
+// 			/* Go find small number than pivot -------- */
+// 			while (n[small] > n[pivot])
+// 				small--;
+
+// 			/* Then swap big and small number --------- */
+// 			if (big < small)
+// 			{
+// 				temp = n[big];
+// 				n[big] = n[small];
+// 				n[small] = temp;
+// 			}
+// 		}
+// 		/* -------------------------------------------------- */
+// 		temp = n[pivot];
+// 		n[pivot] = n[small];
+// 		n[small] = temp;
+// 		quicksort(n, start, small - 1);
+// 		quicksort(n, small + 1, end);
+// 		/* -------------------------------------------------- */
+// 	}
+// }

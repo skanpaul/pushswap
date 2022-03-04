@@ -12,14 +12,13 @@
 #include "push_swap.h"
 
 /* Smallest number on the top *********************************************** */
-/* ************************************************************************** */
 int main (int argc, char **argv)
 {
 	t_data	d; // data
 	bool	flag_exit;
 	// t_ps	*temp;
-	t_ps	*elem_1;
-	t_ps	*elem_2;
+	// t_ps	*elem_1;
+	// t_ps	*elem_2;
 	// int		pos;
 	// int		distance;
 
@@ -27,7 +26,7 @@ int main (int argc, char **argv)
 	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);
 	/* CHECK ARG-C --------------------------------- */
-if (argc == 1)
+	if (argc == 1)
 		return 0;
 	/* SAVE PARAMETERS ----------------------------- */
 	if (argc == 2)
@@ -46,16 +45,11 @@ if (argc == 1)
 	/* ********************************************* */
 
 	display(&d);
-	push_to_b_loop(&d, 8);
 	/* --------------------------- */
+	quick_sort(&d.a, d.a.head, d.a.tail, &d);
+	/* --------------------------- */
+	display(&d);
 	
-	elem_1 = ps_get_elem(&d.a, 3);
-	elem_2 = ps_get_elem(&d.b, 6);
-	// elem_1 = ps_get_elem(&d.b, 6);
-	// elem_2 = ps_get_elem(&d.b, 4);
-
-	swap_far_elem(elem_1, elem_2, &d);
-	/* --------------------------- */
 
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
@@ -63,23 +57,14 @@ if (argc == 1)
 	return 0;
 }
 
-	// // quick_sort(&d);
-	// temp = ps_get_elem(&d.a, 3);
-	// distance = distance_to_top_upwards(temp);
-	// distance = distance_to_top_downwards(temp);
-	// pos = ps_get_position(&d, temp);
+/* ************************************************************************** */
 
-	// temp = ps_get_elem(&d.a, 0);
-	// distance = distance_to_top_upwards(temp);
-	// distance = distance_to_top_downwards(temp);
-	// pos = ps_get_position(&d, temp);	
+	// push_to_b_loop(&d, 8);
+	// /* --------------------------- */
+	
+	// elem_1 = ps_get_elem(&d.a, 3);
+	// elem_2 = ps_get_elem(&d.b, 6);
+	// // elem_1 = ps_get_elem(&d.b, 6);
+	// // elem_2 = ps_get_elem(&d.b, 4);
 
-	// temp = ps_get_elem(&d.a, 7);
-	// distance = distance_to_top_upwards(temp);
-	// distance = distance_to_top_downwards(temp);
-	// pos = ps_get_position(&d, temp);
-
-	// temp = ps_get_elem(&d.a, 100);
-	// distance = distance_to_top_upwards(temp);
-	// distance = distance_to_top_downwards(temp);
-	// pos = ps_get_position(&d, temp);
+	// swap_far_elem(elem_1, elem_2, &d);
