@@ -53,8 +53,17 @@ void calculate_coef_1_or_2(t_data *d)
 	d->coef_b = d->pos_l_elem - d->pos_h_elem - 1;
 	d->coef_c = d->cur_stk_size - d->pos_l_elem;
 
+	// d->algo_1.a = d->pos_h_elem + 1;
+	// d->algo_1.b = d->pos_l_elem - d->pos_h_elem - 1;
+	// d->algo_1.c = d->cur_stk_size - d->pos_l_elem;
+
 	d->algo_1.coef = d->coef_a + (2 * d->coef_b) + 3;
 	d->algo_2.coef = d->coef_a + (2 * d->coef_c) + 3;
+
+	// d->algo_1.complexity = d->algo_1.a + (2 * d->algo_1.b) + 3;
+	// d->algo_2.complexity = d->algo_1.a + (2 * d->algo_1.b) + 3;
+	// d->algo_2 = d->algo_1;
+	// d->algo_2.id = ALGO_2;
 }
 
 /* ************************************************************************** */

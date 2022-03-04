@@ -62,6 +62,13 @@ typedef struct s_algo
 	int		id;
 	int		coef;
 	/* ---------------- */
+	int 	complexity;
+	int		a;
+	int		b;
+	int		c;
+	int		d;
+
+
 }	t_algo;
 /* ************************************************************************** */
 typedef struct s_data
