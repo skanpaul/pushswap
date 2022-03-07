@@ -21,6 +21,8 @@ void ps_add_elem_to_bottom(t_ps *new, t_stk *stk)
 	new->stk_id = stk->stk_id;
 	new->is_pivot = false;
 	new->next = NULL;
+	new->chunk_start = false;
+	new->chunk_end = false;
 	stk->size++;
 
 	if (has_0_elem_only(&stk->head)) 

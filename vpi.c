@@ -12,6 +12,13 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
+void do_vpi(t_data *d)
+{
+	quicksort_vpi(d->vpi, 0, d->vpi_size - 1);
+	vpi_do_index(d->vpi, d->vpi_size);
+}
+
+/* ************************************************************************** */
 t_vpi	*vpi_create(int size)
 {
 	t_vpi	*vpi;
@@ -28,20 +35,8 @@ void	vpi_do_index(t_vpi *vpi, int size)
 	while (i < size)
 	{
 		vpi[i].index = i;
-		i++;
-	}
-}
-
-/* ************************************************************************** */
-void	vpi_index_to_linkedlist(t_vpi *vpi, int size)
-{
-	int i;
-
-	i = 0;
-	while (i < size)
-	{
 		vpi[i].ptr->index = vpi[i].index;
-		i++;		
+		i++;
 	}
 }
 

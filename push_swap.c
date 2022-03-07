@@ -14,13 +14,8 @@
 /* Smallest number on the top *********************************************** */
 int main (int argc, char **argv)
 {
-	t_data	d; // data
+	t_data	d;
 	bool	flag_exit;
-	// t_ps	*temp;
-	// t_ps	*elem_1;
-	// t_ps	*elem_2;
-	// int		pos;
-	// int		distance;
 
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
@@ -44,16 +39,18 @@ int main (int argc, char **argv)
 
 	/* ********************************************* */
 
+	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-	quicksort_vpi(d.vpi, 0, d.vpi_size - 1);
-	vpi_do_index(d.vpi, d.vpi_size);
-	vpi_index_to_linkedlist(d.vpi, d.vpi_size);
-	
+
+	midsort_to_b(&d);
+
+
+
+
 	/* --------------------------- */
 	display(&d);
 	vpi_display(d.vpi, d.vpi_size);
-
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);

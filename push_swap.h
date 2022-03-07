@@ -19,7 +19,7 @@
 # include "stdbool.h"
 /* ************************************************************************** */
 # define FLAG_INFO	1
-# define FLAG_INFO_RES	2
+# define FLAG_INFO_RES	1
 /* ************************************************************************** */
 # define EXIT_YES	1
 # define EXIT_NO	0
@@ -139,6 +139,8 @@ typedef struct s_ps
 	int			stk_id;
 	bool		is_pivot;
 	bool		sorted;
+	bool		chunk_start;
+	bool		chunk_end;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -159,19 +161,18 @@ typedef struct s_vpi
 	int		index;
 }	t_vpi;
 /* ************************************************************************** */
-/* ---------------------------------------- */
+void	do_vpi(t_data *d);
+void	quicksort_vpi(t_vpi *vpi, int start, int end);
 t_vpi	*vpi_create(int size);
 void	vpi_free(t_vpi **vpi);
 void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
-void	vpi_index_to_linkedlist(t_vpi *vpi, int size);
+/* ************************************************************************** */
+void	midsort_to_b(t_data *d);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
-void	quicksort_vpi(t_vpi *vpi, int start, int end);
-// void	quick_sort(t_data *d);
-void	quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d);
-// void	quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d);
+// void	quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d);
 void	find_bigger_than_pivot(t_data *d);
 void	find_smaller_than_pivot(t_data *d);
 int		distance_to_top_upwards(t_ps *elem);
