@@ -31,7 +31,7 @@ int main (int argc, char **argv)
 	/* SAVE PARAMETERS ----------------------------- */
 	if (argc == 2)
 	{
-		flag_exit = manage_arg_parameter(argv, &d);
+		flag_exit = manage_arg_doublequote(argv, &d);
 		if (flag_exit == EXIT_YES)
 			return (EXIT_YES);
 	}
@@ -46,14 +46,16 @@ int main (int argc, char **argv)
 
 	display(&d);
 	/* --------------------------- */
-	quick_sort(&d.a, d.a.head, d.a.tail, &d);
+	// quick_sort(&d.a, &d.a.head, &d.a.tail, &d);
 	/* --------------------------- */
 	display(&d);
+	vpi_display(d.vpi, d.vpi_size);
 	
 
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);
+	vpi_free(&d.vpi);
 	return 0;
 }
 

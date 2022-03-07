@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_get_position.c                                  :+:      :+:    :+:   */
+/*   vpi.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 13:33:12 by ski               #+#    #+#             */
-/*   Updated: 2022/02/17 13:33:14 by ski              ###   ########.fr       */
+/*   Created: 2022/03/07 10:53:43 by ski               #+#    #+#             */
+/*   Updated: 2022/03/07 10:53:45 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 /* ************************************************************************** */
-int ps_get_position(t_data *d, t_ps *elem)
+t_vpi	*vpi_create(int size)
 {
-	int		i;
-	t_ps	*temp;
-	int		stk_size;
+	t_vpi	*vpi;
 
-	if (elem->stk_id == STACK_ID_A)
-	{
-		temp = d->a.head;
-		stk_size = d->a.size;
-	}
-	else
-	{
-		temp = d->b.head;
-		stk_size = d->b.size;		
-	}
+	vpi = (t_vpi *)malloc(size * sizeof(t_vpi));
+	return (vpi);
+}
+/* ************************************************************************** */
+void	vpi_free(t_vpi **vpi)
+{
+	if(!*vpi)
+		return ;
+	free(*vpi);
+	*vpi = NULL;
+}
+
+/* ************************************************************************** */
+void	vpi_display(t_vpi *vpi, int size)
+{
+	int i;
 
 	i = 0;
-	// while ((temp != elem) && (i < stk_size) && (!temp->next))
-	while ((temp != elem) && (i < stk_size))
+	while (i < size)
 	{
-		temp = temp->next;
+		printf("val[%d]\t", vpi[i].val);
+		printf("ptr[%p]\t", vpi[i].ptr);
+		printf("index[%i]\n", vpi[i].index);
 		i++;
 	}
-
-	if ((temp != elem) && (i >= stk_size))
-		return (-1);
-
-	return (i);	
-
 }

@@ -12,7 +12,7 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
+void quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d)
 {
 	t_ps *big;
 	t_ps *small;
@@ -22,16 +22,16 @@ void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 	t_ps *temp_end;
 
 
-	if (ps_get_position(d, start) < ps_get_position(d, end))
+	if (ps_get_position(d, *start) < ps_get_position(d, *end))
 	{
-		pivot = start;
-		big = start;
-		small = end;
+		pivot = *start;
+		big = *start;
+		small = *end;
 		/* -------------------------------------------------- */
 		while (ps_get_position(d, big) < ps_get_position(d, small))
 		{
 			/* Go find big number than pivot ---------- */
-			while (big->val <= pivot->val && ps_get_position(d, big) < ps_get_position(d, end))
+			while (big->val <= pivot->val && ps_get_position(d, big) < ps_get_position(d, *end))
 				big = big->next;
 			
 			/* Go find small number than pivot -------- */
@@ -44,14 +44,14 @@ void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 				temp_start = NULL;
 				temp_end = NULL;
 
-				if (big == start)
+				if (big == *start)
 					temp_start = small;
-				if (small == start)
+				if (small == *start)
 					temp_start = big;
 
-				if (big == end)
+				if (big == *end)
 					temp_end = small;
-				if (small == end)
+				if (small == *end)
 					temp_end = big;
 			
 				swap_far_elem(big, small, d);
@@ -59,9 +59,9 @@ void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 				big = small;
 				small = temp;
 				if (temp_start)
-					start = temp_start;
+					*start = temp_start;
 				if (temp_end)
-					end = temp_end;
+					*end = temp_end;
 				// end = ps_get_last_elem(&d->a.head);
 			}
 		}
@@ -69,14 +69,14 @@ void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 		temp_start = NULL;
 		temp_end = NULL;
 
-		if (pivot == start)
+		if (pivot == *start)
 			temp_start = small;
-		if (small == start)
+		if (small == *start)
 			temp_start = pivot;
 
-		if (pivot == end)
+		if (pivot == *end)
 			temp_end = small;
-		if (small == end)
+		if (small == *end)
 			temp_end = pivot;
 		
 		swap_far_elem(pivot, small, d);
@@ -84,16 +84,16 @@ void quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d)
 		pivot = small;
 		small = temp;
 		if (temp_start)
-			start = temp_start;
+			*start = temp_start;
 		if (temp_end)
-			end = temp_end;
+			*end = temp_end;
 		// end = ps_get_last_elem(&d->a.head); 
 
-		quick_sort(stk, start, small->prev, d);
+		quick_sort(stk, start, &small->prev, d);
 		// if (small->next == NULL)
 		// 	quick_sort(stk, small, end, d);
 		// else
-			quick_sort(stk, small->next, end, d);
+			quick_sort(stk, &small->next, end, d);
 		/* -------------------------------------------------- */
 	}
 }

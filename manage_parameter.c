@@ -15,7 +15,11 @@
 bool manage_parameter(int argc, char **argv, t_data *d)
 {
     int i;
-	int val;    
+	int val;	
+	t_ps *new;
+
+	d->vpi_size = argc;
+	d->vpi = vpi_create(d->vpi_size );	
 
 	i = 1;
     while (i < argc)
@@ -40,6 +44,14 @@ bool manage_parameter(int argc, char **argv, t_data *d)
         }
 	    /* --------------------------------------------- */
 		ps_new_elem_at_bottom(val, &d->a);
+
+		new = ps_new_elem(val);
+		ps_add_elem_to_bottom(new, &d->a);
+		(d->vpi)[i].val = val;
+		d->vpi[i].ptr = new;
+
+
+
 		i++;
 	}     
     return (EXIT_NO);

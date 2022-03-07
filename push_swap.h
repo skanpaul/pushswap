@@ -38,6 +38,10 @@
 # define ALGO_9 9
 # define ALGO_10 10
 /* ************************************************************************** */
+# define COL_VAL	0
+# define COL_ELEM	1
+# define COL_INDEX	2
+/* ************************************************************************** */
 # define DIR_A_TO_B 1
 # define DIR_B_TO_A 2
 /* ************************************************************************** */
@@ -46,6 +50,7 @@ typedef struct s_stk t_stk;
 typedef struct s_algo t_algo;
 typedef struct s_ps t_ps;
 typedef struct s_cmd t_cmd;
+typedef struct s_vpi t_vpi;
 /* ************************************************************************** */
 typedef struct s_stk
 {
@@ -122,6 +127,9 @@ typedef struct s_data
 	void (*rev)(t_data *d, int loop);
 	void (*s)(t_data *d);
 	/* ---------------- */
+	t_vpi	*vpi;
+	int		vpi_size;
+	/* ---------------- */
 } t_data;
 /* ************************************************************************** */
 typedef struct s_ps
@@ -143,10 +151,23 @@ typedef struct s_cmd
 	struct s_cmd	*next;
 }	t_cmd;
 /* ************************************************************************** */
+typedef struct s_vpi
+{
+	int		val;
+	t_ps	*ptr;
+	int		index;
+}	t_vpi;
+/* ************************************************************************** */
+/* ---------------------------------------- */
+t_vpi	*vpi_create(int size);
+void	vpi_free(t_vpi **vpi);
+void	vpi_display(t_vpi *vpi, int size);
+/* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
 // void	quick_sort(t_data *d);
-void	quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d);
+void	quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d);
+// void	quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d);
 void	find_bigger_than_pivot(t_data *d);
 void	find_smaller_than_pivot(t_data *d);
 int		distance_to_top_upwards(t_ps *elem);
@@ -155,7 +176,7 @@ int		distance_to_top_downwards(t_ps *elem);
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
-bool	manage_arg_parameter(char **argv, t_data *d);
+bool	manage_arg_doublequote(char **argv, t_data *d);
 void	ps_ski_sort(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);

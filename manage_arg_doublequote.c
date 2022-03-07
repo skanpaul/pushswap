@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_arg_parameter.c                                 :+:      :+:    :+:   */
+/*   manage_arg_doublequote.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,15 +12,18 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool manage_arg_parameter(char **argv, t_data *d)
+bool manage_arg_doublequote(char **argv, t_data *d)
 {
     int i;
 	int val;
 	int split_c;
 	char **split_v;
+	t_ps *new;
 
 	split_v = ft_split(argv[1], ' ');
 	split_c = ft_split_count(split_v);
+	d->vpi_size = split_c;
+	d->vpi = vpi_create(d->vpi_size );	
 
 	i = 0;
     while (i < split_c)
@@ -46,7 +49,16 @@ bool manage_arg_parameter(char **argv, t_data *d)
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */
-		ps_new_elem_at_bottom(val, &d->a);
+		// ps_new_elem_at_bottom(val, &d->a);
+
+
+		new = ps_new_elem(val);
+		ps_add_elem_to_bottom(new, &d->a);
+		(d->vpi)[i].val = val;
+		d->vpi[i].ptr = new;
+
+
+
 		i++;
 	}
 	ft_split_free(split_v);    
