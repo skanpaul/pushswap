@@ -14,6 +14,16 @@
 /* ************************************************************************** */
 static void midsort_to_b_rec(t_data *d, int start, int end);
 /* ************************************************************************** */
+void midsort(t_data *d)
+{
+	midsort_to_b(d);
+}
+/* ************************************************************************** */
+// void midsort_to_a(t_data *d)
+// {
+
+// }
+/* ************************************************************************** */
 void midsort_to_b(t_data *d)
 {
 	midsort_to_b_rec(d, 0, d->a.size - 1);
@@ -25,7 +35,9 @@ static void midsort_to_b_rec(t_data *d, int start, int end)
 	int mid_b;
 	int chunk_b_size;
 	int cnt_push_b;
+	int cnt_rot;
 
+	cnt_rot = 0;
 	cnt_push_b = 0;
 
 	mid_a = (end - start)/2 + start;
@@ -48,11 +60,15 @@ static void midsort_to_b_rec(t_data *d, int start, int end)
 			else
 				rotate_a(d);
 			/* ------------------------------------------------------ */
-			if (has_2_elem_or_more(&d->b.head) && (d->b.head->index < mid_b))
+			if (has_2_elem_or_more(&d->b.head) && (d->b.head->index >= mid_b))
+			{
 				rotate_b(d);
+				cnt_rot++;
+			}
 			/* ------------------------------------------------------ */
 		}
-		midsort_to_b_rec(d, mid_a, end);
+		rev_rot_b_loop(d, cnt_rot + 1);
+		midsort_to_b_rec(d, mid_a, end - 1);
 
 	}
 

@@ -168,6 +168,8 @@ void	vpi_free(t_vpi **vpi);
 void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
 /* ************************************************************************** */
+void	midsort(t_data *d);
+void	midsort_to_a(t_data *d);
 void	midsort_to_b(t_data *d);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);

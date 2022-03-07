@@ -42,10 +42,7 @@ int main (int argc, char **argv)
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-
-	midsort_to_b(&d);
-
-
+	midsort(&d);
 
 
 	/* --------------------------- */

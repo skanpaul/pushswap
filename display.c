@@ -72,7 +72,8 @@ void	display_2_list(t_data *d)
     {
         if ((height_a >= i) && (height_b >= i))
         {
-            printf("\t%p:[%d (i:%d)]\t%p:[%d (i:%d)]\n", ptr_a, ptr_a->val, ptr_a->index, ptr_b, ptr_b->val, ptr_b->index);
+            printf("\t[%d (i:%d)]\t[%d (i:%d)]\n", ptr_a->val, ptr_a->index, ptr_b->val, ptr_b->index);
+            // printf("\t%p:[%d (i:%d)]\t%p:[%d (i:%d)]\n", ptr_a, ptr_a->val, ptr_a->index, ptr_b, ptr_b->val, ptr_b->index);
             // printf("\t%p:[%d]\t%p:[%d]\n", ptr_a, ptr_a->val, ptr_b, ptr_b->val);
             ptr_a = ptr_a->next;
             ptr_b = ptr_b->next;
@@ -80,14 +81,16 @@ void	display_2_list(t_data *d)
 
         if ((height_a >= i) && (height_b < i))
         {
-            printf("\t%p:[%d (i:%d)]\t   \n", ptr_a, ptr_a->val, ptr_a->index);
+            printf("\t[%d (i:%d)]\t   \n", ptr_a->val, ptr_a->index);
+            // printf("\t%p:[%d (i:%d)]\t   \n", ptr_a, ptr_a->val, ptr_a->index);
             // printf("\t%p:[%d]\t   \n", ptr_a, ptr_a->val);
             ptr_a = ptr_a->next;
         }
 
         if ((height_a < i) && (height_b >= i))
         {
-            printf("\t\t\t\t%p:[%d (i:%d)]\n", ptr_b, ptr_b->val, ptr_b->index);
+            printf("\t\t\t\t[%d (i:%d)]\n", ptr_b->val, ptr_b->index);
+            // printf("\t\t\t\t%p:[%d (i:%d)]\n", ptr_b, ptr_b->val, ptr_b->index);
             // printf("\t\t\t\t%p:[%d]\n", ptr_b, ptr_b->val);
             ptr_b = ptr_b->next;
         }
