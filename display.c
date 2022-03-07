@@ -73,22 +73,20 @@ void	display_2_list(t_data *d)
         if ((height_a >= i) && (height_b >= i))
         {
             printf("\t%p:[%d]\t%p:[%d]\n", ptr_a, ptr_a->val, ptr_b, ptr_b->val);
-            // printf("\t[%d]\t[%d]\n", ptr_a->val, ptr_b->val);
             ptr_a = ptr_a->next;
             ptr_b = ptr_b->next;
         }
 
         if ((height_a >= i) && (height_b < i))
         {
-            printf("\t%p:[%d]\t   \n", ptr_a, ptr_a->val);
-            // printf("\t[%d]\t   \n", ptr_a->val);
+            printf("\t%p:[%d] index:[%d]\t   \n", ptr_a, ptr_a->val, ptr_a->index);
+            // printf("\t%p:[%d]\t   \n", ptr_a, ptr_a->val);
             ptr_a = ptr_a->next;
         }
 
         if ((height_a < i) && (height_b >= i))
         {
             printf("\t\t\t\t%p:[%d]\n", ptr_b, ptr_b->val);
-            // printf("\t   \t[%d]\n", ptr_b->val);
             ptr_b = ptr_b->next;
         }
         i--;

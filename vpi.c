@@ -20,12 +20,29 @@ t_vpi	*vpi_create(int size)
 	return (vpi);
 }
 /* ************************************************************************** */
-void	vpi_free(t_vpi **vpi)
+void	vpi_do_index(t_vpi *vpi, int size)
 {
-	if(!*vpi)
-		return ;
-	free(*vpi);
-	*vpi = NULL;
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		vpi[i].index = i;
+		i++;
+	}
+}
+
+/* ************************************************************************** */
+void	vpi_index_to_linkedlist(t_vpi *vpi, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		vpi[i].ptr->index = vpi[i].index;
+		i++;		
+	}
 }
 
 /* ************************************************************************** */
@@ -36,9 +53,20 @@ void	vpi_display(t_vpi *vpi, int size)
 	i = 0;
 	while (i < size)
 	{
+		printf("i:%d\t", i);
 		printf("val[%d]\t", vpi[i].val);
 		printf("ptr[%p]\t", vpi[i].ptr);
 		printf("index[%i]\n", vpi[i].index);
 		i++;
 	}
+	printf("--------------------------------------------------------\n");
+}
+
+/* ************************************************************************** */
+void	vpi_free(t_vpi **vpi)
+{
+	if(!*vpi)
+		return ;
+	free(*vpi);
+	*vpi = NULL;
 }

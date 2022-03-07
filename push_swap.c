@@ -46,11 +46,13 @@ int main (int argc, char **argv)
 
 	display(&d);
 	/* --------------------------- */
-	// quick_sort(&d.a, &d.a.head, &d.a.tail, &d);
+	quicksort_vpi(d.vpi, 0, d.vpi_size - 1);
+	vpi_do_index(d.vpi, d.vpi_size);
+	vpi_index_to_linkedlist(d.vpi, d.vpi_size);
+	
 	/* --------------------------- */
 	display(&d);
 	vpi_display(d.vpi, d.vpi_size);
-	
 
 	/* ********************************************* */
 	ps_del_list(&d.a.head);

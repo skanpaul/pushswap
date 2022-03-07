@@ -135,6 +135,7 @@ typedef struct s_data
 typedef struct s_ps
 {
 	int			val;
+	int			index;
 	int			stk_id;
 	bool		is_pivot;
 	bool		sorted;
@@ -161,10 +162,13 @@ typedef struct s_vpi
 /* ---------------------------------------- */
 t_vpi	*vpi_create(int size);
 void	vpi_free(t_vpi **vpi);
+void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
+void	vpi_index_to_linkedlist(t_vpi *vpi, int size);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
+void	quicksort_vpi(t_vpi *vpi, int start, int end);
 // void	quick_sort(t_data *d);
 void	quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d);
 // void	quick_sort(t_stk *stk, t_ps *start, t_ps *end, t_data *d);
