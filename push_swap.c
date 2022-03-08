@@ -46,8 +46,8 @@ int main (int argc, char **argv)
 
 
 	/* --------------------------- */
-	display(&d);
-	vpi_display(d.vpi, d.vpi_size);
+	// display(&d);
+	// vpi_display(d.vpi, d.vpi_size);
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);
