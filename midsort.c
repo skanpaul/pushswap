@@ -27,8 +27,8 @@ void midsort_to_a(t_data *d)
 
 	chk_size = get_chunk_size(&d->b);
 
-	if(chk_size < 3)
-		sort_3(d, chk_size);
+	// if(chk_size < 3)
+	// 	sort_3(d, chk_size);
 
 	
 	

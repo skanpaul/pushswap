@@ -42,7 +42,8 @@ int main (int argc, char **argv)
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-	midsort(&d);
+	// midsort(&d);
+	ps_ski_sort(&d);
 
 
 	/* --------------------------- */

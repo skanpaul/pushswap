@@ -26,8 +26,8 @@ void sort_3_elem(t_data *d, int chk_size)
 		sort_1_to_a(d, chk_size);
 	else if (chk_size == 2)
 		sort_2_to_a(d, chk_size);
-	else if (chk_size == 3)
-		sort_3_to_a(d, chk_size);
+	// else if (chk_size == 3)
+	// 	sort_3_to_a(d, chk_size);
 
 }
 
@@ -47,13 +47,10 @@ void sort_2_to_a(t_data *d, int chk_size)
 }
 
 /* ************************************************************************** */
-void sort_3_to_a(t_data *d, int chk_size)
-{
+// void sort_3_to_a(t_data *d, int chk_size)
+// {
 
-}
-
-
-
+// }
 /* ************************************************************************** */
 static bool is_chunk_b_in_order(t_data *d, int chk_size)
 {

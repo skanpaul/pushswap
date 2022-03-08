@@ -178,7 +178,7 @@ void	midsort_to_b(t_data *d);
 void	sort_3_elem(t_data *d, int chk_size);
 void	sort_1_to_a(t_data *d, int chk_size);
 void	sort_2_to_a(t_data *d, int chk_size);
-void	sort_3_to_a(t_data *d, int chk_size);
+// void	sort_3_to_a(t_data *d, int chk_size);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
