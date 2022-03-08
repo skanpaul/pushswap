@@ -140,8 +140,9 @@ typedef struct s_ps
 	int			stk_id;
 	bool		is_pivot;
 	bool		sorted;
-	bool		chunk_start;
-	bool		chunk_end;
+	int			chk_n;
+	bool		chk_start;
+	bool		chk_end;
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
@@ -172,6 +173,11 @@ void	vpi_display(t_vpi *vpi, int size);
 void	midsort(t_data *d);
 void	midsort_to_a(t_data *d);
 void	midsort_to_b(t_data *d);
+
+/* ---------------------------------------- */
+void	sort_3_elem(t_data *d, int chk_size);
+void	sort_2_to_a(t_data *d, int chk_size);
+void	sort_3_to_a(t_data *d, int chk_size);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */

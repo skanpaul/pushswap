@@ -12,70 +12,73 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-static void midsort_to_b_rec(t_data *d, int start, int end);
+static int get_chunk_size(t_stk *stk);
+static bool is_chunk_b_in_order(t_data *d, int chk_size);
+
 /* ************************************************************************** */
 void midsort(t_data *d)
 {
 	midsort_to_b(d);
+	midsort_to_a(d);
 }
 /* ************************************************************************** */
-// void midsort_to_a(t_data *d)
-// {
-
-// }
-/* ************************************************************************** */
-void midsort_to_b(t_data *d)
+void midsort_to_a(t_data *d)
 {
-	midsort_to_b_rec(d, 0, d->a.size - 1);
+	int chk_size;
+
+	chk_size = get_chunk_size(&d->b);
+
+	if(chk_size < 3)
+		sort_3(d, chk_size);
+
+	
+	
+	// check chunk size
+	// size 1: just push_to_a
+	// size 2; swap and push_to_a
+	// size 3: sorting
+	// size 5: sorting
+	// size > 5; midsort_to_b
 }
+
 /* ************************************************************************** */
-static void midsort_to_b_rec(t_data *d, int start, int end)
+static int get_chunk_size(t_stk *stk)
 {
-	int mid_a;
-	int mid_b;
-	int chunk_b_size;
-	int cnt_push_b;
-	int cnt_rot;
+	int		size;
+	int		chk_n;
+	t_ps	*temp;
 
-	cnt_rot = 0;
-	cnt_push_b = 0;
+	if (!stk || !stk->head)
+		return (0);
 
-	mid_a = (end - start)/2 + start;
-	mid_b = (mid_a - start)/2 + start;
+	temp = stk->head;
+	chk_n = temp->chk_n;
 
-	chunk_b_size = mid_a - start + 1;
-
-	if (d->a.size <= 2)
-		return ;
-	else
+	size = 0;
+	while ((temp != NULL) && (temp->chk_n == chk_n))
 	{
-		while (cnt_push_b < chunk_b_size)
-		{
-			/* ------------------------------------------------------ */
-			if (d->a.head->index <= mid_a)
-			{
-				/* ---------------------------------------- */
-				push_to_b(d);
-				cnt_push_b++;
-				/* ---------------------------------------- */
-				if (cnt_push_b == chunk_b_size)
-					break;
-				/* ---------------------------------------- */
-				if (has_1_elem_or_more(&d->b.head) && (d->b.head->index > mid_b))
-				{
-					cnt_rot++;
-					if ((has_2_elem_or_more(&d->b.head)) && (d->b.head->next->index <= mid_b))
-						rotate_b(d);
-				}
-				/* ---------------------------------------- */
-			}
-			else
-				rotate_a(d);
-			/* ------------------------------------------------------ */
-
-		}
-		rev_rot_b_loop(d, cnt_rot);
-		midsort_to_b_rec(d, mid_a + 1, end);
+		size++;
+		temp = temp->next;
 	}
+	return (size);
 }
+
 /* ************************************************************************** */
+static bool is_chunk_b_in_order(t_data *d, int chk_size)
+{
+	int i;
+	t_ps *head_b;
+
+	head_b = d->b.head;
+
+	if (!has_2_elem_or_more(&d->b))
+		return (false);
+
+	i = 0;
+	while (i < size)
+	{
+		if ()
+		i++;
+	}
+	return 
+}
