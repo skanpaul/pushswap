@@ -38,7 +38,7 @@ int main (int argc, char **argv)
 		if (flag_exit == EXIT_YES)
 			return (EXIT_YES);
 	}
-
+	// bidon
 	/* ********************************************* */
 
 	display(&d);
