@@ -33,7 +33,9 @@ void swap(t_ps **stack, t_ps **stack_tail)
     elem_1->next = elem_3;
 
     if (has_2_elem_only(stack))
-        *stack_tail = elem_1;  
+        *stack_tail = elem_1;
+
+	// BIDON  
 
     return ;
 }
