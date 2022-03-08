@@ -11,7 +11,7 @@
 				"-Wall",
 				"-Wextra",
 				"-Werror",
-				"-L./",
+				"-L../libft",
 				"-lft",
 				"*.c",
 				"-o",
