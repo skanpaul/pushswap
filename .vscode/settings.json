@@ -3,7 +3,7 @@
 		"checker*": true, 
 		"annexe": true,
 		"*.o": true,
-		"ps*": true,
+		"ps*": false,
 		"is*": true,
 		"has*": true,
 		"ft_atoil.c": true,

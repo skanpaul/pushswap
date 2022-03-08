@@ -13,7 +13,6 @@
 
 /* ************************************************************************** */
 static int get_chunk_size(t_stk *stk);
-static bool is_chunk_b_in_order(t_data *d, int chk_size);
 
 /* ************************************************************************** */
 void midsort(t_data *d)
@@ -61,24 +60,4 @@ static int get_chunk_size(t_stk *stk)
 		temp = temp->next;
 	}
 	return (size);
-}
-
-/* ************************************************************************** */
-static bool is_chunk_b_in_order(t_data *d, int chk_size)
-{
-	int i;
-	t_ps *head_b;
-
-	head_b = d->b.head;
-
-	if (!has_2_elem_or_more(&d->b))
-		return (false);
-
-	i = 0;
-	while (i < size)
-	{
-		if ()
-		i++;
-	}
-	return 
 }
