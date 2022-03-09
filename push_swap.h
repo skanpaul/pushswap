@@ -65,70 +65,16 @@ typedef struct s_stk
 	/* ---------------- */
 }	t_stk;
 /* ************************************************************************** */
-typedef struct s_algo
-{
-	/* ---------------- */
-	int		id;
-	int		coef;
-	/* ---------------- */
-	int 	complexity;
-	int		a;
-	int		b;
-	int		c;
-	int		d;
-}	t_algo;
-/* ************************************************************************** */
 typedef struct s_data
 {
 	/* ---------------- */
 	t_stk	a;
 	t_stk	b;
 	/* ---------------- */
-	t_ps	*pivot;
-	t_ps	*bigger;
-	t_ps	*smaller;
-	/* ---------------- */
 	t_ps	*stk_cmd;
 	int		cnt_cmd;
 	/* ---------------- */
 	t_ps	*tail_ref;
-	/* ---------------- */
-	int		algo_direction;
-	int		algo_choosed;
-	/* ---------------- */
-	t_algo	algo_1;
-	t_algo	algo_2;
-	t_algo	algo_3;
-	t_algo	algo_4;
-	t_algo	algo_5;
-	t_algo	algo_6;
-	t_algo	algo_7;
-	t_algo	algo_8;
-	t_algo	algo_9;
-	t_algo	algo_10;
-	/* ---------------- */
-	t_algo	algo;
-	/* ---------------- */
-	t_ps	*h_elem;
-	t_ps	*l_elem;
-	int		pos_h_elem;
-	int		pos_l_elem;
-	int 	cur_stk;
-	int 	cur_stk_size;
-	/* ---------------- */
-	t_ps	*a_elem;
-	t_ps	*b_elem;
-	/* ---------------- */
-	int		coef_a;
-	int		coef_b;
-	int		coef_c;
-	int		coef_d;
-	/* ---------------- */
-	void (*p)(t_data *d, int loop);
-	void (*p_back)(t_data *d, int loop);
-	void (*rot)(t_data *d, int loop);
-	void (*rev)(t_data *d, int loop);
-	void (*s)(t_data *d);
 	/* ---------------- */
 	t_vpi	*vpi;
 	int		vpi_size;
@@ -193,7 +139,6 @@ void	sort_2_to_a(t_data *d);
 void	sort_3_to_a(t_data *d);
 void	sort_n_to_a(t_data *d, int chk_size);
 /* ************************************************************************** */
-// void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 bool	manage_arg_doublequote(char **argv, t_data *d);
