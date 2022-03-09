@@ -54,6 +54,7 @@ bool manage_arg_doublequote(char **argv, t_data *d)
 		ps_add_elem_to_bottom(new, &d->a);
 		(d->vpi)[i].val = val;
 		d->vpi[i].ptr = new;
+		d->vpi[i].ptr->chk_id = 0;
 		i++;
 	}
 	ft_split_free(split_v);    

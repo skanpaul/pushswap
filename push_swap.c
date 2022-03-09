@@ -42,13 +42,8 @@ int main (int argc, char **argv)
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-	// midsort(&d);
-	ps_ski_sort(&d);
-
-
-	/* --------------------------- */
-	// display(&d);
-	// vpi_display(d.vpi, d.vpi_size);
+	midsort(&d);
+	// ps_ski_sort(&d);
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);
@@ -58,6 +53,9 @@ int main (int argc, char **argv)
 
 /* ************************************************************************** */
 
+	/* --------------------------- */
+	// display(&d);
+	// vpi_display(d.vpi, d.vpi_size);
 	// push_to_b_loop(&d, 8);
 	// /* --------------------------- */
 	

@@ -28,6 +28,8 @@
 # define STACK_ID_A	1
 # define STACK_ID_B	2
 /* ************************************************************************** */
+# define MAX_SIZE_OF_UNSORTED_CHUNK_A 3
+/* ************************************************************************** */
 # define ALGO_1	1
 # define ALGO_2	2
 # define ALGO_3	3
@@ -140,7 +142,7 @@ typedef struct s_ps
 	int			stk_id;
 	bool		is_pivot;
 	bool		sorted;
-	int			chk_n;
+	int			chk_id;
 	bool		chk_start;
 	bool		chk_end;
 	struct s_ps	*prev;
@@ -171,32 +173,47 @@ void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
 /* ************************************************************************** */
 void	midsort(t_data *d);
-void	midsort_to_a(t_data *d);
-void	midsort_to_b(t_data *d);
-
 /* ---------------------------------------- */
-void	sort_3_elem(t_data *d, int chk_size);
-void	sort_1_to_a(t_data *d, int chk_size);
-void	sort_2_to_a(t_data *d, int chk_size);
-// void	sort_3_to_a(t_data *d, int chk_size);
+void	sort_a(t_data *d);
+/* ---------------------------------------- */
+void	midsort_a(t_data *d);
+void	midsort_b(t_data *d);
+/* ---------------------------------------- */
+int		get_chunk_size(t_stk *stk);
+// int		get_chunk_size(t_stk *stk, int chk_id);
+/* ---------------------------------------- */
+void	split_to_a(t_data *d);
+void	split_to_b(t_data *d);
+// void	midsort_to_b(t_data *d, int chk_a_id);
+/* ---------------------------------------- */
+void	sort_small_to_a(t_data *d);
+bool	is_chunk_a_in_order(t_data *d, int chk_size);
+bool	is_chunk_b_in_order(t_data *d, int chk_size);
+/* ************************************************************************** */
+void	sort_chunk_a(t_data *d, int chk_a_size);
+void	sort_chunk_b(t_data *d);
+void	sort_3_elem_or_less(t_data *d, int chk_size);
+void	sort_3_elem_or_less(t_data *d, int chk_size);
+void	sort_1_to_a(t_data *d);
+void	sort_2_to_a(t_data *d);
+void	sort_3_to_a(t_data *d);
+void	sort_n_to_a(t_data *d, int chk_size);
 /* ---------------------------------------- */
 t_ps	*sort_insertion(t_ps *stack);
 /* ---------------------------------------- */
-// void	quick_sort(t_stk *stk, t_ps **start, t_ps **end, t_data *d);
-void	find_bigger_than_pivot(t_data *d);
 void	find_smaller_than_pivot(t_data *d);
-int		distance_to_top_upwards(t_ps *elem);
-int		distance_to_top_downwards(t_ps *elem);
+// int		distance_to_top_upwards(t_ps *elem);
+// int		distance_to_top_downwards(t_ps *elem);
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 bool	manage_arg_doublequote(char **argv, t_data *d);
-void	ps_ski_sort(t_data *d);
+void	ski_sort(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
 bool	is_ready_push_b(t_data *d);
-bool    is_ready_push_a(t_data *d);
+bool    is_ready_push_a(t_data *d); // pas similaire a is_ready_push_b()
 /* ************************************************************************** */
 void	swap_far_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
 void	swap_far_algo1(t_ps *elem_1, t_ps *elem_2, t_data *d);

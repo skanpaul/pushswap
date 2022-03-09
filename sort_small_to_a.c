@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   midsort.c                                          :+:      :+:    :+:   */
+/*   sort_small_to_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,37 +12,31 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void midsort(t_data *d)
+void sort_small_to_a(t_data *d)
 {
-	sort_a(d);
+	int chk_size;
+
+	chk_size = get_chunk_size(&d->b);
+
+	while (d->b.size > 0)
+	{
+		if (is_chunk_b_in_order(d, chk_size))
+			push_to_a_loop(d, chk_size);
+		else if (chk_size <= 3)
+			sort_3_elem_or_less(d, chk_size);
+			
+
+		chk_size = get_chunk_size(&d->b);
+
+		if (chk_size > 3)
+			break;
+	}
 
 }
-
 /* ************************************************************************** */
-void sort_a(t_data *d)
-{
-	int chk_a_size;
-	// /* ----------------------------------------------- */
-
-	chk_a_size = get_chunk_size(&d->a);
-	if (chk_a_size > MAX_SIZE_OF_UNSORTED_CHUNK_A)
-		split_to_b(d);
-
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
-
-
-	chk_a_size = 0;
-	
-
-
-
-	
-
-	
-
-	
-
-	/* ----------------------------------------------- */
-
-}
+	// check chunk size
+	// size 1: just push_to_a
+	// size 2; swap and push_to_a
+	// size 3: sorting
+	// size 5: sorting
+	// size > 5; midsort_to_b

@@ -11,38 +11,45 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+// /* ************************************************************************** */
+// int get_chunk_size(t_stk *stk, int chk_id)
+// {
+// 	int		size;
+// 	int		chk_id;
+// 	t_ps	*temp;
+
+// 	if (!stk || !stk->head)
+// 		return (0);
+
+// 	temp = stk->head;
+
+// 	size = 0;
+// 	while ((temp != NULL) && (temp->chk_id == chk_id))
+// 	{
+// 		size++;
+// 		temp = temp->next;
+// 	}
+// 	return (size);
+// }
+
 /* ************************************************************************** */
-void midsort(t_data *d)
+int get_chunk_size(t_stk *stk)
 {
-	sort_a(d);
+	int		size;
+	int		chk_id;
+	t_ps	*temp;
 
-}
+	if (!stk || !stk->head)
+		return (0);
 
-/* ************************************************************************** */
-void sort_a(t_data *d)
-{
-	int chk_a_size;
-	// /* ----------------------------------------------- */
+	temp = stk->head;
+	chk_id = temp->chk_id;
 
-	chk_a_size = get_chunk_size(&d->a);
-	if (chk_a_size > MAX_SIZE_OF_UNSORTED_CHUNK_A)
-		split_to_b(d);
-
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
-
-
-	chk_a_size = 0;
-	
-
-
-
-	
-
-	
-
-	
-
-	/* ----------------------------------------------- */
-
+	size = 0;
+	while ((temp != NULL) && (temp->chk_id == chk_id))
+	{
+		size++;
+		temp = temp->next;
+	}
+	return (size);
 }

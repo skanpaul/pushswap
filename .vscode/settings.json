@@ -3,8 +3,8 @@
 		"checker*": true, 
 		"annexe": true,
 		"*.o": true,
-		"ps*": false,
-		"is*": true,
+		"ps*": true,
+		"is*": false,
 		"has*": true,
 		"ft_atoil.c": true,
 		"libft.*": false

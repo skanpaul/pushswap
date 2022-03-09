@@ -1,48 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   midsort.c                                          :+:      :+:    :+:   */
+/*   is_chunk_in_order.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 15:49:49 by ski               #+#    #+#             */
-/*   Updated: 2022/03/07 15:49:51 by ski              ###   ########.fr       */
+/*   Created: 2022/03/08 15:34:13 by ski               #+#    #+#             */
+/*   Updated: 2022/03/08 15:34:18 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void midsort(t_data *d)
+bool is_chunk_a_in_order(t_data *d, int chk_size)
 {
-	sort_a(d);
+	int i;
+	t_ps *temp;
 
+	temp = d->b.head;
+
+	if (!has_2_elem_or_more(&temp))
+		return (false);
+
+	i = 0;
+	while (i < chk_size - 1)
+	{
+		if (temp->index > temp->next->index)
+			return (false);
+		i++;
+	}
+	return (true);
 }
 
 /* ************************************************************************** */
-void sort_a(t_data *d)
+bool is_chunk_b_in_order(t_data *d, int chk_size)
 {
-	int chk_a_size;
-	// /* ----------------------------------------------- */
+	int i;
+	t_ps *temp;
 
-	chk_a_size = get_chunk_size(&d->a);
-	if (chk_a_size > MAX_SIZE_OF_UNSORTED_CHUNK_A)
-		split_to_b(d);
+	temp = d->b.head;
 
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
+	if (!has_2_elem_or_more(&temp))
+		return (false);
 
-
-	chk_a_size = 0;
-	
-
-
-
-	
-
-	
-
-	
-
-	/* ----------------------------------------------- */
-
+	i = 0;
+	while (i < chk_size - 1)
+	{
+		if (temp->index < temp->next->index)
+			return (false);
+		i++;
+	}
+	return (true);
 }
