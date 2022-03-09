@@ -30,17 +30,6 @@
 /* ************************************************************************** */
 # define MAX_SIZE_OF_UNSORTED_CHUNK_A 3
 /* ************************************************************************** */
-# define ALGO_1	1
-# define ALGO_2	2
-# define ALGO_3	3
-# define ALGO_4	4
-# define ALGO_5	5
-# define ALGO_6	6
-# define ALGO_7	7
-# define ALGO_8	8
-# define ALGO_9 9
-# define ALGO_10 10
-/* ************************************************************************** */
 # define COL_VAL	0
 # define COL_ELEM	1
 # define COL_INDEX	2
@@ -48,9 +37,8 @@
 # define DIR_A_TO_B 1
 # define DIR_B_TO_A 2
 /* ************************************************************************** */
-typedef struct s_data t_data;
 typedef struct s_stk t_stk;
-typedef struct s_algo t_algo;
+typedef struct s_data t_data;
 typedef struct s_ps t_ps;
 typedef struct s_cmd t_cmd;
 typedef struct s_vpi t_vpi;
@@ -74,10 +62,10 @@ typedef struct s_data
 	t_ps	*stk_cmd;
 	int		cnt_cmd;
 	/* ---------------- */
-	t_ps	*tail_ref;
-	/* ---------------- */
 	t_vpi	*vpi;
 	int		vpi_size;
+	/* ---------------- */
+	t_ps	*tail_ref;
 	/* ---------------- */
 } t_data;
 /* ************************************************************************** */
@@ -94,15 +82,6 @@ typedef struct s_ps
 	struct s_ps	*prev;
 	struct s_ps	*next;
 }	t_ps;
-/* ************************************************************************** */
-typedef struct s_cmd
-{
-	int				val_cmd;
-	char			*str_cmd;
-	int				should_print;
-	struct s_cmd	*prev;
-	struct s_cmd	*next;
-}	t_cmd;
 /* ************************************************************************** */
 typedef struct s_vpi
 {
@@ -142,6 +121,7 @@ void	sort_n_to_a(t_data *d, int chk_size);
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
 bool	manage_arg_doublequote(char **argv, t_data *d);
+/* ************************************************************************** */
 void	ski_sort(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
