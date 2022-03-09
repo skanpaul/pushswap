@@ -174,19 +174,13 @@ void	vpi_display(t_vpi *vpi, int size);
 /* ************************************************************************** */
 void	midsort(t_data *d);
 /* ---------------------------------------- */
-void	sort_a(t_data *d);
-/* ---------------------------------------- */
-void	midsort_a(t_data *d);
-void	midsort_b(t_data *d);
-/* ---------------------------------------- */
-int		get_chunk_size(t_stk *stk);
-// int		get_chunk_size(t_stk *stk, int chk_id);
-/* ---------------------------------------- */
 void	split_to_a(t_data *d);
 void	split_to_b(t_data *d);
-// void	midsort_to_b(t_data *d, int chk_a_id);
 /* ---------------------------------------- */
+void	sort_a(t_data *d);
 void	sort_small_to_a(t_data *d);
+/* ---------------------------------------- */
+int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
 bool	is_chunk_b_in_order(t_data *d, int chk_size);
 /* ************************************************************************** */
@@ -198,12 +192,6 @@ void	sort_1_to_a(t_data *d);
 void	sort_2_to_a(t_data *d);
 void	sort_3_to_a(t_data *d);
 void	sort_n_to_a(t_data *d, int chk_size);
-/* ---------------------------------------- */
-t_ps	*sort_insertion(t_ps *stack);
-/* ---------------------------------------- */
-void	find_smaller_than_pivot(t_data *d);
-// int		distance_to_top_upwards(t_ps *elem);
-// int		distance_to_top_downwards(t_ps *elem);
 /* ************************************************************************** */
 // void	init_push_swap(t_stk *a, t_stk *b, t_data *d);
 void	init_push_swap(t_data *d);
@@ -214,28 +202,6 @@ void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
 bool	is_ready_push_b(t_data *d);
 bool    is_ready_push_a(t_data *d); // pas similaire a is_ready_push_b()
-/* ************************************************************************** */
-void	swap_far_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo1(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo2(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo3(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo4(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo5(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo6(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo7(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo8(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo9(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	swap_far_algo10(t_ps *elem_1, t_ps *elem_2, t_data *d);
-/* ---------------------------------------- */
-void	assign_high_and_low_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	assign_a_and_b_elem(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	assign_fct(t_ps *elem_1, t_ps *elem_2, t_data *d);
-/* ---------------------------------------- */
-void	calculate_coef(t_ps *elem_1, t_ps *elem_2, t_data *d);
-void	calculate_coef_1_or_2(t_data *d);
-void	calculate_coef_3_or_4(t_data *d);
-void	calculate_coef_5_to_8(t_ps *elem_a, t_ps *elem_b,  t_data *d);
-void	calculate_coef_9_or_10(t_data *d);
 /* ************************************************************************** */
 long	ft_atoil(const char *str);
 /* ************************************************************************** */
@@ -302,9 +268,5 @@ void	display_2_list(t_data *d);
 void	display_size(t_data *d);
 void	display_stack_address(t_data *d);
 void	display_algo_coef(t_data *d);
-/* ************************************************************************** */
-void	printf_red();
-void	printf_yellow();
-void	printf_reset();
 /* ************************************************************************** */
 #endif
