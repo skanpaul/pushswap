@@ -16,7 +16,6 @@ int main (int argc, char **argv)
 {
 	t_data	d;
 	bool	flag_exit;
-
 	flag_exit = false;	
 	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);

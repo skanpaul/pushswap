@@ -28,7 +28,7 @@
 # define STACK_ID_A	1
 # define STACK_ID_B	2
 /* ************************************************************************** */
-# define MAX_SIZE_OF_UNSORTED_CHUNK_A 3
+# define MAX_SIZE_OF_UNSORTED_CHUNK 3
 /* ************************************************************************** */
 # define COL_VAL	0
 # define COL_ELEM	1
@@ -102,7 +102,8 @@ void	midsort(t_data *d);
 void	split_to_a(t_data *d);
 void	split_to_b(t_data *d);
 /* ---------------------------------------- */
-void	sort_a(t_data *d);
+// void	sort_a(t_data *d);
+void	sort_a(t_data *d, int cnt_rev_rot_a);
 /* ---------------------------------------- */
 int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
@@ -110,10 +111,6 @@ bool	is_chunk_b_in_order(t_data *d, int chk_size);
 /* ************************************************************************** */
 void	sort_chunk_a(t_data *d, int chk_a_size);
 void	sort_chunk_b_to_a(t_data *d);
-void	sort_3_elem_or_less(t_data *d, int chk_size);
-void	sort_1_to_a(t_data *d);
-void	sort_2_to_a(t_data *d);
-void	sort_3_to_a(t_data *d);
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);

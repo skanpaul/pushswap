@@ -49,9 +49,7 @@ bool manage_parameter(int argc, char **argv, t_data *d)
 		ps_add_elem_to_bottom(new, &d->a);
 		(d->vpi)[i - 1].val = val;
 		d->vpi[i - 1].ptr = new;
-
-
-
+		d->vpi[i - 1].ptr->chk_id = argc - 2;
 		i++;
 	}     
     return (EXIT_NO);

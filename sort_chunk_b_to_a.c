@@ -12,53 +12,99 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
+static void sort_chunk_b_to_a_2_elem(t_data *d);
+static void sort_chunk_b_to_a_3_elem(t_data *d);
+
+/* ************************************************************************** */
 void sort_chunk_b_to_a(t_data *d)
 {
 	int chk_b_size;
 
 	chk_b_size = get_chunk_size(&d->b);
 
-	while (0 < chk_b_size && chk_b_size <= 3)
+	if (0 < chk_b_size && chk_b_size <= MAX_SIZE_OF_UNSORTED_CHUNK)
 	{
 		if ((chk_b_size == 1) || (is_chunk_b_in_order(d, chk_b_size)))
 			push_to_a_loop(d, chk_b_size);
 		else
 		{
 			if (chk_b_size == 2)
-				sort_2_to_a(d);
-			else // if (chk_b_size == 3)
-				sort_3_to_a(d);	
+				sort_chunk_b_to_a_2_elem(d);
+			else if (chk_b_size == 3)
+				sort_chunk_b_to_a_3_elem(d);	
+			// else if (chk_b_size == 4)
+			// 	sort_chunk_b_to_a_4_elem(d);	
+			// else if (chk_b_size == 5)
+			// 	sort_chunk_b_to_a_5_elem(d);
 		}
 		chk_b_size = get_chunk_size(&d->b);
+		if (0 < chk_b_size && chk_b_size <= MAX_SIZE_OF_UNSORTED_CHUNK)
+			sort_chunk_b_to_a(d);
 	}
 }
 
-// /* ************************************************************************** */
+/* ************************************************************************** */
 // void sort_chunk_b_to_a(t_data *d)
 // {
 // 	int chk_b_size;
 
 // 	chk_b_size = get_chunk_size(&d->b);
 
-// 	while (d->b.size > 0)
+// 	while (0 < chk_b_size && chk_b_size <= MAX_SIZE_OF_UNSORTED_CHUNK)
 // 	{
-// 		if (is_chunk_b_in_order(d, chk_b_size))
+// 		if ((chk_b_size == 1) || (is_chunk_b_in_order(d, chk_b_size)))
 // 			push_to_a_loop(d, chk_b_size);
-// 		else if (chk_b_size <= 3)
-// 			sort_3_elem_or_less(d, chk_b_size);
-			
-
+// 		else
+// 		{
+// 			if (chk_b_size == 2)
+// 				sort_chunk_b_to_a_2_elem(d);
+// 			else if (chk_b_size == 3)
+// 				sort_chunk_b_to_a_3_elem(d);	
+// 			// else if (chk_b_size == 4)
+// 			// 	sort_chunk_b_to_a_4_elem(d);	
+// 			// else if (chk_b_size == 5)
+// 			// 	sort_chunk_b_to_a_5_elem(d);
+// 		}
 // 		chk_b_size = get_chunk_size(&d->b);
-
-// 		if (chk_b_size > 3)
-// 			break;
 // 	}
+// }
+
+/* ************************************************************************** */
+static void sort_chunk_b_to_a_2_elem(t_data *d)
+{
+	if (d->b.head->next->index > d->b.head->index)
+		swap_b(d);
+	
+	push_to_a_loop(d, 2);
+}
+
+/* ************************************************************************** */
+static void sort_chunk_b_to_a_3_elem (t_data *d)
+{
+	// step 1: -------------------------------
+	if(d->b.head->next->index > d->b.head->index)
+		swap_b(d);	
+	push_to_a(d);
+
+	// step 2: -------------------------------
+	if(d->b.head->next->index > d->b.head->index)
+		swap_b(d);	
+	push_to_a(d);
+
+	// step 3: -------------------------------
+	if(d->a.head->next->index < d->a.head->index)
+		swap_a(d);
+	push_to_a(d);
+}
+
+// /* ************************************************************************** */
+// static void sort_chunk_b_to_a_4_elem (t_data *d)
+// {
 
 // }
-/* ************************************************************************** */
-	// check chunk size
-	// size 1: just push_to_a
-	// size 2; swap and push_to_a
-	// size 3: sorting
-	// size 5: sorting
-	// size > 5; midsort_to_b
+
+// /* ************************************************************************** */
+// static void sort_chunk_b_to_a_5_elem (t_data *d)
+// {
+
+// }
