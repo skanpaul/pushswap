@@ -98,7 +98,8 @@ static void split_to_b_rec(t_data *d, int start, int end)
 			/* ------------------------------------------------------ */
 
 		}
-		rev_rot_a_loop(d, cnt_rot_a);
+		if (!is_same_chunk_id_whole_stack(&d->a))
+			rev_rot_a_loop(d, cnt_rot_a);
 		rev_rot_b_loop(d, cnt_rot_b);
 		split_to_b_rec(d, mid_2 + 1, end);
 	}

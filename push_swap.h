@@ -129,6 +129,7 @@ bool	is_countable(char *str);
 bool	is_bigger_than_int(char *str);
 bool	is_duplicated (t_ps **stack, int val);
 bool	is_in_order(t_ps *top_elem);
+bool	is_same_chunk_id_whole_stack(t_stk *stk);
 /* ************************************************************************** */
 bool	has_0_elem_only(t_ps **head);
 bool	has_1_elem_only(t_ps **head);
