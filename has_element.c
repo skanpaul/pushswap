@@ -12,14 +12,14 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool has_0_elem_only(t_ps **stack)
+bool has_0_elem_only(t_ps **head)
 {
     t_ps *elem_1;
 
-    if (stack == NULL)
+    if (head == NULL)
         return (true);
         
-    elem_1 = *stack;
+    elem_1 = *head;
     if (elem_1 == NULL)
         return (true);
 
@@ -27,14 +27,14 @@ bool has_0_elem_only(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_1_elem_only(t_ps **stack)
+bool has_1_elem_only(t_ps **head)
 {
     t_ps    *elem_1;
   
-    if (stack == NULL)
+    if (head == NULL)
         return (false);
     
-    elem_1 = *stack;
+    elem_1 = *head;
     if ((elem_1 != NULL) && (elem_1->next == NULL))
         return (true);
 
@@ -42,18 +42,18 @@ bool has_1_elem_only(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_2_elem_only(t_ps **stack)
+bool has_2_elem_only(t_ps **head)
 {
     t_ps    *elem_1;
     t_ps    *elem_2;
   
-    if(stack == NULL)
+    if(head == NULL)
         return (false);
     
-    if (has_1_elem_only(stack))
+    if (has_1_elem_only(head))
         return false;
 
-    elem_1 = *stack;
+    elem_1 = *head;
     elem_2 = elem_1->next;
 
     if ((elem_2 != NULL) && (elem_2->next == NULL))
@@ -63,14 +63,14 @@ bool has_2_elem_only(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_1_elem_or_more(t_ps **stack)
+bool has_1_elem_or_more(t_ps **head)
 {
     t_ps *top_elem;
 
-    if(stack == NULL)
+    if(head == NULL)
         return (false);
         
-    top_elem = *stack;
+    top_elem = *head;
     if (top_elem == NULL)
         return (false);
 
@@ -78,14 +78,14 @@ bool has_1_elem_or_more(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_2_elem_or_more(t_ps **stack)
+bool has_2_elem_or_more(t_ps **head)
 {
     t_ps *top_elem;
 
-    if(stack == NULL)
+    if(head == NULL)
         return (false);
 
-    top_elem = *stack;
+    top_elem = *head;
     if (top_elem == NULL)
         return (false);
 
@@ -96,16 +96,16 @@ bool has_2_elem_or_more(t_ps **stack)
 }
 
 /* ************************************************************************** */
-bool has_less_than_2_elem(t_ps **stack)
+bool has_less_than_2_elem(t_ps **head)
 {
     t_ps *elem_1;
 	t_ps *elem_2;
 
 	/* test si 0 ou 1 element --> pas besoin de controller */
-	if (!stack)
+	if (!head)
         return (true);
     
-    elem_1 = *stack;
+    elem_1 = *head;
 
 	if (elem_1 == NULL)
 		return (true);

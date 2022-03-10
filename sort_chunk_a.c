@@ -25,6 +25,10 @@ void sort_chunk_a(t_data *d, int chk_a_size)
 		sort_chunk_a_2_elem(d);
 	else // if (chk_a_size == 3)
 		sort_chunk_a_3_elem(d);	
+	// else // if (chk_a_size == 4)
+	// 	sort_chunk_a_4_elem(d);	
+	// else // if (chk_a_size == 5)
+	// 	sort_chunk_a_5_elem(d);	
 }
 /* ************************************************************************** */
 void sort_chunk_a_2_elem(t_data *d)

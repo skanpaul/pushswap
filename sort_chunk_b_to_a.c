@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_to_a.c                                  :+:      :+:    :+:   */
+/*   sort_chunk_b_to_a.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,27 +12,49 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void sort_small_to_a(t_data *d)
+void sort_chunk_b_to_a(t_data *d)
 {
-	int chk_size;
+	int chk_b_size;
 
-	chk_size = get_chunk_size(&d->b);
+	chk_b_size = get_chunk_size(&d->b);
 
-	while (d->b.size > 0)
+	while (0 < chk_b_size && chk_b_size <= 3)
 	{
-		if (is_chunk_b_in_order(d, chk_size))
-			push_to_a_loop(d, chk_size);
-		else if (chk_size <= 3)
-			sort_3_elem_or_less(d, chk_size);
+		if ((chk_b_size == 1) || (is_chunk_b_in_order(d, chk_b_size)))
+			push_to_a_loop(d, chk_b_size);
+		else
+		{
+			if (chk_b_size == 2)
+				sort_2_to_a(d);
+			else // if (chk_b_size == 3)
+				sort_3_to_a(d);	
+		}
+		chk_b_size = get_chunk_size(&d->b);
+	}
+}
+
+// /* ************************************************************************** */
+// void sort_chunk_b_to_a(t_data *d)
+// {
+// 	int chk_b_size;
+
+// 	chk_b_size = get_chunk_size(&d->b);
+
+// 	while (d->b.size > 0)
+// 	{
+// 		if (is_chunk_b_in_order(d, chk_b_size))
+// 			push_to_a_loop(d, chk_b_size);
+// 		else if (chk_b_size <= 3)
+// 			sort_3_elem_or_less(d, chk_b_size);
 			
 
-		chk_size = get_chunk_size(&d->b);
+// 		chk_b_size = get_chunk_size(&d->b);
 
-		if (chk_size > 3)
-			break;
-	}
+// 		if (chk_b_size > 3)
+// 			break;
+// 	}
 
-}
+// }
 /* ************************************************************************** */
 	// check chunk size
 	// size 1: just push_to_a

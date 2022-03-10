@@ -5,7 +5,7 @@
 		"*.o": true,
 		"ps*": true,
 		"is*": false,
-		"has*": true,
+		"has*": false,
 		"ft_atoil.c": true,
 		"libft.*": false
 	},

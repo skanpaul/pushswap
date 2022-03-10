@@ -17,7 +17,7 @@ bool is_chunk_a_in_order(t_data *d, int chk_size)
 	int i;
 	t_ps *temp;
 
-	temp = d->b.head;
+	temp = d->a.head;
 
 	if (!has_2_elem_or_more(&temp))
 		return (false);
@@ -27,6 +27,7 @@ bool is_chunk_a_in_order(t_data *d, int chk_size)
 	{
 		if (temp->index > temp->next->index)
 			return (false);
+		temp = temp->next;
 		i++;
 	}
 	return (true);
@@ -48,6 +49,7 @@ bool is_chunk_b_in_order(t_data *d, int chk_size)
 	{
 		if (temp->index < temp->next->index)
 			return (false);
+		temp = temp->next;
 		i++;
 	}
 	return (true);

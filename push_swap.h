@@ -73,10 +73,10 @@ typedef struct s_ps
 {
 	int			val;
 	int			index;
+	int			chk_id;
 	int			stk_id;
 	bool		is_pivot;
 	bool		sorted;
-	int			chk_id;
 	bool		chk_start;
 	bool		chk_end;
 	struct s_ps	*prev;
@@ -103,20 +103,17 @@ void	split_to_a(t_data *d);
 void	split_to_b(t_data *d);
 /* ---------------------------------------- */
 void	sort_a(t_data *d);
-void	sort_small_to_a(t_data *d);
 /* ---------------------------------------- */
 int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
 bool	is_chunk_b_in_order(t_data *d, int chk_size);
 /* ************************************************************************** */
 void	sort_chunk_a(t_data *d, int chk_a_size);
-void	sort_chunk_b(t_data *d);
-void	sort_3_elem_or_less(t_data *d, int chk_size);
+void	sort_chunk_b_to_a(t_data *d);
 void	sort_3_elem_or_less(t_data *d, int chk_size);
 void	sort_1_to_a(t_data *d);
 void	sort_2_to_a(t_data *d);
 void	sort_3_to_a(t_data *d);
-void	sort_n_to_a(t_data *d, int chk_size);
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);
@@ -135,15 +132,15 @@ bool	is_countable(char *str);
 bool	is_bigger_than_int(char *str);
 bool	is_duplicated (t_ps **stack, int val);
 bool	is_in_order(t_ps *top_elem);
+/* ************************************************************************** */
+bool	has_0_elem_only(t_ps **head);
+bool	has_1_elem_only(t_ps **head);
+bool	has_2_elem_only(t_ps **head);
 /* ---------------------------------------- */
-bool	has_0_elem_only(t_ps **stack);
-bool	has_1_elem_only(t_ps **stack);
-bool	has_2_elem_only(t_ps **stack);
+bool	has_1_elem_or_more(t_ps **head);
+bool	has_2_elem_or_more(t_ps **head);
 /* ---------------------------------------- */
-bool	has_1_elem_or_more(t_ps **stack);
-bool	has_2_elem_or_more(t_ps **stack);
-/* ---------------------------------------- */
-bool	has_less_than_2_elem(t_ps **stack);
+bool	has_less_than_2_elem(t_ps **head);
 /* ************************************************************************** */
 t_ps	*ps_new_elem(int val);
 void	ps_new_elem_at_bottom(int val, t_stk *stk);

@@ -14,7 +14,10 @@
 /* ************************************************************************** */
 void midsort(t_data *d)
 {
-	sort_a(d);
+	// while ((!is_in_order(&d->a.head)) && (!has_0_elem_only(&d->b.head)))
+
+	if ((!is_in_order(d->a.head)) || (!has_0_elem_only(&d->b.head)))
+		sort_a(d);
 
 }
 
@@ -22,27 +25,18 @@ void midsort(t_data *d)
 void sort_a(t_data *d)
 {
 	int chk_a_size;
-	// /* ----------------------------------------------- */
 
+	/* SPLIT to B ------------------------------------ */
 	chk_a_size = get_chunk_size(&d->a);
 	if (chk_a_size > MAX_SIZE_OF_UNSORTED_CHUNK_A)
 		split_to_b(d);
 
+	/* SORT CHUNK A ---------------------------------- */
 	chk_a_size = get_chunk_size(&d->a);
 	sort_chunk_a(d, chk_a_size);
-
-
-	chk_a_size = 0;
-	
-
-
-
-	
-
-	
-
-	
-
 	/* ----------------------------------------------- */
+	
+	sort_chunk_b_to_a(d);
+
 
 }
