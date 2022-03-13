@@ -9,7 +9,8 @@
 /*   Updated: 2022/03/07 15:49:51 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../push_swap.h"
+// #include "push_swap.h"
 
 /* ************************************************************************** */
 static void split_to_a_rec(t_data *d, int start, int end);
@@ -84,6 +85,5 @@ static void split_to_a_rec(t_data *d, int start, int end)
 		i++;
 	}
 	rev_rot_b_loop(d, cnt_rot_b);
-	sort_a(d, cnt_rot_a);
 }
 /* ************************************************************************** */

@@ -11,9 +11,10 @@
 				"-Wall",
 				"-Wextra",
 				"-Werror",
+				"./quick_sort_function/*.c",
+				"*.c",
 				"-L./",
 				"-lft",
-				"*.c",
 				"-o",
 				"${fileDirname}/push_swap"
 			],
