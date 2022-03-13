@@ -12,22 +12,28 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-static void split_to_a_rec(t_data *d, int start, int end);
+// static void split_to_a_rec(t_data *d, int start, int end);
+static int split_to_a_rec(t_data *d, int start, int end);
 
 /* ************************************************************************** */
 void split_to_a(t_data *d)
 {
 	int start;
 	int end;
+	int cnt_rot_a;
 
 	end = d->b.head->chk_id;
 	start = end - get_chunk_size(&d->b) + 1;
 	
-	split_to_a_rec(d, start, end);
+	cnt_rot_a = split_to_a_rec(d, start, end);
+
+	if (cnt_rot_a != 0)
+		sort_a(d, cnt_rot_a);
 }
 
 /* ************************************************************************** */
-static void split_to_a_rec(t_data *d, int start, int end)
+// static void split_to_a_rec(t_data *d, int start, int end)
+static int split_to_a_rec(t_data *d, int start, int end)
 {
 	int mid_2;
 	int mid_4;
@@ -84,6 +90,7 @@ static void split_to_a_rec(t_data *d, int start, int end)
 		i++;
 	}
 	rev_rot_b_loop(d, cnt_rot_b);
-	sort_a(d, cnt_rot_a);
+	// sort_a(d, cnt_rot_a);
+	return (cnt_rot_a);
 }
 /* ************************************************************************** */

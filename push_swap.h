@@ -104,12 +104,13 @@ void	split_to_b(t_data *d);
 /* ---------------------------------------- */
 // void	sort_a(t_data *d);
 void	sort_a(t_data *d, int cnt_rev_rot_a);
+void	sort_b(t_data *d);
 /* ---------------------------------------- */
 int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
 bool	is_chunk_b_in_order(t_data *d, int chk_size);
 /* ************************************************************************** */
-void	sort_chunk_a(t_data *d, int chk_a_size);
+void	sort_chunk_a(t_data *d);
 void	sort_chunk_b_to_a(t_data *d);
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);

@@ -28,7 +28,6 @@ static void split_to_b_rec(t_data *d, int start, int end);
 /* ************************************************************************** */
 void split_to_b(t_data *d)
 {
-	int chk_a_size;
 	int start;
 	int end;
 
@@ -36,8 +35,7 @@ void split_to_b(t_data *d)
 	start = end - get_chunk_size(&d->a) + 1;
 	split_to_b_rec(d, start, end);
 
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
+	sort_chunk_a(d);
 }
 /* ************************************************************************** */
 static void split_to_b_rec(t_data *d, int start, int end)

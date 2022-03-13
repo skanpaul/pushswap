@@ -16,11 +16,14 @@ void sort_chunk_a_2_elem(t_data *d);
 void sort_chunk_a_3_elem(t_data *d);
 
 /* ************************************************************************** */
-void sort_chunk_a(t_data *d, int chk_a_size)
-{
+void sort_chunk_a(t_data *d)
+{		
+	int chk_a_size;
+
+	chk_a_size = get_chunk_size(&d->a);
+
 	if ((chk_a_size == 1) || (is_chunk_a_in_order(d, chk_a_size)))
-		return ;	
-	
+		return ;
 	if (chk_a_size == 2)
 		sort_chunk_a_2_elem(d);
 	else if (chk_a_size == 3)
@@ -32,6 +35,7 @@ void sort_chunk_a(t_data *d, int chk_a_size)
 	else
 		split_to_b(d);
 }
+
 /* ************************************************************************** */
 void sort_chunk_a_2_elem(t_data *d)
 {

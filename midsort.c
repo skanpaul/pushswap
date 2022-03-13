@@ -23,43 +23,34 @@ void midsort(t_data *d)
 // void sort_a(t_data *d)
 void sort_a(t_data *d, int cnt_rev_rot_a)
 {
+	
 	int chk_a_size;
 
 	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size); // inclu split_to_b
 
-	rev_rot_a_loop(d, cnt_rev_rot_a);
-
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
-
-	sort_chunk_b_to_a(d);
 	
+	sort_chunk_a(d); 
+
+	if (cnt_rev_rot_a != 0)
+	{
+		rev_rot_a_loop(d, cnt_rev_rot_a);
+		cnt_rev_rot_a = 0;
+		sort_a(d, 0);
+		// sort_a(d, cnt_rev_rot_a);
+	}
 
 	if ((!is_in_order(d->a.head)) || (!has_0_elem_only(&d->b.head)))
-		split_to_a(d);
+		sort_b(d);
+
+	
 }
 
 /* ************************************************************************** */
-// void sort_a(t_data *d)
-// {
-// 	int chk_a_size;
+void sort_b(t_data *d)
+{
 
-// 	/* SPLIT to B ------------------------------------ */
-// 	chk_a_size = get_chunk_size(&d->a);
-// 	if (chk_a_size > MAX_SIZE_OF_UNSORTED_CHUNK)
-// 		split_to_b(d);
-
-// 	/* SORT CHUNK A ---------------------------------- */
-// 	chk_a_size = get_chunk_size(&d->a);
-// 	sort_chunk_a(d, chk_a_size);
-
-// 	/* SORT CHUNK B to A ----------------------------- */	
-// 	sort_chunk_b_to_a(d);
-
-// 	/* SPLIT to A ------------------------------------ */
-
-// 	if ((!is_in_order(d->a.head)) || (!has_0_elem_only(&d->b.head)))
-// 		split_to_a(d);
-
-// }
+	sort_chunk_b_to_a(d);	
+	
+	if ((!is_in_order(d->a.head)) || (!has_0_elem_only(&d->b.head)))
+		sort_a(d, 0);
+}

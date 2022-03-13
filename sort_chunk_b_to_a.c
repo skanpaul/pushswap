@@ -40,7 +40,12 @@ void sort_chunk_b_to_a(t_data *d)
 		chk_b_size = get_chunk_size(&d->b);
 		if (0 < chk_b_size && chk_b_size <= MAX_SIZE_OF_UNSORTED_CHUNK)
 			sort_chunk_b_to_a(d);
+		else
+			split_to_a(d);
 	}
+	else
+		split_to_a(d);
+	
 }
 
 /* ************************************************************************** */
