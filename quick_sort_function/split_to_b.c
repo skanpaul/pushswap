@@ -13,7 +13,7 @@
 // #include "push_swap.h"
 
 /* ************************************************************************** */
-static void split_to_b_rec(t_data *d, int start, int end);
+static int split_to_b_rec(t_data *d, int start, int end);
 
 // /* ************************************************************************** */
 // void split_to_b(t_data *d)
@@ -26,22 +26,26 @@ static void split_to_b_rec(t_data *d, int start, int end);
 // 	chk_a_size = get_chunk_size(&d->a);
 // 	sort_chunk_a(d, chk_a_size);
 // }
+
 /* ************************************************************************** */
-void split_to_b(t_data *d)
+// RETURN: group_b_id (from the lowest chunk_b of the chunk_b_group)
+/* ************************************************************************** */
+int split_to_b(t_data *d)
 {
-	int chk_a_size;
+	int chunk_b_group_id;
 	int start;
 	int end;
 
+
 	end = d->a.head->chk_id;
 	start = end - get_chunk_size(&d->a) + 1;
-	split_to_b_rec(d, start, end);
+	chunk_b_group_id = split_to_b_rec(d, start, end);
 
-	chk_a_size = get_chunk_size(&d->a);
-	sort_chunk_a(d, chk_a_size);
+	return (chunk_b_group_id);
+
 }
 /* ************************************************************************** */
-static void split_to_b_rec(t_data *d, int start, int end)
+static int split_to_b_rec(t_data *d, int start, int end)
 {
 	int mid_2;
 	int mid_4;
@@ -63,7 +67,7 @@ static void split_to_b_rec(t_data *d, int start, int end)
 
 	// if (d->a.size <= MAX_SIZE_OF_UNSORTED_CHUNK)
 	if (chunk_a_size <= MAX_SIZE_OF_UNSORTED_CHUNK)
-		return ;
+		return (mid_4);
 	else
 	{
 		while (cnt_push_b < chunk_b_size)
@@ -104,6 +108,7 @@ static void split_to_b_rec(t_data *d, int start, int end)
 		rev_rot_b_loop(d, cnt_rot_b);
 		split_to_b_rec(d, mid_2 + 1, end);
 	}
+	return (mid_4);
 }
 
 /* ************************************************************************** */

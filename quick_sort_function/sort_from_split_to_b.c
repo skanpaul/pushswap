@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_chunk_a.c                                     :+:      :+:    :+:   */
+/*   sort_from_split_to_b.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 18:18:21 by ski               #+#    #+#             */
-/*   Updated: 2022/03/09 18:18:23 by ski              ###   ########.fr       */
+/*   Created: 2022/03/13 15:36:42 by ski               #+#    #+#             */
+/*   Updated: 2022/03/13 15:36:44 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 // #include "push_swap.h"
 
 /* ************************************************************************** */
-void sort_chunk_a(t_data *d)
+void sort_from_split_to_b(t_data *d)
 {
-	int size_chunk_a;
+	int group_b_id; 
 
-	size_chunk_a = get_chunk_size(&d->a);
+	group_b_id = split_to_b(d);
 
-	if (size_chunk_a <= MAX_SIZE_OF_UNSORTED_CHUNK)
-		sort_small_chunk_a(d);
-	else
-		sort_from_split_to_b(d);
+	sort_small_chunk_a(d);
+
+	sort_chunk_b_group(d, group_b_id);
+
+
 }
+
+/* ************************************************************************** */

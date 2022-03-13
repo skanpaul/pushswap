@@ -17,14 +17,17 @@ void sort_small_chunk_a_2_elem(t_data *d);
 void sort_small_chunk_a_3_elem(t_data *d);
 
 /* ************************************************************************** */
-void sort_small_chunk_a(t_data *d, int chk_a_size)
+void sort_small_chunk_a(t_data *d)
 {
-	if ((chk_a_size == 1) || (is_chunk_a_in_order(d, chk_a_size)))
+	int size_chunk_a;
+	size_chunk_a = get_chunk_size(&d->a);
+
+	if ((size_chunk_a == 1) || (is_chunk_a_in_order(d, size_chunk_a)))
 		return ;	
 	
-	if (chk_a_size == 2)
+	if (size_chunk_a == 2)
 		sort_small_chunk_a_2_elem(d);
-	else if (chk_a_size == 3)
+	else if (size_chunk_a == 3)
 		sort_small_chunk_a_3_elem(d);	
 	// else // if (chk_a_size == 4)
 	// 	sort_small_chunk_a_4_elem(d);	

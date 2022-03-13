@@ -41,8 +41,10 @@ int main (int argc, char **argv)
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-	midsort(&d);
-	// ps_ski_sort(&d);
+	sort_chunk_a(&d);
+	/* --------------------------- */
+
+
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);

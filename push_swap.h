@@ -89,6 +89,15 @@ typedef struct s_vpi
 	t_ps	*ptr;
 	int		index;
 }	t_vpi;
+
+/* ************************************************************************** */
+typedef struct s_sta
+{
+	/* --------------------- */
+	int	cnt_rev_rot;
+	int	sub_group_b_id;
+	/* --------------------- */
+}	t_sta;
 /* ************************************************************************** */
 void	do_vpi(t_data *d);
 void	quicksort_vpi(t_vpi *vpi, int start, int end);
@@ -97,19 +106,27 @@ void	vpi_free(t_vpi **vpi);
 void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
 /* ************************************************************************** */
-void	midsort(t_data *d);
+void	sort_chunk_a(t_data *d);
 /* ---------------------------------------- */
-void	split_to_a(t_data *d);
-void	split_to_b(t_data *d);
+void	sort_small_chunk_a(t_data *d);
+//void	sort_small_chunk_b_to_a.c
 /* ---------------------------------------- */
-// void	sort_a(t_data *d);
-void	sort_a(t_data *d, int cnt_rev_rot_a);
+void	sort_from_split_to_a(t_data *d);
+void	sort_from_split_to_b(t_data *d);
 /* ---------------------------------------- */
+t_sta	split_to_a(t_data *d);
+int		split_to_b(t_data *d);
+/* ---------------------------------------- */
+ void	sort_chunk_b_group(t_data *d, int group_b_id);
+// sort_sub_chunk_a.c
+// sort_sub_rot_chunk_a.c
+void	sort_sub_chunk_b_group(t_data *d, int chunk_b_group_id);
+/* ************************************************************************** */
 int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
 bool	is_chunk_b_in_order(t_data *d, int chk_size);
 /* ************************************************************************** */
-void	sort_chunk_a(t_data *d, int chk_a_size);
+void	sort_chunk_a(t_data *d);
 void	sort_chunk_b_to_a(t_data *d);
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
