@@ -37,7 +37,6 @@ static t_sta split_to_a_rec(t_data *d, int start, int end)
 	
 	int mid_2;
 	int mid_4;
-	// int chunk_a_size;
 	int chunk_b_size;
 	int cnt_push_a;
 	int cnt_rot_a;
@@ -51,9 +50,6 @@ static t_sta split_to_a_rec(t_data *d, int start, int end)
 	mid_2 = end - (end - start)/2;
 	mid_4 = end - (mid_2 - start)/2;
 
-	// chunk_a_size = end - mid_2 + 1;
-
-	// while (cnt_push_a < chunk_a_size)
 	chunk_b_size = get_chunk_size(&d->b);
 	i = 0;
 	while (i < chunk_b_size)
@@ -75,7 +71,6 @@ static t_sta split_to_a_rec(t_data *d, int start, int end)
 			if (has_1_elem_or_more(&d->a.head) && (d->a.head->index < mid_4))
 			{
 				cnt_rot_a++;
-				// if ((has_2_elem_or_more(&d->a.head)) && (d->a.head->next->index <= mid_4))
 				rotate_a(d);
 			}
 			/* ---------------------------------------- */
