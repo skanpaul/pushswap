@@ -12,28 +12,25 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_same_chunk_id_whole_stack(t_stk *stk)
+bool	is_same_chunk_id_whole_stack(t_stk *stk)
 {
-	t_ps *temp;
-	int chunk_id;
-	int i;
+	t_ps	*temp;
+	int		chunk_id;
+	int		i;
 
-	if(!has_2_elem_or_more(&stk->head))
+	if (!has_2_elem_or_more(&stk->head))
 		return (false);
-
 	temp = stk->head;
 	chunk_id = temp->chk_id;
-
 	i = 0;
 	while (i < stk->size)
 	{
 		if (temp->chk_id != chunk_id)
-			return (false); 
-		
+			return (false);
 		temp = temp->next;
 		i++;
 	}
-
 	return (true);
 }
 
+/* ************************************************************************** */

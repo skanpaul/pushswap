@@ -12,7 +12,7 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-void do_vpi(t_data *d)
+void	do_vpi(t_data *d)
 {
 	quicksort_vpi(d->vpi, 0, d->vpi_size - 1);
 	vpi_do_index(d->vpi, d->vpi_size);
@@ -26,10 +26,11 @@ t_vpi	*vpi_create(int size)
 	vpi = (t_vpi *)malloc(size * sizeof(t_vpi));
 	return (vpi);
 }
+
 /* ************************************************************************** */
 void	vpi_do_index(t_vpi *vpi, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -43,7 +44,7 @@ void	vpi_do_index(t_vpi *vpi, int size)
 /* ************************************************************************** */
 void	vpi_display(t_vpi *vpi, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -60,7 +61,7 @@ void	vpi_display(t_vpi *vpi, int size)
 /* ************************************************************************** */
 void	vpi_free(t_vpi **vpi)
 {
-	if(!*vpi)
+	if (!*vpi)
 		return ;
 	free(*vpi);
 	*vpi = NULL;

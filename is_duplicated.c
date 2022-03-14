@@ -12,21 +12,22 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_duplicated (t_ps **stack, int val)
+bool	is_duplicated(t_ps **stack, int val)
 {
-    t_ps *elem;
+	t_ps	*elem;
 
-    if ((!stack) || (!(*stack)))
-        return (false);
-
-    elem = *stack;
-    while (1)
-    {
-        if (elem->val == val)
-            return (true);
-        if (elem->next == NULL)
-            break ;
-        elem = elem->next;
-    }    
-    return (false);
+	if ((!stack) || (!(*stack)))
+		return (false);
+	elem = *stack;
+	while (1)
+	{
+		if (elem->val == val)
+			return (true);
+		if (elem->next == NULL)
+			break ;
+		elem = elem->next;
+	}
+	return (false);
 }
+
+/* ************************************************************************** */

@@ -12,25 +12,21 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_param_ok(char *str, int pos)
+bool	is_param_ok(char *str, int pos)
 {
-    if (!is_countable(str))
-    {
-        if(FLAG_INFO)
+	if (!is_countable(str))
+	{
+		if (FLAG_INFO)
 			ft_printf("argv[%d]: not countable: [%s]\n", pos, str);
-        // write(2, "", nnnnn);
-        // ft_print_error
-        return (false);
-    }
-    if (is_bigger_than_int(str))
-    {
-        if(FLAG_INFO)
+		return (false);
+	}
+	if (is_bigger_than_int(str))
+	{
+		if (FLAG_INFO)
 			ft_printf("argv[%d]: bigger than int: [%s]\n", pos, str);
-        // write(2, "", nnnnn);
-        // ft_print_error
-        return (false);
-    }   
-    return (true);
+		return (false);
+	}
+	return (true);
 }
 
 /* ************************************************************************** */

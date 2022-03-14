@@ -12,25 +12,22 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_bigger_than_int(char *str)
+bool	is_bigger_than_int(char *str)
 {
-    long value;
-    int i;
+	long	value;
+	int		i;
 
-    if (!str)
-        return (false);
-
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-
-    if (i > 11)
-        return (true);    
-
-    value = ft_atoil(str);
-
-    if ((value < -2147483648) || ( value > 2147483647))
-        return (true);
-
-    return (false);
+	if (!str)
+		return (false);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	if (i > 11)
+		return (true);
+	value = ft_atoil(str);
+	if ((value < -2147483648) || (value > 2147483647))
+		return (true);
+	return (false);
 }
+
+/* ************************************************************************** */

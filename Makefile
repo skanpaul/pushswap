@@ -41,7 +41,7 @@ re: fclean all
 
 # **************************************************************************
 
-nono: sub_nono
+nono:
 	$(NORM) $(NFLAG) $(SRC)
 	$(NORM) $(NFLAG) $(HD)
 

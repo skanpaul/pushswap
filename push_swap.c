@@ -35,9 +35,7 @@ int main (int argc, char **argv)
 		if (flag_exit == EXIT_YES)
 			return (EXIT_YES);
 	}
-
 	/* ********************************************* */
-
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
@@ -48,9 +46,6 @@ int main (int argc, char **argv)
 		else
 			sort_chunk_a(&d);
 	}
-	/* --------------------------- */
-
-
 	/* ********************************************* */
 	 if(FLAG_INFO)
 	 {
@@ -67,16 +62,3 @@ int main (int argc, char **argv)
 }
 
 /* ************************************************************************** */
-
-	/* --------------------------- */
-	// display(&d);
-	// vpi_display(d.vpi, d.vpi_size);
-	// push_to_b_loop(&d, 8);
-	// /* --------------------------- */
-	
-	// elem_1 = ps_get_elem(&d.a, 3);
-	// elem_2 = ps_get_elem(&d.b, 6);
-	// // elem_1 = ps_get_elem(&d.b, 6);
-	// // elem_2 = ps_get_elem(&d.b, 4);
-
-	// swap_far_elem(elem_1, elem_2, &d);

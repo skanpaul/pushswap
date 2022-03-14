@@ -12,45 +12,41 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool manage_parameter(int argc, char **argv, t_data *d)
+bool	manage_parameter(int argc, char **argv, t_data *d)
 {
-    int i;
-	int val;	
-	t_ps *new;
+	int		i;
+	int		val;	
+	t_ps	*new;
 
 	d->vpi_size = argc - 1;
-	d->vpi = vpi_create(d->vpi_size);	
-
+	d->vpi = vpi_create(d->vpi_size);
 	i = 1;
-    while (i < argc)
+	while (i < argc)
 	{
-	    /* --------------------------------------------- */
-        if(!is_param_ok(argv[i], i))
+		/* --------------------------------------------- */
+		if (!is_param_ok(argv[i], i))
 		{
-			ft_printf("Error\n");	
+			ft_printf("Error\n");
 			return (EXIT_YES);
 		}
-	    /* --------------------------------------------- */
+		/* --------------------------------------------- */
 		val = atoi(argv[i]);
-        if (is_duplicated(&d->a.head, val))
-        {
-            ps_del_list(&d->a.head);
-            ps_del_list(&d->b.head);
-
-            if (FLAG_INFO)
+		if (is_duplicated(&d->a.head, val))
+		{
+			ps_del_list(&d->a.head);
+			ps_del_list(&d->b.head);
+			if (FLAG_INFO)
 				ft_printf("argv[%d]: is duplicated [%d]\n", i, val);
-			ft_printf("Error\n");	
-            return (EXIT_YES);
-        }
-	    /* --------------------------------------------- */
-		// ps_new_elem_at_bottom(val, &d->a);
-
+			ft_printf("Error\n");
+			return (EXIT_YES);
+		}
+		/* --------------------------------------------- */
 		new = ps_new_elem(val);
 		ps_add_elem_to_bottom(new, &d->a);
 		(d->vpi)[i - 1].val = val;
 		d->vpi[i - 1].ptr = new;
 		d->vpi[i - 1].ptr->chk_id = argc - 2;
 		i++;
-	}     
-    return (EXIT_NO);
+	}
+	return (EXIT_NO);
 }

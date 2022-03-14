@@ -12,22 +12,24 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_countable(char *str)
+bool	is_countable(char *str)
 {
-	int i;
+	int	i;
 
-    if (!str)
-        return (false);
-    i = 0;    
-    if ((str[i] == '+') || (str[i] == '-'))
-        i++;
-    if (!isdigit(str[i]))
-        return (false);
-    while ((str[i] != '\0') && (isdigit(str[i])))
-        i++;
-    if (str[i] == '\0')
+	if (!str)
+		return (false);
+	i = 0;
+	if ((str[i] == '+') || (str[i] == '-'))
+		i++;
+	if (!isdigit(str[i]))
+		return (false);
+	while ((str[i] != '\0') && (isdigit(str[i])))
+		i++;
+	if (str[i] == '\0')
 		return (true);
-    if (!isdigit(str[i]))
-        return (false);
-    return (true);
+	if (!isdigit(str[i]))
+		return (false);
+	return (true);
 }
+
+/* ************************************************************************** */

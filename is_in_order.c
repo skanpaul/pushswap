@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_in_order.c                                        :+:      :+:    :+:   */
+/*   is_in_order.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,29 +12,27 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_in_order(t_ps *top_elem)
+bool	is_in_order(t_ps *top_elem)
 {
-	t_ps *elem;
-	t_ps *next_elem;
+	t_ps	*elem;
+	t_ps	*next_elem;
 
-	/* test si 0 ou 1 element --> pas besoin de controller */
 	elem = top_elem;
 	if (elem == NULL)
 		return (true);
 	next_elem = elem->next;
 	if (next_elem == NULL)
 		return (true);
-	/* --------------------------------------------------- */
 	while (1)
 	{
 		if (elem->val > next_elem->val)
 			return (false);
-		
 		elem = elem->next;
 		next_elem = next_elem->next;
-
 		if (next_elem == NULL)
-			break;
+			break ;
 	}
 	return (true);
 }
+
+/* ************************************************************************** */

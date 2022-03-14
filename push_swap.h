@@ -19,8 +19,8 @@
 # include "stdlib.h"
 # include "stdbool.h"
 /* ************************************************************************** */
-# define FLAG_INFO	0
-# define FLAG_INFO_RES	0
+# define FLAG_INFO	1
+# define FLAG_INFO_RES	1
 /* ************************************************************************** */
 # define EXIT_YES	1
 # define EXIT_NO	0
@@ -37,37 +37,30 @@
 # define DIR_A_TO_B 1
 # define DIR_B_TO_A 2
 /* ************************************************************************** */
-typedef struct s_stk t_stk;
-typedef struct s_data t_data;
-typedef struct s_ps t_ps;
-typedef struct s_cmd t_cmd;
-typedef struct s_vpi t_vpi;
+typedef struct s_stk	t_stk;
+typedef struct s_data	t_data;
+typedef struct s_ps		t_ps;
+typedef struct s_cmd	t_cmd;
+typedef struct s_vpi	t_vpi;
 /* ************************************************************************** */
 typedef struct s_stk
 {
-	/* ---------------- */
 	t_ps	*head;
 	t_ps	*tail;
 	int		size;
 	int		stk_id;
-	/* ---------------- */
 }	t_stk;
 /* ************************************************************************** */
 typedef struct s_data
 {
-	/* ---------------- */
 	t_stk	a;
 	t_stk	b;
-	/* ---------------- */
 	t_ps	*stk_cmd;
 	int		cnt_cmd;
-	/* ---------------- */
 	t_vpi	*vpi;
 	int		vpi_size;
-	/* ---------------- */
 	t_ps	*tail_ref;
-	/* ---------------- */
-} t_data;
+}	t_data;
 /* ************************************************************************** */
 typedef struct s_ps
 {
@@ -93,10 +86,8 @@ typedef struct s_vpi
 /* ************************************************************************** */
 typedef struct s_sta
 {
-	/* --------------------- */
 	int	cnt_rev_rot;
 	int	sub_group_b_id;
-	/* --------------------- */
 }	t_sta;
 /* ************************************************************************** */
 void	do_vpi(t_data *d);
@@ -110,7 +101,7 @@ void	sort_2_elem(t_data *d);
 void	sort_3_elem(t_data *d);
 /* ************************************************************************** */
 void	sort_chunk_a(t_data *d);
- void	sort_chunk_b_group(t_data *d, int group_b_id);
+void	sort_chunk_b_group(t_data *d, int group_b_id);
 /* ---------------------------------------- */
 void	sort_small_chunk_a(t_data *d);
 void	sort_small_chunk_b_to_a(t_data *d);
@@ -137,14 +128,14 @@ void	ski_sort(t_data *d);
 void	do_rotation(t_data *d);
 void	do_swap(t_data *d);
 bool	is_ready_push_b(t_data *d);
-bool    is_ready_push_a(t_data *d); // pas similaire a is_ready_push_b()
+bool	is_ready_push_a(t_data *d);
 /* ************************************************************************** */
 long	ft_atoil(const char *str);
 /* ************************************************************************** */
 bool	is_param_ok(char *str, int pos);
 bool	is_countable(char *str);
 bool	is_bigger_than_int(char *str);
-bool	is_duplicated (t_ps **stack, int val);
+bool	is_duplicated(t_ps **stack, int val);
 bool	is_in_order(t_ps *top_elem);
 bool	is_same_chunk_id_whole_stack(t_stk *stk);
 /* ************************************************************************** */

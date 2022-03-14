@@ -13,12 +13,13 @@
 
 /* ************************************************************************** */
 static void	swap_vpi(t_vpi *x, t_vpi *y);
+
 /* ************************************************************************** */
-void quicksort_vpi(t_vpi *vpi, int start, int end)
+void	quicksort_vpi(t_vpi *vpi, int start, int end)
 {
-	int big;
-	int small;
-	int pivot;
+	int	big;
+	int	small;
+	int	pivot;
 
 	if (start < end)
 	{
@@ -31,11 +32,9 @@ void quicksort_vpi(t_vpi *vpi, int start, int end)
 			/* Go find big number than pivot ---------- */
 			while (vpi[big].val <= vpi[pivot].val && big < end)
 				big++;
-			
 			/* Go find small number than pivot -------- */
 			while (vpi[small].val > vpi[pivot].val)
 				small--;
-
 			/* Then swap big and small number --------- */
 			if (big < small)
 				swap_vpi(&vpi[big], &vpi[small]);
@@ -47,10 +46,11 @@ void quicksort_vpi(t_vpi *vpi, int start, int end)
 		/* -------------------------------------------------- */
 	}
 }
+
 /* ************************************************************************** */
-static void swap_vpi(t_vpi *x, t_vpi *y)
+static void	swap_vpi(t_vpi *x, t_vpi *y)
 {
-	t_vpi temp;
+	t_vpi	temp;
 
 	temp.val = x->val;
 	temp.ptr = x->ptr;
@@ -59,3 +59,5 @@ static void swap_vpi(t_vpi *x, t_vpi *y)
 	y->val = temp.val ;
 	y->ptr = temp.ptr ;
 }
+
+/* ************************************************************************** */

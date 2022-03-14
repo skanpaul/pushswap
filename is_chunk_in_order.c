@@ -12,16 +12,14 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-bool is_chunk_a_in_order(t_data *d, int chk_size)
+bool	is_chunk_a_in_order(t_data *d, int chk_size)
 {
-	int i;
-	t_ps *temp;
+	int		i;
+	t_ps	*temp;
 
 	temp = d->a.head;
-
 	if (!has_2_elem_or_more(&temp))
 		return (false);
-
 	i = 0;
 	while (i < chk_size - 1)
 	{
@@ -34,16 +32,14 @@ bool is_chunk_a_in_order(t_data *d, int chk_size)
 }
 
 /* ************************************************************************** */
-bool is_chunk_b_in_order(t_data *d, int chk_size)
+bool	is_chunk_b_in_order(t_data *d, int chk_size)
 {
-	int i;
-	t_ps *temp;
+	int		i;
+	t_ps	*temp;
 
 	temp = d->b.head;
-
 	if (!has_2_elem_or_more(&temp))
 		return (false);
-
 	i = 0;
 	while (i < chk_size - 1)
 	{
@@ -54,3 +50,5 @@ bool is_chunk_b_in_order(t_data *d, int chk_size)
 	}
 	return (true);
 }
+
+/* ************************************************************************** */
