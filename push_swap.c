@@ -12,16 +12,17 @@
 #include "push_swap.h"
 
 /* Smallest number on the top *********************************************** */
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	d;
 	bool	flag_exit;
-	flag_exit = false;	
+
+	flag_exit = false;
 	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);
 	/* CHECK ARG-C --------------------------------- */
 	if (argc == 1)
-		return 0;
+		return (0);
 	/* SAVE PARAMETERS ----------------------------- */
 	if (argc == 2)
 	{
@@ -47,18 +48,18 @@ int main (int argc, char **argv)
 			sort_chunk_a(&d);
 	}
 	/* ********************************************* */
-	 if(FLAG_INFO)
-	 {
-		 if(is_in_order(d.a.head))
-		 	ft_printf("\nStack A is in ORDER\n\n");
+	if (FLAG_INFO)
+	{
+		if (is_in_order(d.a.head))
+			ft_printf("\nStack A is in ORDER\n\n");
 		else
-		 	ft_printf("\nStack A is NOT SORTED\n\n");
-	 }
+			ft_printf("\nStack A is NOT SORTED\n\n");
+	}
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);
 	vpi_free(&d.vpi);
-	return 0;
+	return (0);
 }
 
 /* ************************************************************************** */

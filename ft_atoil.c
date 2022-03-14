@@ -18,7 +18,7 @@ static int	ft_isspace(int c);
 long	ft_atoil(const char *str)
 {
 	size_t	i;
-	long    sign;
+	long	sign;
 	long	value;
 
 	sign = 1;
@@ -33,7 +33,6 @@ long	ft_atoil(const char *str)
 	}
 	value = 0;
 	while ((str[i] != '\0') && isdigit(str[i]))
-	// while ((str[i] != '\0') && ft_isdigit(str[i]))
 	{
 		value = value * 10 + (str[i] - 48);
 		i++;
