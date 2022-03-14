@@ -37,9 +37,7 @@ int	ps_size_range(t_ps *start_elem, t_ps *end_elem)
 
 	if ((!start_elem) || (!end_elem))
 		return (0);
-
 	ptr = start_elem;
-
 	size = 0;
 	while (ptr != end_elem)
 	{

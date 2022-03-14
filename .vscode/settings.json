@@ -3,10 +3,10 @@
 		"checker*": true, 
 		"annexe": true,
 		"*.o": true,
-		"ps*": true,
+		"ps*": false,
 		"is*": false,
 		"has*": false,
-		"ft_atoil.c": true,
+		"ft_atoil.c": false,
 		"libft.*": false
 	},
 	"explorer.sortOrder": "type",

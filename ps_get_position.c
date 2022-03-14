@@ -12,7 +12,7 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-int ps_get_position(t_data *d, t_ps *elem)
+int	ps_get_position(t_data *d, t_ps *elem)
 {
 	int		i;
 	t_ps	*temp;
@@ -26,20 +26,17 @@ int ps_get_position(t_data *d, t_ps *elem)
 	else
 	{
 		temp = d->b.head;
-		stk_size = d->b.size;		
+		stk_size = d->b.size;
 	}
-
 	i = 0;
-	// while ((temp != elem) && (i < stk_size) && (!temp->next))
 	while ((temp != elem) && (i < stk_size))
 	{
 		temp = temp->next;
 		i++;
 	}
-
 	if ((temp != elem) && (i >= stk_size))
 		return (-1);
-
-	return (i);	
-
+	return (i);
 }
+
+/* ************************************************************************** */

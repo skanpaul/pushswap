@@ -12,24 +12,23 @@
 #include "push_swap.h"
 
 /* ************************************************************************** */
-/* 1st elem of a stack has: position = 0 (like an array) 							  */
+/* 1st elem of a stack has: position = 0 (like an array) 				      */
 /* ************************************************************************** */
-t_ps *ps_get_elem(t_stk *stk, int position)
+t_ps	*ps_get_elem(t_stk *stk, int position)
 {
-	int i;
-	t_ps *elem;
+	int		i;
+	t_ps	*elem;
 
 	if (position > stk->size)
 		return (stk->tail);
-
 	elem = stk->head;
 	i = 0;
-
 	while (i != position)
 	{
 		elem = elem->next;
 		i++;
 	}
-
 	return (elem);
 }
+
+/* ************************************************************************** */
