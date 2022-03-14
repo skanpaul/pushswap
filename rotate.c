@@ -36,7 +36,7 @@ void rotate(t_stk *stk)
 void	rotate_a(t_data *d)
 {
 	rotate(&d->a);
-	printf("ra\n");
+	ft_printf("ra\n");
 	d->cnt_cmd++;
 	display(d);
 	return ;
@@ -45,7 +45,7 @@ void	rotate_a(t_data *d)
 void	rotate_b(t_data *d)
 {
 	rotate(&d->b);
-	printf("rb\n");
+	ft_printf("rb\n");
 	d->cnt_cmd++;
 	display(d);
 	return ;
@@ -55,7 +55,7 @@ void	rotate_2(t_data *d)
 {
 	rotate(&d->a);
 	rotate(&d->b);
-	printf("rr\n");
+	ft_printf("rr\n");
 	d->cnt_cmd++;
 	display(d);
 	return ;
@@ -115,7 +115,7 @@ void	rotate_2_loop(t_data *d, int loop)
 // void	rotate_a(t_data *d)
 // {
 // 	rotate(&d->a.head, &d->a.tail);
-// 	printf("ra\n");
+// 	ft_printf("ra\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 // 	return ;
@@ -124,7 +124,7 @@ void	rotate_2_loop(t_data *d, int loop)
 // void	rotate_b(t_data *d)
 // {
 // 	rotate(&d->b.head, &d->b.tail);
-// 	printf("rb\n");
+// 	ft_printf("rb\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 // 	return ;
@@ -134,7 +134,7 @@ void	rotate_2_loop(t_data *d, int loop)
 // {
 // 	rotate(&d->a.head, &d->a.tail);
 // 	rotate(&d->b.head, &d->b.tail);
-// 	printf("rr\n");
+// 	ft_printf("rr\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 // 	return ;
@@ -181,14 +181,14 @@ void	rotate_2_loop(t_data *d, int loop)
 // void	rotate_a(t_data *d)
 // {
 // 	rotate(&d->head_a);
-// 	printf("RA\n");
+// 	ft_printf("RA\n");
 // 	return ;
 // }
 // /* ************************************************************************** */
 // void	rotate_b(t_data *d)
 // {
 // 	rotate(&d->head_b);
-// 	printf("RB\n");
+// 	ft_printf("RB\n");
 // 	return ;
 // }
 // /* ************************************************************************** */
@@ -196,6 +196,6 @@ void	rotate_2_loop(t_data *d, int loop)
 // {
 // 	rotate(&d->head_a);
 // 	rotate(&d->head_b);
-// 	printf("RR\n");
+// 	ft_printf("RR\n");
 // 	return ;
 // }

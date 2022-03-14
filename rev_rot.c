@@ -35,7 +35,7 @@ void rev_rot(t_stk *stk)
 void	rev_rot_a(t_data *d)
 {
     rev_rot(&d->a);
-	printf("rra\n");
+	ft_printf("rra\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -45,7 +45,7 @@ void	rev_rot_a(t_data *d)
 void	rev_rot_b(t_data *d)
 {
     rev_rot(&d->b);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -56,7 +56,7 @@ void	rev_rot_2(t_data *d)
 {
     rev_rot(&d->a); 
     rev_rot(&d->b);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 	d->cnt_cmd++;
 	display(d);
     return ;

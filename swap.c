@@ -42,7 +42,7 @@ void swap(t_stk *stk)
 void	swap_a(t_data *d)
 {
     swap(&d->a);
-    printf("sa\n");
+    ft_printf("sa\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -52,7 +52,7 @@ void	swap_a(t_data *d)
 void	swap_b(t_data *d)
 {
     swap(&d->b);
-    printf("sb\n");
+    ft_("sb\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -63,7 +63,7 @@ void	swap_2(t_data *d)
 {
     swap(&d->a);
     swap(&d->b);
-    printf("ss\n");
+    ft_("ss\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -100,7 +100,7 @@ void	swap_2(t_data *d)
 // void	swap_a(t_data *d)
 // {
 //     swap(&d->a.head, &d->a.tail);
-//     printf("sa\n");
+//     ft_("sa\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 //     return ;
@@ -110,7 +110,7 @@ void	swap_2(t_data *d)
 // void	swap_b(t_data *d)
 // {
 //     swap(&d->b.head, &d->b.tail);
-//     printf("sb\n");
+//     ft_("sb\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 //     return ;
@@ -121,7 +121,7 @@ void	swap_2(t_data *d)
 // {
 //     swap(&d->a.head, &d->a.tail);
 //     swap(&d->b.head, &d->b.tail);
-//     printf("ss\n");
+//     ft_("ss\n");
 // 	d->cnt_cmd++;
 // 	display(d);
 //     return ;

@@ -27,7 +27,7 @@ bool manage_parameter(int argc, char **argv, t_data *d)
 	    /* --------------------------------------------- */
         if(!is_param_ok(argv[i], i))
 		{
-			printf("Error\n");	
+			ft_printf("Error\n");	
 			return (EXIT_YES);
 		}
 	    /* --------------------------------------------- */
@@ -38,8 +38,8 @@ bool manage_parameter(int argc, char **argv, t_data *d)
             ps_del_list(&d->b.head);
 
             if (FLAG_INFO)
-				printf("argv[%d]: is duplicated [%d]\n", i, val);
-			printf("Error\n");	
+				ft_printf("argv[%d]: is duplicated [%d]\n", i, val);
+			ft_printf("Error\n");	
             return (EXIT_YES);
         }
 	    /* --------------------------------------------- */

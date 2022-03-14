@@ -48,13 +48,13 @@ void	vpi_display(t_vpi *vpi, int size)
 	i = 0;
 	while (i < size)
 	{
-		printf("i:%d\t", i);
-		printf("val[%d]\t", vpi[i].val);
-		printf("ptr[%p]\t", vpi[i].ptr);
-		printf("index[%i]\n", vpi[i].index);
+		ft_printf("i:%d\t", i);
+		ft_printf("val[%d]\t", vpi[i].val);
+		ft_printf("ptr[%p]\t", vpi[i].ptr);
+		ft_printf("index[%i]\n", vpi[i].index);
 		i++;
 	}
-	printf("--------------------------------------------------------\n");
+	ft_printf("--------------------------------------------------------\n");
 }
 
 /* ************************************************************************** */

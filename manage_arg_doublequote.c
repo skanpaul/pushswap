@@ -31,7 +31,7 @@ bool manage_arg_doublequote(char **argv, t_data *d)
 	    /* --------------------------------------------- */
         if(!is_param_ok(split_v[i], i))
 		{
-			printf("Error\n");	
+			ft_printf("Error\n");	
 			ft_split_free(split_v);
 			return (EXIT_YES);
 		}
@@ -43,8 +43,8 @@ bool manage_arg_doublequote(char **argv, t_data *d)
             ps_del_list(&d->b.head);
 
             if (FLAG_INFO)
-				printf("split_v[%d]: is duplicated [%d]\n", i, val);
-			printf("Error\n");
+				ft_printf("split_v[%d]: is duplicated [%d]\n", i, val);
+			ft_printf("Error\n");
 			ft_split_free(split_v);	
             return (EXIT_YES);
         }

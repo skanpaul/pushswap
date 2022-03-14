@@ -39,7 +39,7 @@ void ski_sort(t_data *d)
 			// ATTENTION B en ORDRE 	si 	(!)is_in_order(B)
 			// ATTENTION B en DESORDRE 	si 	is_in_order(B)
 			// if (is_in_order(d->b.head))
-			// 	{printf("stack B en DESORDRE\n");} 
+			// 	{ft_printf("stack B en DESORDRE\n");} 
 			break;
 		}
 		// PUSH_TO_B 1 fois
@@ -114,17 +114,17 @@ void ski_sort(t_data *d)
 	if (FLAG_INFO_RES)
 	{
 		if (has_0_elem_only(&d->b.head))
-			printf("B est vide\n");
+			ft_printf("B est vide\n");
 		else
-			printf("B est PAS VIDE !!! \n");
+			ft_printf("B est PAS VIDE !!! \n");
 
 		if (is_in_order(d->a.head))
-			printf("A est en ordre\n");
+			ft_printf("A est en ordre\n");
 		else
-			printf("A est EN DESORDRE !!!\n");
+			ft_printf("A est EN DESORDRE !!!\n");
 
-		printf("Nombre de commande: %d\n", d->cnt_cmd);
-		printf("Taille de la stack A: %d\n", ps_size(d->a.head));
+		ft_printf("Nombre de commande: %d\n", d->cnt_cmd);
+		ft_printf("Taille de la stack A: %d\n", ps_size(d->a.head));
 
 	}
 }

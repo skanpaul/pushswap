@@ -29,7 +29,7 @@ void	push_to(t_stk *src, t_stk *dst)
 void	push_to_a(t_data *d)
 { 
     push_to(&d->b, &d->a);
-	printf("pa\n");
+	ft_printf("pa\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -43,7 +43,7 @@ void	push_to_a(t_data *d)
 void	push_to_b(t_data *d)
 {    
     push_to(&d->a, &d->b);
-	printf("pb\n");
+	ft_printf("pb\n");
 	d->cnt_cmd++;
 	display(d);
     return ;
@@ -103,7 +103,7 @@ void	push_to_b_loop(t_data *d, int loop)
 // void	push_to_a(t_data *d)
 // {
 //     push_to(&d->head_b, &d->head_a);
-// 	printf("PA\n");
+// 	ft_printf("PA\n");
 //     return ;
 // }
 
@@ -115,6 +115,6 @@ void	push_to_b_loop(t_data *d, int loop)
 // void	push_to_b(t_data *d)
 // {
 //     push_to(&d->head_a, &d->head_b);
-// 	printf("PB\n");
+// 	ft_printf("PB\n");
 //     return ;
 // }
