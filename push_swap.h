@@ -107,9 +107,10 @@ void	vpi_do_index(t_vpi *vpi, int size);
 void	vpi_display(t_vpi *vpi, int size);
 /* ************************************************************************** */
 void	sort_chunk_a(t_data *d);
+ void	sort_chunk_b_group(t_data *d, int group_b_id);
 /* ---------------------------------------- */
 void	sort_small_chunk_a(t_data *d);
-//void	sort_small_chunk_b_to_a.c
+void	sort_small_chunk_b_to_a(t_data *d);
 /* ---------------------------------------- */
 void	sort_from_split_to_a(t_data *d);
 void	sort_from_split_to_b(t_data *d);
@@ -117,17 +118,13 @@ void	sort_from_split_to_b(t_data *d);
 t_sta	split_to_a(t_data *d);
 int		split_to_b(t_data *d);
 /* ---------------------------------------- */
- void	sort_chunk_b_group(t_data *d, int group_b_id);
-// sort_sub_chunk_a.c
-// sort_sub_rot_chunk_a.c
+void	sort_sub_chunk_a(t_data *d);
+void	sort_sub_rot_chunk_a(t_data *d, int cnt_rot_a);
 void	sort_sub_chunk_b_group(t_data *d, int chunk_b_group_id);
 /* ************************************************************************** */
 int		get_chunk_size(t_stk *stk);
 bool	is_chunk_a_in_order(t_data *d, int chk_size);
 bool	is_chunk_b_in_order(t_data *d, int chk_size);
-/* ************************************************************************** */
-void	sort_chunk_a(t_data *d);
-void	sort_chunk_b_to_a(t_data *d);
 /* ************************************************************************** */
 void	init_push_swap(t_data *d);
 bool	manage_parameter(int argc, char **argv, t_data *d);

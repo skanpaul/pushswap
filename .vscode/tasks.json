@@ -16,10 +16,12 @@
 				"-L./",
 				"-lft",
 				"-o",
-				"${fileDirname}/push_swap"
+				"/Users/ski/Documents/2_Module_En_Cours/work_pushswap//push_swap"
+				// "${fileDirname}/push_swap"
 			],
 			"options": {
-				"cwd": "${fileDirname}"
+				"cwd": "/Users/ski/Documents/2_Module_En_Cours/work_pushswap/"
+				// "cwd": "${fileDirname}"
 			},
 			"problemMatcher": [
 				"$gcc"

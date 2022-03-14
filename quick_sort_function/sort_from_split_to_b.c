@@ -23,7 +23,6 @@ void sort_from_split_to_b(t_data *d)
 
 	sort_chunk_b_group(d, group_b_id);
 
-
 }
 
 /* ************************************************************************** */

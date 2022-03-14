@@ -16,12 +16,6 @@
 /* ************************************************************************** */
 void sort_sub_chunk_b_group(t_data *d, int chunk_b_group_id)
 {
-	t_data *z;
-
-	z = d;
-	
-	chunk_b_group_id = 1;
-
-
+	sort_chunk_b_group(d, chunk_b_group_id);
 }
  

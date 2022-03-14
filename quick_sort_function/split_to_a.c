@@ -91,7 +91,7 @@ static t_sta split_to_a_rec(t_data *d, int start, int end)
 	}
 	rev_rot_b_loop(d, cnt_rot_b);
 	sta_data.cnt_rev_rot = cnt_rot_a;
-	sta_data.sub_group_b_id = 56;
+	sta_data.sub_group_b_id = mid_2 - 1;
 
 	return (sta_data);
 
