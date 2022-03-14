@@ -9,8 +9,8 @@
 /*   Updated: 2022/03/08 15:09:46 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
-// #include "push_swap.h"
+// #include "../push_swap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
 static int split_to_b_rec(t_data *d, int start, int end);

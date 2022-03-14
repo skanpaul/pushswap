@@ -11,7 +11,7 @@
 				"-Wall",
 				"-Wextra",
 				"-Werror",
-				"./quick_sort_function/*.c",
+				// "./quick_sort_function/*.c",
 				"*.c",
 				"-L./",
 				"-lft",

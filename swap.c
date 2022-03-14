@@ -18,7 +18,7 @@ void swap(t_stk *stk)
     t_ps *elem_2;
     t_ps *elem_3;
 
-    if ((!stk) || (!stk->tail) || (has_less_than_2_elem(&stk->head)))
+    if ((!stk) || (has_less_than_2_elem(&stk->head)))
         return;
    
     elem_1 = stk->head;
@@ -30,13 +30,40 @@ void swap(t_stk *stk)
     elem_2->next = elem_1;
     
     elem_1->prev = elem_2;
-    elem_1->next = elem_3;
-
-    if (has_2_elem_only(&stk->head))
+	elem_1->next = elem_3;
+	if (has_2_elem_only(&stk->head))
         stk->tail = elem_1;  
-
+	else
+		elem_3->prev = elem_1;
     return ;
 }
+
+// /* ************************************************************************** */
+// void swap(t_stk *stk)
+// {
+//     t_ps *elem_1;    
+//     t_ps *elem_2;
+//     t_ps *elem_3;
+
+//     if ((!stk) || (!stk->tail) || (has_less_than_2_elem(&stk->head)))
+//         return;
+   
+//     elem_1 = stk->head;
+//     elem_2 = elem_1->next;
+//     elem_3 = elem_2->next;
+
+//     stk->head = elem_2;
+//     elem_2->prev = NULL;
+//     elem_2->next = elem_1;
+    
+//     elem_1->prev = elem_2;
+//     elem_1->next = elem_3;
+
+//     if (has_2_elem_only(&stk->head))
+//         stk->tail = elem_1;  
+
+//     return ;
+// }
 
 /* ************************************************************************** */
 void	swap_a(t_data *d)

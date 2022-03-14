@@ -9,8 +9,8 @@
 /*   Updated: 2022/03/07 15:49:51 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
-// #include "push_swap.h"
+// #include "../push_swap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
 static void sort_small_chunk_b_to_a_2_elem(t_data *d);

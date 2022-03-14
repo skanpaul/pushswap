@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_sub_chunk_a.c                                 :+:      :+:    :+:   */
+/*   sort_from_split_to_a.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 15:48:57 by ski               #+#    #+#             */
-/*   Updated: 2022/03/13 15:48:58 by ski              ###   ########.fr       */
+/*   Created: 2022/03/13 15:36:36 by ski               #+#    #+#             */
+/*   Updated: 2022/03/13 15:36:38 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
-// #include "push_swap.h"
+// #include "../push_swap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-void sort_sub_chunk_a(t_data *d)
+void sort_from_split_to_a(t_data *d)
 {
-	sort_chunk_a(d);
+	t_sta sta_d;
+
+	sta_d = split_to_a(d);
+
+	sort_sub_chunk_a(d);
+
+	sort_sub_rot_chunk_a(d, sta_d.cnt_rev_rot);
+
+	sort_sub_chunk_b_group(d, sta_d.sub_group_b_id);
+
 }
+/* ************************************************************************** */
 

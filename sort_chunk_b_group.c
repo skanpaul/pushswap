@@ -9,8 +9,8 @@
 /*   Updated: 2022/03/13 16:03:03 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
-// #include "push_swap.h"
+// #include "../push_swap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
 static bool is_chunk_b_group_sorted(t_data *d, int chunk_b_group_id);

@@ -41,8 +41,24 @@ int main (int argc, char **argv)
 	do_vpi(&d);
 	display(&d);
 	/* --------------------------- */
-	sort_chunk_a(&d);
+	if (!is_in_order(d.a.head))
+	{
+		if (d.a.size == 3)
+			sort_3_elem(&d);
+		else
+			sort_chunk_a(&d);
+	}
+	/* --------------------------- */
 
+
+	/* ********************************************* */
+	 if(FLAG_INFO)
+	 {
+		 if(is_in_order(d.a.head))
+		 	ft_printf("\nStack A is in ORDER\n\n");
+		else
+		 	ft_printf("\nStack A is NOT SORTED\n\n");
+	 }
 	/* ********************************************* */
 	ps_del_list(&d.a.head);
 	ps_del_list(&d.b.head);

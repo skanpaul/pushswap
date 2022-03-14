@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_from_split_to_b.c                             :+:      :+:    :+:   */
+/*   sort_n_elem.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 15:36:42 by ski               #+#    #+#             */
-/*   Updated: 2022/03/13 15:36:44 by ski              ###   ########.fr       */
+/*   Created: 2022/03/14 10:08:57 by ski               #+#    #+#             */
+/*   Updated: 2022/03/14 10:09:03 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
-// #include "push_swap.h"
+#include "push_swap.h"
 
 /* ************************************************************************** */
-void sort_from_split_to_b(t_data *d)
+void sort_2_elem(t_data *d)
 {
-	int group_b_id; 
-
-	group_b_id = split_to_b(d);
-
-	sort_small_chunk_a(d);
-
-	sort_chunk_b_group(d, group_b_id);
-
+	swap_a(d);
 }
 
 /* ************************************************************************** */
+void sort_3_elem(t_data *d)
+{
+	if (d->a.head->index > d->a.head->next->index)
+		swap_a(d);
+	
+	rotate_a(d);
+
+	if (d->a.head->index > d->a.head->next->index)
+		swap_a(d);
+
+	rev_rot_a(d);
+
+}
