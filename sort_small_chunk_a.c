@@ -39,15 +39,12 @@ void	sort_small_chunk_a_2_elem(t_data *d)
 /* ************************************************************************** */
 void	sort_small_chunk_a_3_elem(t_data *d)
 {
-	// step 1: -------------------------------
 	if (d->a.head->next->index < d->a.head->index)
 		swap_a(d);
 	push_to_b(d);
-	// step 2: -------------------------------
 	if (d->a.head->next->index < d->a.head->index)
 		swap_a(d);
 	push_to_a(d);
-	// step 3: -------------------------------
 	if (d->a.head->next->index < d->a.head->index)
 		swap_a(d);
 }
