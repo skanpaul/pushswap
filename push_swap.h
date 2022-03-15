@@ -113,6 +113,15 @@ typedef struct s_stb
 	int	cnt_rot_b;
 }	t_stb;
 /* ************************************************************************** */
+typedef struct s_madq
+{
+	int		i;
+	int		val;
+	int		split_c;
+	char	**split_v;
+	t_ps	*new;
+}	t_madq;
+/* ************************************************************************** */
 void	do_vpi(t_data *d);
 void	quicksort_vpi(t_vpi *vpi, int start, int end);
 t_vpi	*vpi_create(int size);
