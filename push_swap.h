@@ -91,6 +91,15 @@ typedef struct s_sta
 {
 	int	cnt_rev_rot;
 	int	sub_group_b_id;
+
+	int	mid_2;
+	int	mid_4;
+	int	chunk_b_size;
+	int	cnt_push_a;
+	int	cnt_rot_a;
+	int	cnt_rot_b;
+	int	i;
+
 }	t_sta;
 /* ************************************************************************** */
 typedef struct s_stb
