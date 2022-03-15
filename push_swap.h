@@ -34,6 +34,9 @@
 # define COL_ELEM	1
 # define COL_INDEX	2
 /* ************************************************************************** */
+# define SHOULD_NOT_BREAK 0
+# define SHOULD_BREAK 1
+/* ************************************************************************** */
 # define DIR_A_TO_B 1
 # define DIR_B_TO_A 2
 /* ************************************************************************** */
@@ -89,6 +92,17 @@ typedef struct s_sta
 	int	cnt_rev_rot;
 	int	sub_group_b_id;
 }	t_sta;
+/* ************************************************************************** */
+typedef struct s_stb
+{
+	int	mid_2;
+	int	mid_4;
+	int	chunk_a_size;
+	int	chunk_b_size;
+	int	cnt_push_b;
+	int	cnt_rot_a;
+	int	cnt_rot_b;
+}	t_stb;
 /* ************************************************************************** */
 void	do_vpi(t_data *d);
 void	quicksort_vpi(t_vpi *vpi, int start, int end);
