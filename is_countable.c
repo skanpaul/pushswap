@@ -21,13 +21,13 @@ bool	is_countable(char *str)
 	i = 0;
 	if ((str[i] == '+') || (str[i] == '-'))
 		i++;
-	if (!isdigit(str[i]))
+	if (!ft_isdigit(str[i]))
 		return (false);
-	while ((str[i] != '\0') && (isdigit(str[i])))
+	while ((str[i] != '\0') && (ft_isdigit(str[i])))
 		i++;
 	if (str[i] == '\0')
 		return (true);
-	if (!isdigit(str[i]))
+	if (!ft_isdigit(str[i]))
 		return (false);
 	return (true);
 }

@@ -32,7 +32,7 @@ long	ft_atoil(const char *str)
 		i++;
 	}
 	value = 0;
-	while ((str[i] != '\0') && isdigit(str[i]))
+	while ((str[i] != '\0') && ft_isdigit(str[i]))
 	{
 		value = value * 10 + (str[i] - 48);
 		i++;
