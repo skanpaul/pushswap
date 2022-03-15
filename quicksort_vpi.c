@@ -26,24 +26,18 @@ void	quicksort_vpi(t_vpi *vpi, int start, int end)
 		pivot = start;
 		big = start;
 		small = end;
-		/* -------------------------------------------------- */
 		while (big < small)
 		{
-			/* Go find big number than pivot ---------- */
 			while (vpi[big].val <= vpi[pivot].val && big < end)
 				big++;
-			/* Go find small number than pivot -------- */
 			while (vpi[small].val > vpi[pivot].val)
 				small--;
-			/* Then swap big and small number --------- */
 			if (big < small)
 				swap_vpi(&vpi[big], &vpi[small]);
 		}
-		/* -------------------------------------------------- */
 		swap_vpi(&vpi[pivot], &vpi[small]);
 		quicksort_vpi(vpi, start, small - 1);
 		quicksort_vpi(vpi, small + 1, end);
-		/* -------------------------------------------------- */
 	}
 }
 
