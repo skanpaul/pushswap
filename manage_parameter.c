@@ -29,7 +29,7 @@ bool	manage_parameter(int argc, char **argv, t_data *d)
 	{
 		if (manage_is_param_ok(argv, &i) == EXIT_YES)
 			return (EXIT_YES);
-		val = atoi(argv[i]);
+		val = ft_atoi(argv[i]);
 		if (manage_is_duplicated(d, &val, &i) == EXIT_YES)
 			return (EXIT_YES);
 		new = ps_new_elem(val);

@@ -30,7 +30,7 @@ bool	manage_arg_doublequote(char **argv, t_data *d)
 	{
 		if (manage_is_param_ok(&madq_d) == EXIT_YES)
 			return (EXIT_YES);
-		madq_d.val = atoi(madq_d.split_v[madq_d.i]);
+		madq_d.val = ft_atoi(madq_d.split_v[madq_d.i]);
 		if (manage_is_duplicated(d, &madq_d) == EXIT_YES)
 			return (EXIT_YES);
 		madq_d.new = ps_new_elem(madq_d.val);
