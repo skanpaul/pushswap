@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   has_element.c                                      :+:      :+:    :+:   */
+/*   has_element_part2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -50,51 +50,6 @@ bool	has_2_elem_only(t_ps **head)
 	elem_1 = *head;
 	elem_2 = elem_1->next;
 	if ((elem_2 != NULL) && (elem_2->next == NULL))
-		return (true);
-	return (false);
-}
-
-/* ************************************************************************** */
-bool	has_1_elem_or_more(t_ps **head)
-{
-	t_ps	*top_elem;
-
-	if (head == NULL)
-		return (false);
-	top_elem = *head;
-	if (top_elem == NULL)
-		return (false);
-	return (true);
-}
-
-/* ************************************************************************** */
-bool	has_2_elem_or_more(t_ps **head)
-{
-	t_ps	*top_elem;
-
-	if (head == NULL)
-		return (false);
-	top_elem = *head;
-	if (top_elem == NULL)
-		return (false);
-	if (top_elem->next == NULL)
-		return (false);
-	return (true);
-}
-
-/* ************************************************************************** */
-bool	has_less_than_2_elem(t_ps **head)
-{
-	t_ps	*elem_1;
-	t_ps	*elem_2;
-
-	if (!head)
-		return (true);
-	elem_1 = *head;
-	if (elem_1 == NULL)
-		return (true);
-	elem_2 = elem_1->next;
-	if (elem_2 == NULL)
 		return (true);
 	return (false);
 }

@@ -1,8 +1,8 @@
 {
 	"files.exclude": {
-		"checker*": true, 
-		"annexe": true,
-		"*.o": true,
+		"checker*": false, 
+		"annexe": false,
+		"*.o": false,
 		"ps*": false,
 		"is*": false,
 		"has*": false,
@@ -11,8 +11,9 @@
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {
-		"push_swap.h": "c"
-    },
+		"push_swap.h": "c",
+		"chrono": "c"
+	},
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 }

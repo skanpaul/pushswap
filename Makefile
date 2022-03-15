@@ -15,7 +15,6 @@ LIBFTPATH	= ./
 # **************************************************************************
 HD	= push_swap.h
 
-# SRC		= pushswap.c
 SRC		= $(wildcard *.c)
 OBJ		= $(SRC:.c=.o)
 
