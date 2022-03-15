@@ -19,8 +19,8 @@
 # include "stdlib.h"
 # include "stdbool.h"
 /* ************************************************************************** */
-# define FLAG_INFO	1
-# define FLAG_INFO_RES	1
+# define FLAG_INFO	0
+# define FLAG_INFO_RES	0
 /* ************************************************************************** */
 # define EXIT_YES	1
 # define EXIT_NO	0
