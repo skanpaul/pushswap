@@ -11,19 +11,19 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-/* Smallest number on the top *********************************************** */
+/* ************************************************************************** */
+static void	main_part2(t_data *d);
+
+/* ************************************************************************** */
 int	main(int argc, char **argv)
 {
 	t_data	d;
 	bool	flag_exit;
 
 	flag_exit = false;
-	/* INITIALISATION ------------------------------ */
 	init_push_swap(&d);
-	/* CHECK ARG-C --------------------------------- */
 	if (argc == 1)
 		return (0);
-	/* SAVE PARAMETERS ----------------------------- */
 	if (argc == 2)
 	{
 		flag_exit = manage_arg_doublequote(argv, &d);
@@ -36,30 +36,32 @@ int	main(int argc, char **argv)
 		if (flag_exit == EXIT_YES)
 			return (EXIT_YES);
 	}
-	/* ********************************************* */
-	do_vpi(&d);
-	display(&d);
-	/* --------------------------- */
-	if (!is_in_order(d.a.head))
+	main_part2(&d);
+	return (0);
+}
+
+/* ************************************************************************** */
+static void	main_part2(t_data *d)
+{
+	do_vpi(d);
+	display(d);
+	if (!is_in_order(d->a.head))
 	{
-		if (d.a.size == 3)
-			sort_3_elem(&d);
+		if (d->a.size == 3)
+			sort_3_elem(d);
 		else
-			sort_chunk_a(&d);
+			sort_chunk_a(d);
 	}
-	/* ********************************************* */
 	if (FLAG_INFO)
 	{
-		if (is_in_order(d.a.head))
+		if (is_in_order(d->a.head))
 			ft_printf("\nStack A is in ORDER\n\n");
 		else
 			ft_printf("\nStack A is NOT SORTED\n\n");
 	}
-	/* ********************************************* */
-	ps_del_list(&d.a.head);
-	ps_del_list(&d.b.head);
-	vpi_free(&d.vpi);
-	return (0);
+	ps_del_list(&d->a.head);
+	ps_del_list(&d->b.head);
+	vpi_free(&d->vpi);
 }
 
 /* ************************************************************************** */
