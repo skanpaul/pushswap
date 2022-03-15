@@ -47,7 +47,7 @@ static int	manage_is_param_ok(t_madq *madq_d)
 {	
 	if (!is_param_ok(madq_d->split_v[madq_d->i], madq_d->i))
 	{
-		ft_printf("Error\n");
+		ft_printf_error("Error\n");
 		ft_split_free(madq_d->split_v);
 		return (EXIT_YES);
 	}
@@ -68,7 +68,7 @@ static int	manage_is_duplicated(t_data *d, t_madq *madq_d)
 		ps_del_list(&d->b.head);
 		if (FLAG_INFO)
 			ft_printf("split_v[%d]: is duplicated [%d]\n", i, val);
-		ft_printf("Error\n");
+		ft_printf_error("Error\n");
 		ft_split_free(madq_d->split_v);
 		return (EXIT_YES);
 	}

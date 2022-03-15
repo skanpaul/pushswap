@@ -1,4 +1,5 @@
 NAME	= push_swap
+PROJECTPATH = ./
 # **************************************************************************
 CC		= gcc
 CFLAG	= -Wall -Wextra -Werror
@@ -10,7 +11,7 @@ NFLAG	= -R CheckForbiddenSourceHeader
 LIBFTNAME	= libft.a
 LIBFTHD		= libft.h
 LIBFTLIB	= ft
-LIBFTPATH	= ./
+LIBFTPATH	= ./libft/
 
 # **************************************************************************
 HD	= push_swap.h
@@ -19,30 +20,34 @@ SRC		= $(wildcard *.c)
 OBJ		= $(SRC:.c=.o)
 
 # **************************************************************************
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJ) $(HD)
+$(NAME): $(OBJ) sub_all
+	cp ${LIBFTPATH}${LIBFTNAME} ${PROJECTPATH}
 	$(CC) $(CFLAG) -L$(LIBFTPATH) -l$(LIBFTLIB) $(OBJ) -o $(NAME)
-# $(CC) $(CFLAG) -std=c90 $(OBJ) -o $(NAME)
-# $(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
 # **************************************************************************
-clean:
+clean: sub_clean
 	$(RM) $(OBJ)
 	
-fclean: clean
+fclean: clean sub_fclean
 	$(RM) $(NAME)
+	$(RM) $(LIBFTNAME)
 
-re: fclean all
+re: fclean all sub_re
 
 # **************************************************************************
 .PHONY: all clean fclean re
 
 # **************************************************************************
+sub_all:
+	${MAKE} all -C ${LIBFTPATH}
 
-nono:
-	$(NORM) $(NFLAG) $(SRC)
-	$(NORM) $(NFLAG) $(HD)
+sub_clean:
+	${MAKE} clean -C ${LIBFTPATH}
 
-test:
-	echo $(SRC)
+sub_fclean:
+	${MAKE} fclean -C ${LIBFTPATH}
+
+sub_re:
+	${MAKE} re -C ${LIBFTPATH}

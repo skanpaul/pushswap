@@ -163,6 +163,7 @@ bool	is_ready_push_b(t_data *d);
 bool	is_ready_push_a(t_data *d);
 /* ************************************************************************** */
 long	ft_atoil(const char *str);
+void	ft_printf_error(char *str_err);
 /* ************************************************************************** */
 bool	is_param_ok(char *str, int pos);
 bool	is_countable(char *str);

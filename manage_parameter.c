@@ -47,7 +47,7 @@ static int	manage_is_param_ok(char **argv, int *i)
 {	
 	if (!is_param_ok(argv[*i], *i))
 	{
-		ft_printf("Error\n");
+		ft_printf_error("Error\n");
 		return (EXIT_YES);
 	}
 	return (EXIT_NO);
@@ -62,7 +62,7 @@ static int	manage_is_duplicated(t_data *d, int *val, int *i)
 		ps_del_list(&d->b.head);
 		if (FLAG_INFO)
 			ft_printf("argv[%d]: is duplicated [%d]\n", *i, *val);
-		ft_printf("Error\n");
+		ft_printf_error("Error\n");
 		return (EXIT_YES);
 	}
 	return (EXIT_NO);
